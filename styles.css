@@ -1,0 +1,164 @@
+body {
+  background-color: #080808;
+}
+
+button {
+  --hover-shadows: 16px 16px 33px #121212, -16px -16px 33px #303030;
+  --accent: #ff00ff;
+  font-weight: bold;
+  font-family: IBM Plex Mono, monospace;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  border: none;
+  border-radius: 1.1em;
+  background-color: #212121;
+  cursor: pointer;
+  color: white;
+  padding: 1em 2em;
+  transition: box-shadow ease-in-out 0.3s, background-color ease-in-out 0.1s,
+    letter-spacing ease-in-out 0.1s, transform ease-in-out 0.1s;
+  box-shadow: 8px 8px 5px #1c1c1c, -8px -8px 10px #262626;
+}
+
+button:hover {
+  box-shadow: var(--hover-shadows);
+}
+
+button:active {
+  box-shadow: var(--hover-shadows), var(--accent) 0px 0px 30px 5px;
+  background-color: var(--accent);
+  transform: scale(0.95);
+}
+nav {
+  position: fixed;
+  top: 0;
+  left: 150px;
+  background: #1b1b1b;
+  display: flex;
+  justify-content: center; /* centre horizontalement */
+  align-items: center; /* centre verticalement */
+  gap: 40px;
+  width: 1096px;
+  height: 70px;
+  border-radius: 0 0 20px 20px; /* HG HD BD BG */
+}
+nav a {
+  font-family: IBM Plex Mono, monospace;
+  color: #9c9c9c;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.txt-accueil {
+  display: flex;
+  flex-direction: column;
+  margin-left: 250px;
+  margin-top: 160px;
+}
+.txt-accueil h1 {
+  font-family: Raleway, sans-serif;
+  color: #ffffff;
+  font-size: 44px;
+  font-weight: extra-bold;
+}
+.txt-accueil p {
+  font-family: IBM Plex Mono, monospace;
+  color: #9c9c9c;
+  font-size: 14px;
+  font-weight: regular;
+  justify-items: first baseline;
+  line-height: 24px;
+  letter-spacing: 1%;
+  margin-top: -5px;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 14px 28px;
+  background-color: #3f8e00;
+  color: white;
+  font-family: IBM plex Mono, monospace;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  box-shadow: 0 0 12px rgba(50, 205, 50, 0.5);
+  transition: all 0.3s ease;
+  max-width: fit-content;
+  margin-top: 20px;
+}
+
+.cta-button:hover {
+  background-color: #3f8e00;
+  box-shadow: 0 0 18px rgba(40, 164, 40, 0.7);
+}
+
+.avatar {
+  position: absolute;
+  top: 150px;
+  right: 200px;
+  width: 350px;
+  height: 300px;
+  border-radius: 50%;
+  margin-left: 50px;
+  margin-top: 10px;
+}
+
+div.réseaux {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-family: IBM Plex Mono, monospace;
+  color: #9c9c9c;
+  font-size: 16px;
+  font-weight: regular;
+  margin-top: 80px;
+  margin-left: 250px;
+}
+
+.logo {
+  display: flex;
+  width: 50px;
+  height: 50px;
+  gap: 150px;
+  margin-left: 550px;
+}
+
+.txt-git {
+  margin-bottom: 50px;
+}
+
+.txt-git h2 {
+  font-family: IBM Plex Mono, monospace;
+  color: #ffffff;
+  font-size: 42px;
+  font-weight: regular;
+  margin-top: 100px;
+  margin-left: 250px;
+}
+
+.txt-git p {
+  font-family: IBM Plex Mono, monospace;
+  width: 1000px;
+  color: #9c9c9c;
+  font-size: 16px;
+  font-weight: regular;
+  margin-left: 150px;
+  line-height: 1.5em;
+}
+
+.txt-git h3 {
+  font-family: IBM Plex Mono, monospace;
+  color: #ffffff;
+  font-size: 36px;
+  font-weight: regular;
+  margin-left: 250px;
+}
+
+.txt-git h4 {
+  font-family: IBM Plex Mono, monospace;
+  color: #ffffff;
+  font-size: 28px;
+  font-weight: regular;
+  margin-left: 150px;
+}
