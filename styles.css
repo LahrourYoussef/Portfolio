@@ -29,7 +29,7 @@ button:active {
   background-color: var(--accent);
   transform: scale(0.95);
 }
-nav {
+.nav-menu {
   position: fixed;
   top: 0;
   left: 150px;
@@ -42,7 +42,7 @@ nav {
   height: 70px;
   border-radius: 0 0 20px 20px; /* HG HD BD BG */
 }
-nav a {
+.nav-menu a {
   font-family: IBM Plex Mono, monospace;
   color: #9c9c9c;
   text-decoration: none;
@@ -161,4 +161,55 @@ div.réseaux {
   font-size: 28px;
   font-weight: regular;
   margin-left: 150px;
+}
+
+.txt-profil {
+  display: flex;
+  flex-direction: column;
+  margin-left: 250px;
+  margin-top: 100px;
+}
+.txt-profil h2 {
+  font-family: Raleway, sans-serif;
+  color: #ffffff;
+  font-size: 36px;
+  font-weight: extra-bold;
+}
+.txt-profil p {
+  font-family: IBM Plex Mono, monospace;
+  color: #9c9c9c;
+  font-size: 14px;
+  font-weight: regular;
+  justify-items: first baseline;
+  line-height: 24px;
+  letter-spacing: 1%;
+  margin-top: -5px;
+}
+
+.txt-competences {
+  display: flex;
+  flex-direction: column;
+  margin-left: 250px;
+ 
+}
+.txt-competences h2 {
+  font-family: Raleway, sans-serif;
+  color: #ffffff;
+  font-size: 36px;
+  font-weight: extra-bold;
+}
+.txt-competences h3 {
+  font-family: Raleway, sans-serif;
+  color: #ffffff;
+  font-size: 28px;
+  font-weight: extra-bold;
+}
+.nav-comp {
+  font-family: IBM Plex Mono, monospace;
+  color: #9c9c9c;
+  font-size: 14px;
+  font-weight: regular;
+  justify-items: first baseline;
+  line-height: 24px;
+  letter-spacing: 1%;
 }
