@@ -186,19 +186,19 @@ div.réseaux {
   margin-top: -5px;
 }
 
-.txt-competences {
+.txt-competences-cv {
   display: flex;
   flex-direction: column;
   margin-left: 250px;
  
 }
-.txt-competences h2 {
+.txt-competences-cv h2 {
   font-family: Raleway, sans-serif;
   color: #ffffff;
   font-size: 36px;
   font-weight: extra-bold;
 }
-.txt-competences h3 {
+.txt-competences-cv h3 {
   font-family: Raleway, sans-serif;
   color: #ffffff;
   font-size: 28px;
@@ -213,3 +213,41 @@ div.réseaux {
   line-height: 24px;
   letter-spacing: 1%;
 }
+
+.txt-competences {
+  display: flex;
+  flex-direction: column;
+  margin-left: 250px;
+  margin-top: 80px;
+}
+.txt-competences h1 {
+  font-family: Raleway, sans-serif;
+  color: #ffffff;
+  font-weight: extra-bold;
+  font-size: 44px;
+}
+.txt-competences h2 {
+  font-family: Raleway, sans-serif;
+  color: #ffffff;
+  font-size: 36px;
+  font-weight: extra-bold;
+}
+.txt-competences h3 {
+  font-family: Raleway, sans-serif;
+  color: #ffffff;
+  font-size: 36px;
+  font-weight: extra-bold;
+}
+.txt-competences ul {
+  font-family: Raleway, sans-serif;
+  color: #ffffff;
+  font-size: 28px;
+  font-weight: extra-bold;
+}
+.txt-competences li {
+  font-family: Raleway, sans-serif;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: extra-bold;
+}
+
