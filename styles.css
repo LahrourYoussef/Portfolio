@@ -1,253 +1,234 @@
+/* --- Styles de base et Reset --- */
+* {
+    box-sizing: border-box; 
+    margin: 0;
+    padding: 0;
+}
+
 body {
-  background-color: #080808;
+    background-color: #080808;
+    color: #9c9c9c;
+    font-family: 'IBM Plex Mono', monospace;
 }
 
-button {
-  --hover-shadows: 16px 16px 33px #121212, -16px -16px 33px #303030;
-  --accent: #ff00ff;
-  font-weight: bold;
-  font-family: IBM Plex Mono, monospace;
-  font-size: 14px;
-  letter-spacing: 0.1em;
-  border: none;
-  border-radius: 1.1em;
-  background-color: #212121;
-  cursor: pointer;
-  color: white;
-  padding: 1em 2em;
-  transition: box-shadow ease-in-out 0.3s, background-color ease-in-out 0.1s,
-    letter-spacing ease-in-out 0.1s, transform ease-in-out 0.1s;
-  box-shadow: 8px 8px 5px #1c1c1c, -8px -8px 10px #262626;
-}
-
-button:hover {
-  box-shadow: var(--hover-shadows);
-}
-
-button:active {
-  box-shadow: var(--hover-shadows), var(--accent) 0px 0px 30px 5px;
-  background-color: var(--accent);
-  transform: scale(0.95);
-}
+/* --- Barre de Navigation --- */
 .nav-menu {
-  position: fixed;
-  top: 0;
-  left: 150px;
-  background: #1b1b1b;
-  display: flex;
-  justify-content: center; /* centre horizontalement */
-  align-items: center; /* centre verticalement */
-  gap: 40px;
-  width: 1096px;
-  height: 70px;
-  border-radius: 0 0 20px 20px; /* HG HD BD BG */
+    background: #1b1b1b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    width: 90%;
+    max-width: 1100px;
+    height: 70px;
+    border-radius: 0 0 20px 20px;
+    padding: 0 40px;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
 }
+
 .nav-menu a {
-  font-family: IBM Plex Mono, monospace;
-  color: #9c9c9c;
-  text-decoration: none;
-  font-size: 15px;
+    color: #9c9c9c;
+    text-decoration: none;
+    font-size: 19px; /* Augmenté de 4px */
+    white-space: nowrap;
+    transition: color 0.3s ease;
 }
 
-.txt-accueil {
-  display: flex;
-  flex-direction: column;
-  margin-left: 250px;
-  margin-top: 160px;
-}
-.txt-accueil h1 {
-  font-family: Raleway, sans-serif;
-  color: #ffffff;
-  font-size: 44px;
-  font-weight: extra-bold;
-}
-.txt-accueil p {
-  font-family: IBM Plex Mono, monospace;
-  color: #9c9c9c;
-  font-size: 14px;
-  font-weight: regular;
-  justify-items: first baseline;
-  line-height: 24px;
-  letter-spacing: 1%;
-  margin-top: -5px;
+.nav-menu a:hover {
+    color: white;
 }
 
+.btn {
+    background-color: #333;
+    color: white;
+    border: 1px solid #555;
+    border-radius: 5px;
+    padding: 7px 12px; /* Légèrement ajusté pour la nouvelle taille de police */
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 16px; /* Augmenté de 4px */
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #444;
+}
+
+/* --- Mise en page commune pour les sections de contenu --- */
+.txt-accueil,
+.txt-git,
+.txt-profil,
+.txt-competences-cv,
+.main-container {
+    padding-top: 150px;
+    padding-left: 15%;
+    padding-right: 15%;
+    margin-bottom: 60px; /* Espace standard entre les sections */
+}
+
+/* --- Styles des titres et textes (TAILLES AUGMENTÉES) --- */
+h1, h2, h3, h4 {
+    font-family: 'Raleway', sans-serif;
+    color: #ffffff;
+    font-weight: 800;
+}
+
+h1 {
+    font-size: 48px; /* 44px + 4px */
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 32px; /* 28px + 4px */
+    margin-bottom: 25px;
+}
+
+h3 {
+    font-size: 22px; /* 18px + 4px */
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+h4 {
+    font-size: 20px; /* 16px + 4px */
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+p, li {
+    font-size: 18px; /* 14px + 4px */
+    line-height: 30px; /* Augmenté pour la lisibilité */
+}
+
+/* --- Styles Spécifiques à la page d'accueil --- */
 .cta-button {
-  display: inline-block;
-  padding: 14px 28px;
-  background-color: #3f8e00;
-  color: white;
-  font-family: IBM plex Mono, monospace;
-  font-weight: bold;
-  font-size: 16px;
-  border-radius: 6px;
-  text-decoration: none;
-  box-shadow: 0 0 12px rgba(50, 205, 50, 0.5);
-  transition: all 0.3s ease;
-  max-width: fit-content;
-  margin-top: 20px;
+    display: inline-block;
+    padding: 14px 28px;
+    background-color: #3f8e00;
+    color: white;
+    font-weight: bold;
+    font-size: 18px; /* Augmenté de 4px */
+    border-radius: 6px;
+    text-decoration: none;
+    box-shadow: 0 0 12px rgba(50, 205, 50, 0.5);
+    transition: all 0.3s ease;
+    margin-top: 25px;
 }
 
 .cta-button:hover {
-  background-color: #3f8e00;
-  box-shadow: 0 0 18px rgba(40, 164, 40, 0.7);
+    box-shadow: 0 0 18px rgba(40, 164, 40, 0.7);
+    transform: translateY(-2px);
 }
 
-.avatar {
-  position: absolute;
-  top: 150px;
-  right: 200px;
-  width: 350px;
-  height: 300px;
-  border-radius: 50%;
-  margin-left: 50px;
-  margin-top: 10px;
-}
-
-div.réseaux {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  font-family: IBM Plex Mono, monospace;
-  color: #9c9c9c;
-  font-size: 16px;
-  font-weight: regular;
-  margin-top: 80px;
-  margin-left: 250px;
+.réseaux {
+    padding: 0 15%;
+    margin-top: 30px;
 }
 
 .logo {
-  display: flex;
-  width: 50px;
-  height: 50px;
-  gap: 150px;
-  margin-left: 550px;
+    display: flex;
+    gap: 20px;
+    padding: 0 15%;
+    margin-top: 15px;
 }
 
-.txt-git {
-  margin-bottom: 50px;
+.logo img {
+    width: 32px; /* Légèrement agrandi */
+    height: auto;
+    transition: opacity 0.3s;
 }
 
-.txt-git h2 {
-  font-family: IBM Plex Mono, monospace;
-  color: #ffffff;
-  font-size: 42px;
-  font-weight: regular;
-  margin-top: 100px;
-  margin-left: 250px;
+.logo img:hover {
+    opacity: 0.7;
 }
 
-.txt-git p {
-  font-family: IBM Plex Mono, monospace;
-  width: 1000px;
-  color: #9c9c9c;
-  font-size: 16px;
-  font-weight: regular;
-  margin-left: 150px;
-  line-height: 1.5em;
+/* --- Styles Spécifiques à la page CV --- */
+.txt-competences-cv ul {
+    list-style-type: none;
+    padding-left: 0;
 }
 
-.txt-git h3 {
-  font-family: IBM Plex Mono, monospace;
-  color: #ffffff;
-  font-size: 36px;
-  font-weight: regular;
-  margin-left: 250px;
+.txt-competences-cv li {
+    margin-bottom: 8px;
 }
 
-.txt-git h4 {
-  font-family: IBM Plex Mono, monospace;
-  color: #ffffff;
-  font-size: 28px;
-  font-weight: regular;
-  margin-left: 150px;
+/* --- Styles Spécifiques à la page Compétences (Accordéon) --- */
+.main-container h1 {
+    text-align: center;
 }
 
-.txt-profil {
-  display: flex;
-  flex-direction: column;
-  margin-left: 250px;
-  margin-top: 100px;
-}
-.txt-profil h2 {
-  font-family: Raleway, sans-serif;
-  color: #ffffff;
-  font-size: 36px;
-  font-weight: extra-bold;
-}
-.txt-profil p {
-  font-family: IBM Plex Mono, monospace;
-  color: #9c9c9c;
-  font-size: 14px;
-  font-weight: regular;
-  justify-items: first baseline;
-  line-height: 24px;
-  letter-spacing: 1%;
-  margin-top: -5px;
+details {
+    background-color: #212121;
+    border: 1px solid #333;
+    border-radius: 8px;
+    margin-bottom: 15px;
 }
 
-.txt-competences-cv {
-  display: flex;
-  flex-direction: column;
-  margin-left: 250px;
- 
-}
-.txt-competences-cv h2 {
-  font-family: Raleway, sans-serif;
-  color: #ffffff;
-  font-size: 36px;
-  font-weight: extra-bold;
-}
-.txt-competences-cv h3 {
-  font-family: Raleway, sans-serif;
-  color: #ffffff;
-  font-size: 28px;
-  font-weight: extra-bold;
-}
-.nav-comp {
-  font-family: IBM Plex Mono, monospace;
-  color: #9c9c9c;
-  font-size: 14px;
-  font-weight: regular;
-  justify-items: first baseline;
-  line-height: 24px;
-  letter-spacing: 1%;
+summary {
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    font-size: 1.4em; /* Adapté à la nouvelle taille de police */
+    cursor: pointer;
+    outline: none;
+    padding: 20px;
+    text-align: center;
+    background-color: #1b1b1b;
+    color: #ffffff;
+    border-radius: 8px;
+    transition: background-color 0.3s;
 }
 
-.txt-competences {
-  display: flex;
-  flex-direction: column;
-  margin-left: 250px;
-  margin-top: 80px;
-}
-.txt-competences h1 {
-  font-family: Raleway, sans-serif;
-  color: #ffffff;
-  font-weight: extra-bold;
-  font-size: 44px;
-}
-.txt-competences h2 {
-  font-family: Raleway, sans-serif;
-  color: #ffffff;
-  font-size: 36px;
-  font-weight: extra-bold;
-}
-.txt-competences h3 {
-  font-family: Raleway, sans-serif;
-  color: #ffffff;
-  font-size: 36px;
-  font-weight: extra-bold;
-}
-.txt-competences ul {
-  font-family: Raleway, sans-serif;
-  color: #ffffff;
-  font-size: 28px;
-  font-weight: extra-bold;
-}
-.txt-competences li {
-  font-family: Raleway, sans-serif;
-  color: #ffffff;
-  font-size: 14px;
-  font-weight: extra-bold;
+details[open] > summary {
+    background-color: #3f8e00;
+    border-radius: 8px 8px 0 0;
 }
 
+details > div {
+    padding: 25px;
+    border-top: 1px solid #333;
+    border-radius: 0 0 8px 8px;
+}
+
+details ul {
+    list-style-position: inside;
+}
+
+
+/* ############################################### */
+/* ###          MEDIA QUERIES - RESPONSIVE       ### */
+/* ############################################### */
+
+@media (max-width: 992px) {
+    .txt-accueil, .txt-git, .txt-profil, .txt-competences-cv, .main-container, .réseaux, .logo {
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-menu {
+        gap: 20px;
+        padding: 10px;
+        flex-wrap: wrap;
+        height: auto;
+    }
+    
+    .txt-accueil, .txt-git, .txt-profil, .txt-competences-cv, .main-container {
+        padding-top: 140px;
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+    
+    .réseaux, .logo {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    h1 { font-size: 40px; }
+    h2 { font-size: 28px; }
+    p, li { font-size: 16px; }
+}
