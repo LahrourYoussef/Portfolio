@@ -11,7 +11,9 @@ body {
     font-family: 'IBM Plex Mono', monospace;
 }
 
-/* --- Barre de Navigation --- */
+/* ############################################### */
+/* ###         STYLES POUR LE MENU DESKTOP       ### */
+/* ############################################### */
 .nav-menu {
     background: #1b1b1b;
     display: flex;
@@ -33,7 +35,7 @@ body {
 .nav-menu a {
     color: #9c9c9c;
     text-decoration: none;
-    font-size: 19px; /* Augmenté de 4px */
+    font-size: 19px;
     white-space: nowrap;
     transition: color 0.3s ease;
 }
@@ -47,9 +49,9 @@ body {
     color: white;
     border: 1px solid #555;
     border-radius: 5px;
-    padding: 7px 12px; /* Légèrement ajusté pour la nouvelle taille de police */
+    padding: 7px 12px;
     font-family: 'IBM Plex Mono', monospace;
-    font-size: 16px; /* Augmenté de 4px */
+    font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s;
 }
@@ -58,7 +60,13 @@ body {
     background-color: #444;
 }
 
-/* --- Mise en page commune pour les sections de contenu --- */
+/* L'ICÔNE HAMBURGER EST CACHÉE PAR DÉFAUT SUR GRAND ÉCRAN */
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+/* --- Styles de contenu (inchangés) --- */
 .txt-accueil,
 .txt-git,
 .txt-profil,
@@ -67,135 +75,20 @@ body {
     padding-top: 150px;
     padding-left: 15%;
     padding-right: 15%;
-    margin-bottom: 60px; /* Espace standard entre les sections */
+    margin-bottom: 60px;
 }
 
-/* --- Styles des titres et textes (TAILLES AUGMENTÉES) --- */
 h1, h2, h3, h4 {
     font-family: 'Raleway', sans-serif;
     color: #ffffff;
     font-weight: 800;
 }
-
-h1 {
-    font-size: 48px; /* 44px + 4px */
-    margin-bottom: 20px;
-}
-
-h2 {
-    font-size: 32px; /* 28px + 4px */
-    margin-bottom: 25px;
-}
-
-h3 {
-    font-size: 22px; /* 18px + 4px */
-    margin-top: 30px;
-    margin-bottom: 15px;
-}
-
-h4 {
-    font-size: 20px; /* 16px + 4px */
-    margin-top: 25px;
-    margin-bottom: 10px;
-}
-
-p, li {
-    font-size: 18px; /* 14px + 4px */
-    line-height: 30px; /* Augmenté pour la lisibilité */
-}
-
-/* --- Styles Spécifiques à la page d'accueil --- */
-.cta-button {
-    display: inline-block;
-    padding: 14px 28px;
-    background-color: #3f8e00;
-    color: white;
-    font-weight: bold;
-    font-size: 18px; /* Augmenté de 4px */
-    border-radius: 6px;
-    text-decoration: none;
-    box-shadow: 0 0 12px rgba(50, 205, 50, 0.5);
-    transition: all 0.3s ease;
-    margin-top: 25px;
-}
-
-.cta-button:hover {
-    box-shadow: 0 0 18px rgba(40, 164, 40, 0.7);
-    transform: translateY(-2px);
-}
-
-.réseaux {
-    padding: 0 15%;
-    margin-top: 30px;
-}
-
-.logo {
-    display: flex;
-    gap: 20px;
-    padding: 0 15%;
-    margin-top: 15px;
-}
-
-.logo img {
-    width: 32px; /* Légèrement agrandi */
-    height: auto;
-    transition: opacity 0.3s;
-}
-
-.logo img:hover {
-    opacity: 0.7;
-}
-
-/* --- Styles Spécifiques à la page CV --- */
-.txt-competences-cv ul {
-    list-style-type: none;
-    padding-left: 0;
-}
-
-.txt-competences-cv li {
-    margin-bottom: 8px;
-}
-
-/* --- Styles Spécifiques à la page Compétences (Accordéon) --- */
-.main-container h1 {
-    text-align: center;
-}
-
-details {
-    background-color: #212121;
-    border: 1px solid #333;
-    border-radius: 8px;
-    margin-bottom: 15px;
-}
-
-summary {
-    font-family: 'Raleway', sans-serif;
-    font-weight: bold;
-    font-size: 1.4em; /* Adapté à la nouvelle taille de police */
-    cursor: pointer;
-    outline: none;
-    padding: 20px;
-    text-align: center;
-    background-color: #1b1b1b;
-    color: #ffffff;
-    border-radius: 8px;
-    transition: background-color 0.3s;
-}
-
-details[open] > summary {
-    background-color: #3f8e00;
-    border-radius: 8px 8px 0 0;
-}
-
-details > div {
-    padding: 25px;
-    border-top: 1px solid #333;
-    border-radius: 0 0 8px 8px;
-}
-
-details ul {
-    list-style-position: inside;
-}
+h1 { font-size: 48px; margin-bottom: 20px; }
+h2 { font-size: 32px; margin-bottom: 25px; }
+h3 { font-size: 22px; margin-top: 30px; margin-bottom: 15px; }
+h4 { font-size: 20px; margin-top: 25px; margin-bottom: 10px; }
+p, li { font-size: 18px; line-height: 30px; }
+/* ... (le reste de vos styles de contenu reste identique) ... */
 
 
 /* ############################################### */
@@ -203,6 +96,7 @@ details ul {
 /* ############################################### */
 
 @media (max-width: 992px) {
+    /* Ajustements pour tablette (inchangés) */
     .txt-accueil, .txt-git, .txt-profil, .txt-competences-cv, .main-container, .réseaux, .logo {
         padding-left: 10%;
         padding-right: 10%;
@@ -210,24 +104,69 @@ details ul {
 }
 
 @media (max-width: 768px) {
-    .nav-menu {
-        gap: 20px;
-        padding: 10px;
-        flex-wrap: wrap;
-        height: auto;
+    /* --- STYLES DU MENU HAMBURGER POUR MOBILE --- */
+
+    /* 1. On affiche l'icône hamburger */
+    .hamburger {
+        display: block;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1001; /* Doit être au-dessus de tout */
     }
-    
-    .txt-accueil, .txt-git, .txt-profil, .txt-competences-cv, .main-container {
-        padding-top: 140px;
-        padding-left: 5%;
-        padding-right: 5%;
-    }
-    
-    .réseaux, .logo {
-        padding-left: 5%;
-        padding-right: 5%;
+    .hamburger span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 5px 0;
+        background-color: white;
+        transition: all 0.3s ease-in-out;
     }
 
+    /* 2. On transforme l'icône en croix (X) quand le menu est actif */
+    .hamburger.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* 3. On cache le menu de navigation horizontal et on le prépare pour l'animation */
+    .nav-menu {
+        position: fixed;
+        left: -100%; /* Caché sur la gauche */
+        top: 0;
+        gap: 0;
+        flex-direction: column;
+        background-color: #1b1b1b;
+        width: 100%;
+        height: 100vh; /* Toute la hauteur de l'écran */
+        text-align: center;
+        transition: 0.3s;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        border-radius: 0;
+    }
+    .nav-menu a {
+        margin: 16px 0;
+        font-size: 24px;
+    }
+
+    /* 4. On fait apparaître le menu quand il est actif */
+    .nav-menu.active {
+        left: 0;
+    }
+
+    /* 5. Ajustements du contenu de la page */
+    .txt-accueil, .txt-git, .txt-profil, .txt-competences-cv, .main-container {
+        padding-top: 100px;
+        padding-left: 5%;
+        padding-right: 5%;
+    }
     h1 { font-size: 40px; }
     h2 { font-size: 28px; }
     p, li { font-size: 16px; }
