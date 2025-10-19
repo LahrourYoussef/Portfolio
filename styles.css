@@ -6,7 +6,7 @@
 }
 
 body {
-  background-color: #080808;
+  background-color: #161513;
   color: #9c9c9c;
   font-family: "IBM Plex Mono", monospace;
   position: relative; /* Nécessaire pour les transitions */
@@ -21,15 +21,14 @@ body.menu-open {
 /* ###       STYLES POUR LE MENU DESKTOP       ### */
 /* ############################################### */
 .nav-menu {
-  background: #1b1b1b;
+  background: #222222;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 40px;
-  width: 90%;
-  max-width: 1100px;
+  width: 100%;
+  max-width: 100%;
   height: 70px;
-  border-radius: 0 0 20px 20px;
   padding: 0 40px;
   position: fixed;
   top: 0;
@@ -41,13 +40,19 @@ body.menu-open {
 .nav-menu a {
   color: #9c9c9c;
   text-decoration: none;
-  font-size: 19px;
+  font-size: 16px;
   white-space: nowrap;
   transition: color 0.3s ease;
 }
 
 .nav-menu a:hover {
-  color: white;
+  color: #40e0d0;
+}
+
+.nav-menu img {
+  height: 40px;
+  width: 40px;
+  border-radius: 10px 10px 10px 10px;
 }
 
 .btn {
@@ -71,8 +76,18 @@ body.menu-open {
   cursor: pointer;
 }
 
-/* --- Styles de contenu (inchangés) --- */
-.txt-accueil,
+/* --- Styles pour la section d'accueil --- */
+.txt-accueil {
+  display: flex; /* Active le modèle de boîte flexible */
+  flex-direction: column; /* Aligne les éléments verticalement */
+  justify-content: center; /* Centre verticalement le contenu */
+  align-items: center; /* Centre horizontalement le contenu */
+  text-align: center; /* Centre le texte à l'intérieur des éléments */
+  min-height: 90vh; /* Donne une hauteur minimale à la section (presque tout l'écran) */
+  padding: 100px 15%; /* Garde un peu d'espace autour */
+}
+
+/* --- Styles pour les autres sections de contenu --- */
 .txt-git,
 .txt-profil,
 .main-container {
@@ -92,7 +107,7 @@ h2,
 h3,
 h4 {
   font-family: "Raleway", sans-serif;
-  color: #ffffff;
+  color: #fafafa;
   font-weight: 800;
 }
 h1 {
@@ -127,7 +142,7 @@ li {
   color: white;
   font-weight: bold;
   font-size: 18px;
-  border-radius: 6px;
+  border-radius: 20px 20px 20px 20px;
   text-decoration: none;
   box-shadow: 0 0 12px rgba(50, 205, 50, 0.5);
   transition: all 0.3s ease;
@@ -196,6 +211,150 @@ details > div {
 details ul {
   list-style-position: inside;
 }
+
+/* ############################################### */
+/* ###        STYLES POUR ICONES SOCIAUX       ### */
+/* ############################################### */
+.social-section {
+  text-align: center;
+  padding: 40px 15%;
+  margin-bottom: 60px;
+}
+
+.social-icons {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+.icon {
+  position: relative;
+}
+
+.icon a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #222;
+  color: #9c9c9c;
+  font-size: 24px;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.icon a:hover {
+  transform: translateY(-5px);
+  color: #fff;
+}
+
+.icon .tooltip {
+  position: absolute;
+  top: -45px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fff;
+  color: #161513;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  white-space: nowrap;
+}
+
+.icon a:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* 
+.wrapper {
+  display: inline-flex;
+  list-style: none;
+  height: 120px;
+  width: 100%;
+  padding-top: 40px;
+  font-family: "Poppins", sans-serif;
+  justify-content: center;
+}
+
+.wrapper .icon {
+  position: relative;
+  background: #fff;
+  border-radius: 50%;
+  margin: 10px;
+  width: 50px;
+  height: 50px;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .tooltip {
+  position: absolute;
+  top: 0;
+  font-size: 14px;
+  background: #fff;
+  color: #fff;
+  padding: 5px 8px;
+  border-radius: 5px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .tooltip::before {
+  position: absolute;
+  content: "";
+  height: 8px;
+  width: 8px;
+  background: #fff;
+  bottom: -3px;
+  left: 50%;
+  transform: translate(-50%) rotate(45deg);
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .icon:hover .tooltip {
+  top: -45px;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.wrapper .icon:hover span,
+.wrapper .icon:hover .tooltip {
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+}
+
+.wrapper .github:hover,
+.wrapper .github:hover .tooltip,
+.wrapper .github:hover .tooltip::before {
+  background: #333;
+  color: #fff;
+}
+
+.wrapper .linkedin:hover,
+.wrapper .linkedin:hover .tooltip,
+.wrapper .linkedin:hover .tooltip::before {
+  background: #0077b5;
+  color: #fff;
+}
+*/
 
 /* ############################################### */
 /* ###       MEDIA QUERIES - RESPONSIVE        ### */
