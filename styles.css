@@ -55,6 +55,11 @@ body.menu-open {
   border-radius: 10px 10px 10px 10px;
 }
 
+.logo-link {
+  /* Assure que le lien n'a pas de styles parasites */
+  line-height: 0;
+}
+
 .btn {
   --bg: #222222;
   --hover-bg: #3f8e00;
@@ -300,6 +305,7 @@ body.menu-open {
 /* On donne un espacement plus raisonnable à la section compétences du CV */
 .txt-competences-cv {
   padding: 0 15%; /* On garde le padding latéral */
+  margin-bottom: 80px; /* Ajoute un espace en bas de la page */
 }
 
 h1,
@@ -660,6 +666,16 @@ details ul {
     padding: 100px 40px; /* Espace en haut et à gauche */
     border-radius: 0;
   }
+
+  /* NOUVEAU : Gestion du logo sur mobile */
+  .logo-link {
+    position: fixed;
+    top: 20px; /* Même hauteur que le hamburger */
+    left: 50%; /* Centré horizontalement */
+    transform: translateX(-50%); /* Ajustement précis du centrage */
+    z-index: 1002; /* Au-dessus de tout */
+  }
+
   .nav-menu a {
     margin: 16px 0;
     font-size: 22px; /* Taille de police légèrement réduite */
