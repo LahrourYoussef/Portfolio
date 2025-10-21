@@ -17,52 +17,64 @@
       </div>
 
       <nav class="nav-menu">
+        <img src="../image/logo-portfolio.png" alt="Logo du portfolio" />
         <a href="../index.html">Accueil</a>
         <a href="CV.html">CV</a>
-        <a href="ProjetGestionVersionGit.html">Ateliers professionnels</a>
-        <a href="#">Stages</a>
+        <div class="dropdown">
+          <a href="Projets.html" class="dropbtn">Projets</a>
+          <div class="dropdown-content">
+            <a href="ProjetGestionVersionGit.html">Projet Git</a>
+            <a href="Dunewave.html">Dunewave - Locaboard</a>
+          </div>
+        </div>
+        <a href="Stage.html">Stages</a>
         <a href="#">Veille</a>
         <a href="Competence.html">Compétences</a>
         <button class="btn">Me contacter</button>
       </nav>
     </header>
-    <section class="txt-git">
-      <h2>Projet de Gestion de Versions avec Git</h2>
-      <p>
-        Dans le cadre de mon BTS SIO, j’ai eu l’opportunité de travailler sur un
-        projet de gestion de versions avec Git. Cette expérience a été
-        déterminante pour renforcer mes compétences en développement logiciel.
-      </p>
-      <h3>Apprentissage des Fondamentaux</h3>
-      <h4>Gestion des Versions</h4>
-      <p>
-        L’un des principaux apprentissages a été l’utilisation de Git pour créer
-        des dépôts locaux et distants. J’ai compris comment suivre les
-        modifications de fichiers et maintenir un historique clair des versions,
-        ce qui est essentiel pour la traçabilité.
-      </p>
-      <h4>Utilisation des Branches</h4>
-      <p>
-        La gestion des branches m’a permis d’isoler le développement de
-        nouvelles fonctionnalités. Cela facilite le travail collaboratif, car je
-        peux travailler sans risquer de déstabiliser la branche principale, tout
-        en intégrant facilement les modifications une fois terminées.
-      </p>
-      <h4>Compétences Développées</h4>
-      <p>
-        J’ai acquis une maîtrise des commandes Git, telles que git add, git
-        commit et git merge. De plus, j’ai découvert l’importance de
-        l’intégration continue grâce à des plateformes comme GitLab, qui
-        facilitent le partage du code et la collaboration.
-      </p>
-      <h4>Conclusion</h4>
-      <p>
-        Ce projet m’a permis d’améliorer mes compétences techniques et de mieux
-        comprendre les enjeux du travail en équipe. Je réalise maintenant que la
-        maîtrise de Git est un atout incontournable pour tout développeur qui
-        veut réussir dans le domaine du développement logiciel.
-      </p>
-    </section>
+    <div class="main-container project-page">
+      <h1>Projet de Gestion de Versions avec Git</h1>
+      <section>
+        <p>
+          Dans le cadre de mon BTS SIO, j’ai eu l’opportunité de travailler sur
+          un projet de gestion de versions avec Git. Cette expérience a été
+          déterminante pour renforcer mes compétences en développement logiciel.
+        </p>
+      </section>
+      <section>
+        <h2>Apprentissage des Fondamentaux</h2>
+        <h3>Gestion des Versions</h3>
+        <p>
+          L’un des principaux apprentissages a été l’utilisation de Git pour
+          créer des dépôts locaux et distants. J’ai compris comment suivre les
+          modifications de fichiers et maintenir un historique clair des
+          versions, ce qui est essentiel pour la traçabilité.
+        </p>
+        <h3>Utilisation des Branches</h3>
+        <p>
+          La gestion des branches m’a permis d’isoler le développement de
+          nouvelles fonctionnalités. Cela facilite le travail collaboratif, car
+          je peux travailler sans risquer de déstabiliser la branche principale,
+          tout en intégrant facilement les modifications une fois terminées.
+        </p>
+        <h3>Compétences Développées</h3>
+        <p>
+          J’ai acquis une maîtrise des commandes Git, telles que git add, git
+          commit et git merge. De plus, j’ai découvert l’importance de
+          l’intégration continue grâce à des plateformes comme GitLab, qui
+          facilitent le partage du code et la collaboration.
+        </p>
+        <h3>Conclusion</h3>
+        <p>
+          Ce projet m’a permis d’améliorer mes compétences techniques et de
+          mieux comprendre les enjeux du travail en équipe. Je réalise
+          maintenant que la maîtrise de Git est un atout incontournable pour
+          tout développeur qui veut réussir dans le domaine du développement
+          logiciel.
+        </p>
+      </section>
+    </div>
     <script src="../script.js"></script>
   </body>
 </html>

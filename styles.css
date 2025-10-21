@@ -56,24 +56,79 @@ body.menu-open {
 }
 
 .btn {
-  background-color: #333;
-  color: white;
-  border: 1px solid #555;
-  border-radius: 5px;
-  padding: 7px 12px;
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+  --bg: #222222;
+  --hover-bg: #3f8e00;
+  --hover-text: #000;
+  color: #fff;
+  border: 1px solid var(--bg);
+  border-radius: 4px;
+  padding: 0.8em 2em;
+  background: var(--bg);
+  transition: 0.2s;
 }
 
 .btn:hover {
-  background-color: #444;
+  color: var(--hover-text);
+  transform: translate(0.25rem, -0.25rem);
+  background: var(--hover-bg);
+  box-shadow: -0.25rem 0.25rem var(--bg);
+}
+
+.btn:active {
+  transform: translate(0);
+  box-shadow: none;
 }
 
 .hamburger {
   display: none;
   cursor: pointer;
+}
+
+/* NOUVEAU : Styles pour le sous-menu (dropdown) */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  /* On reprend le style des autres liens du menu */
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #9c9c9c;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 16px;
+  white-space: nowrap;
+  transition: color 0.3s ease;
+  padding: 0; /* Important pour l'alignement */
+  text-decoration: none; /* Supprime le soulignement par défaut des liens */
+}
+
+.dropbtn:hover {
+  color: #40e0d0;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #222222;
+  min-width: 200px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 5px;
+  padding: 10px 0;
+  /* margin-top: 10px; */ /* Supprimé pour éviter le problème de survol */
+}
+
+.dropdown-content a {
+  color: #9c9c9c;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
 }
 
 /* --- Styles pour la section d'accueil --- */
@@ -83,8 +138,153 @@ body.menu-open {
   justify-content: center; /* Centre verticalement le contenu */
   align-items: center; /* Centre horizontalement le contenu */
   text-align: center; /* Centre le texte à l'intérieur des éléments */
-  min-height: 90vh; /* Donne une hauteur minimale à la section (presque tout l'écran) */
+  margin-top: 70px;
   padding: 100px 15%; /* Garde un peu d'espace autour */
+}
+.techno {
+  display: flex; /* Active le modèle de boîte flexible */
+  flex-direction: column; /* Aligne les éléments verticalement */
+  justify-content: center; /* Centre verticalement le contenu */
+  align-items: center; /* Centre horizontalement le contenu */
+  text-align: center; /* Centre le texte à l'intérieur des éléments */
+  padding-bottom: 60px; /* Ajoute un peu d'espace en bas */
+}
+.techno h3 {
+  font-family: "Raleway", sans-serif;
+  color: #fafafa;
+  font-weight: 800;
+  font-size: 22px;
+  margin-bottom: 60px;
+}
+
+/* NOUVEAU : Conteneur pour le carrousel qui masque le surplus */
+.logo-scroller {
+  /* Largeur par défaut pour les grands écrans (desktop), environ 7-8 logos */
+  max-width: 700px;
+  width: 90%;
+  overflow: hidden;
+  margin: 0 auto; /* Centre le carrousel horizontalement */
+  /* Masque dégradé pour une disparition douce des logos sur les côtés */
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 20%,
+    black 80%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 20%,
+    black 80%,
+    transparent
+  );
+}
+
+.techno-logos {
+  display: flex;
+  white-space: nowrap; /* Empêche les logos de passer à la ligne */
+  gap: 30px; /* Espace entre les logos */
+  /* Animation */
+  animation: scroll 30s linear infinite;
+  width: max-content; /* Permet au conteneur flex de prendre la largeur nécessaire pour tous les logos */
+}
+
+.techno-logos img {
+  height: 60px; /* Hauteur unifiée pour les logos */
+  width: auto;
+  flex-shrink: 0; /* Empêche les images de rétrécir dans le conteneur flex */
+}
+
+/* NOUVEAU : Styles pour la section des projets */
+.projets-section {
+  padding: 60px 15%;
+  text-align: center;
+}
+.projets-section h2 {
+  font-family: "Raleway", sans-serif;
+  color: #fafafa;
+  font-weight: 800;
+  font-size: 22px;
+}
+
+.projets-grid {
+  display: grid;
+  /* Crée une grille responsive qui s'adapte à la taille de l'écran */
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(250px, 1fr)
+  ); /* Taille minimale réduite */
+  gap: 25px; /* Espacement réduit */
+  text-align: left; /* Réinitialise l'alignement pour le contenu des cartes */
+}
+
+.projet-card {
+  background-color: #222222;
+  border-radius: 10px;
+  padding: 30px 25px; /* 30px en haut/bas, 25px sur les côtés */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Aligne les éléments en haut */
+  /* aspect-ratio: 1 / 1; */ /* J'ai retiré cette ligne pour que la hauteur s'adapte au contenu */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.projet-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.projet-card h3 {
+  margin-top: 0; /* Retire la marge du haut pour le titre de la carte */
+  margin-bottom: 15px; /* Augmente légèrement l'espace sous le titre */
+}
+
+.projet-link {
+  display: inline-block;
+  margin-top: 25px; /* Augmente légèrement l'espace au-dessus du lien */
+  color: #40e0d0; /* Couleur turquoise pour correspondre au survol du menu */
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.projet-link:hover {
+  color: #ffffff;
+}
+
+/* NOUVEAU : Styles pour les pages de projet détaillées */
+.project-page .project-intro {
+  text-align: center;
+  font-size: 1.1em;
+  margin-bottom: 50px;
+}
+
+.project-page section {
+  margin-bottom: 40px;
+}
+
+/* NOUVEAU : Ajoute une indentation pour les listes sur les pages de projet */
+.project-page ul {
+  padding-left: 40px;
+}
+
+/* NOUVEAU : Ajoute une indentation pour les paragraphes sur les pages de projet */
+.project-page p {
+  padding-left: 40px;
+}
+
+.techno-list {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.techno-list span {
+  background-color: #222;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 14px;
 }
 
 /* --- Styles pour les autres sections de contenu --- */
@@ -132,6 +332,16 @@ p,
 li {
   font-size: 18px;
   line-height: 30px;
+}
+
+/* NOUVEAU : Animation de défilement */
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%); /* Défile de la moitié de la largeur totale */
+  }
 }
 
 /* Styles de la page d'accueil (inchangés) */
@@ -372,6 +582,15 @@ details ul {
     padding-left: 10%;
     padding-right: 10%;
   }
+
+  /* NOUVEAU : On réduit la taille du carrousel pour les tablettes (environ 5-6 logos) */
+  .logo-scroller {
+    max-width: 520px;
+  }
+  .projets-section {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
 }
 
 @media (max-width: 768px) {
@@ -456,6 +675,7 @@ details ul {
   .txt-accueil,
   .txt-git,
   .txt-profil,
+  .projets-section,
   .txt-competences-cv,
   .main-container {
     padding-top: 100px;
@@ -471,5 +691,26 @@ details ul {
   p,
   li {
     font-size: 16px;
+  }
+}
+
+/* NOUVEAU : Ajustements spécifiques pour le défilement des logos sur les petits écrans */
+@media (max-width: 768px) {
+  .logo-scroller {
+    /* Réduit la largeur pour afficher environ 4 logos sur mobile */
+    max-width: 240px;
+  }
+
+  .techno-logos {
+    gap: 20px; /* Réduit l'espace entre les logos */
+  }
+
+  .techno-logos img {
+    height: 40px; /* Réduit la taille des logos */
+  }
+
+  /* La carte n'est plus carrée sur mobile pour mieux afficher le contenu */
+  .projet-card {
+    aspect-ratio: unset;
   }
 }
