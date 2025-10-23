@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <link rel="stylesheet" href="../styles.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Contactez Youssef Lahrour pour toute proposition de stage, collaboration ou question. Formulaire de contact disponible sur cette page."
+    />
+    <link rel="icon" type="image/png" href="../image/logo-portfolio.png" />
+    <title>Me Contacter - Youssef Lahrour</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <nav class="nav-menu">
+        <a href="../index.html" class="logo-link">
+          <img
+            src="../image/logo-portfolio.png"
+            alt="Logo de Youssef Lahrour, développeur"
+          />
+        </a>
+        <a href="../index.html">Accueil</a>
+        <a href="CV.html">CV</a>
+        <div class="dropdown">
+          <a href="Projets.html" class="dropbtn">Projets</a>
+          <div class="dropdown-content">
+            <a href="ProjetGestionVersionGit.html">Projet Git</a>
+            <a href="Dunewave.html">Dunewave - Locaboard</a>
+          </div>
+        </div>
+        <a href="Stage.html">Stages</a>
+        <a href="Veille.html">Veille</a>
+        <a href="Competence.html">Compétences</a>
+        <a href="Contact.html" class="btn">Me contacter</a>
+      </nav>
+    </header>
+
+    <div class="main-container contact-page">
+      <h1>Me Contacter</h1>
+      <p>
+        Une question, une proposition de stage ou simplement envie d'échanger ?
+        N'hésitez pas à utiliser le formulaire ci-dessous.
+      </p>
+
+      <div class="contact-info">
+        <p>
+          <strong>Téléphone :</strong>
+          <a href="tel:+33XXXXXXXXXX">06 XX XX XX XX</a>
+        </p>
+        <p>
+          <strong>Email :</strong>
+          <a href="mailto:votre.email@example.com">votre.email@example.com</a>
+        </p>
+      </div>
+
+      <form
+        action="https://formspree.io/f/mblzvnob"
+        method="post"
+        class="contact-form"
+      >
+        <div class="form-group">
+          <label for="name">Nom</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Votre nom complet"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Votre adresse email"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea
+            id="message"
+            name="message"
+            rows="6"
+            placeholder="Écrivez votre message ici..."
+            required
+          ></textarea>
+        </div>
+        <button type="submit" class="cta-button">Envoyer le message</button>
+      </form>
+    </div>
+
+    <script src="../script.js"></script>
+  </body>
+</html>
