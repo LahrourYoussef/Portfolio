@@ -778,6 +778,7 @@ details ul {
 
   .techno-logos {
     gap: 20px; /* Réduit l'espace entre les logos */
+    animation-duration: 20s; /* Accélère l'animation sur mobile */
   }
 
   .techno-logos img {
