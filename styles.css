@@ -453,40 +453,8 @@ details ul {
   text-decoration: none;
 }
 
-.contact-form {
-  max-width: 700px;
-  margin: 40px auto 0;
-  text-align: left;
-}
 
-.form-group {
-  margin-bottom: 25px;
-}
 
-.form-group label {
-  display: block;
-  margin-bottom: 8px;
-  color: #fafafa;
-  font-weight: bold;
-  font-size: 16px;
-}
-
-.form-group input,
-.form-group textarea {
-  width: 100%;
-  padding: 15px;
-  border-radius: 5px;
-  border: 1px solid #333;
-  background-color: #222;
-  color: #9c9c9c;
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 16px;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-  outline: 2px solid #40e0d0;
-}
 /* ############################################### */
 /* ###        STYLES POUR ICONES SOCIAUX       ### */
 /* ############################################### */
@@ -792,7 +760,9 @@ details ul {
 }
 
 .contact-form {
-  width: 400px;
+  width: 700px;
+  margin: 40px auto 0;
+  text-align: left;
   background: linear-gradient(#212121, #212121) padding-box,
               linear-gradient(145deg, transparent 35%,#e81cff, #40c9ff) border-box;
   border: 2px solid transparent;
