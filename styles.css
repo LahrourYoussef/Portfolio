@@ -401,12 +401,13 @@ li {
 }
 .main-container h1 {
   text-align: center;
+  margin-bottom: 5%;
 }
 details {
   background-color: #212121;
   border: 1px solid #333;
   border-radius: 8px;
-  margin-bottom: 15px;
+  margin-bottom: 3%;
 }
 summary {
   font-family: "Raleway", sans-serif;
