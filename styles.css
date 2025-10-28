@@ -758,10 +758,17 @@ details ul {
   .projet-card {
     aspect-ratio: unset;
   }
+
+  /* NOUVEAU : Ajustement du formulaire de contact sur mobile */
+  .contact-form .form-submit-btn {
+    width: 100%; /* Le bouton prend toute la largeur */
+    justify-content: center; /* Centre le texte du bouton */
+  }
 }
 
 .contact-form {
-  width: 700px;
+  max-width: 700px; /* Largeur maximale */
+  width: 100%; /* Prend toute la largeur disponible */
   margin: 40px auto 0;
   text-align: left;
   background: linear-gradient(#212121, #212121) padding-box,
@@ -861,7 +868,3 @@ details ul {
   background-color: #fff;
   border-color: #fff;
 }
-
-
-
-
