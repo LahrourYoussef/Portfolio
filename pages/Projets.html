@@ -10,6 +10,60 @@
     />
     <link rel="icon" type="image/webp" href="../image/logo-portfolio.webp" />
     <title>Projets de Youssef Lahrour - Développement Web & Logiciel</title>
+    <style>
+      .dropdown-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: calc(100vh - 100px);
+        padding: 40px 20px;
+      }
+
+      .dropdown-box {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        padding: 40px;
+        max-width: 400px;
+        width: 100%;
+      }
+
+      .dropdown-box h2 {
+        text-align: center;
+        color: white;
+        margin-bottom: 30px;
+        font-size: 24px;
+      }
+
+      .dropdown-content {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .dropdown-content a {
+        display: block;
+        padding: 15px 20px;
+        background-color: white;
+        color: #667eea;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: 600;
+        text-align: center;
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+      }
+
+      .dropdown-content a:hover {
+        background-color: #f0f0f0;
+        transform: translateX(5px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .dropdown-content a:active {
+        transform: translateX(3px);
+      }
+    </style>
   </head>
 
   <body>
@@ -33,7 +87,8 @@
           <div class="dropdown-content">
             <a href="ProjetGestionVersionGit.html">Projet Git</a>
             <a href="Dunewave.html">Dunewave - Locaboard</a>
-            <a href="Stage.html">TCExpertConseils - Stage</a>
+            <a href="Stage.html">Stage 1ère année</a>
+            <a href="Stage2.html">Stage 2ème année</a>
           </div>
         </div>
         <a href="Stage.html">Stages</a>
@@ -50,10 +105,16 @@
         bien des projets concrets, de la conception au déploiement. N'hésitez
         pas à explorer chaque projet pour en savoir plus.
       </p>
-      <div style="display: flex; justify-content: center; margin: 60px 0;">
-        <a href="Dropdown.html" style="padding: 15px 40px; font-size: 18px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; text-decoration: none; border-radius: 8px; transition: transform 0.3s ease, box-shadow 0.3s ease; display: inline-block; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 8px 20px rgba(0, 0, 0, 0.3)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 5px 15px rgba(0, 0, 0, 0.2)';">
-          Voir les projets →
-        </a>
+      <div class="dropdown-container">
+        <div class="dropdown-box">
+          <h2>Sélectionner un Projet</h2>
+          <div class="dropdown-content">
+            <a href="ProjetGestionVersionGit.html">Projet Git</a>
+            <a href="Dunewave.html">Dunewave - Locaboard</a>
+            <a href="Stage.html">Stage 1ère année</a>
+            <a href="Stage2.html">Stage 2ème année</a>
+          </div>
+        </div>
       </div>
     </div>
     <script src="../script.js"></script>
