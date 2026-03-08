@@ -1,92 +1,110 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <link rel="stylesheet" href="../styles.css" />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Rapport de stage de 2ème année de Youssef Lahrour : Création d'un site dynamique avec Click & Collect pour la Boucherie Agadir."
-    />
-    <link rel="icon" type="image/webp" href="../image/logo-portfolio.webp" />
-    <title>Stage 2ème Année - Boucherie Agadir - Youssef Lahrour</title>
-  </head>
-
-  <body>
-    <header>
-      <div class="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-
-      <nav class="nav-menu">
-        <a href="../index.html" class="logo-link">
-          <img src="../image/logo-portfolio.webp" alt="Logo de Youssef Lahrour" />
-        </a>
-        <a href="CV.html">CV</a>
-        <a href="Projets.html">Projets</a>
-        <a href="Stage.html">Stages</a>
-        <a href="Veille.html">Veille</a>
-        <a href="Competence.html">Compétences</a>
-        <a href="Contact.html" class="btn">Me contacter</a>
-      </nav>
-    </header>
-
-    <div class="main-container project-page">
-      <h1>Stage 2ème Année - Boucherie Agadir</h1>
-      <p class="project-intro">
-        Développement d'une solution web dynamique complète incluant un système de Click & Collect et une gestion client pour une boucherie locale.
-      </p>
-
-      <section>
-        <h2>Présentation et Contexte</h2>
-        <p>
-          Ce stage s'est déroulé au sein de la <strong>Boucherie Agadir</strong> à Mourenx. L'objectif était de moderniser l'activité en créant un site vitrine dynamique permettant aux clients de consulter les produits, de créer un compte et de passer commande via un système de Click & Collect.
-        </p>
-      </section>
-
-      <section>
-        <h2>Technologies et Outils</h2>
-        <div class="techno-list">
-          <span>HTML5 / CSS3</span>
-          <span>JavaScript</span>
-          <span>PHP</span>
-          <span>MySQL</span>
-          <span>Figma</span>
-          <span>Docker</span>
+<head>
+  <link rel="stylesheet" href="../styles.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Stage 2ème année de Youssef Lahrour : site dynamique avec Click & Collect pour la Boucherie Agadir." />
+  <link rel="icon" type="image/webp" href="../image/logo-portfolio.webp" />
+  <title>Stage 2ème Année – Boucherie Agadir – Youssef Lahrour</title>
+</head>
+<body>
+  <header>
+    <div class="hamburger"><span></span><span></span><span></span></div>
+    <nav class="nav-menu">
+      <a href="../index.html" class="logo-link">
+        <img src="../image/logo-portfolio.webp" alt="Logo Youssef Lahrour" />
+      </a>
+      <a href="CV.html">CV</a>
+      <div class="dropdown">
+        <a href="Projets.html" class="dropbtn">Projets</a>
+        <div class="dropdown-content">
+          <div class="dropdown-content-inner">
+            <a href="ProjetGestionVersionGit.html">Projet Git</a>
+            <a href="Dunewave.html">Dunewave – Locaboard</a>
+            <a href="Stage.html">Stage 1ère année</a>
+            <a href="Stage2.html">Stage 2ème année</a>
+          </div>
         </div>
-        <p style="margin-top: 20px;">
-            L'une des particularités techniques de ce stage a été l'apprentissage et la mise en œuvre de <strong>Docker</strong> pour l'environnement de développement, garantissant une cohérence parfaite entre les postes de travail.
-        </p>
-      </section>
+      </div>
+      <a href="Stage.html">Stages</a>
+      <a href="Veille.html">Veille</a>
+      <a href="Competence.html">Compétences</a>
+      <a href="Contact.html" class="btn">Me contacter</a>
+    </nav>
+  </header>
 
-      <section>
-        <h2>Réalisations Concrètes</h2>
-        <ul>
-          <li><strong>Modélisation et création de la BDD :</strong> Conception du schéma relationnel sous MySQL pour gérer les produits, les commandes et les utilisateurs.</li>
-          <li><strong>Développement Front-End :</strong> Intégration des maquettes haute fidélité réalisées au préalable sur Figma.</li>
-          <li><strong>Système d'Authentification :</strong> Création sécurisée des comptes utilisateurs et gestion des sessions en PHP.</li>
-          <li><strong>Gestion du Panier :</strong> Développement de la logique métier pour l'ajout de produits et la validation du Click & Collect.</li>
-        </ul>
-      </section>
+  <div class="main-container project-page">
+    <h1>Stage 2ème Année – Boucherie Agadir</h1>
+    <p class="project-intro">
+      Stage de 6 semaines au sein de la Boucherie Agadir à Mourenx, réalisé en binôme. Développement d'une solution web complète incluant une gestion de catalogue produits, un système de promotions, un panier et un Click & Collect.
+    </p>
 
-      <section>
-        <h2>Défis et Résolutions</h2>
-        <p><strong>Problème technique (Semaine 5) :</strong> Gestion des conflits CSS sur les widgets tiers et problèmes de persistance du panier lors de la connexion.</p>
-        <p><strong>Solution :</strong> Utilisation de l'inspecteur pour corriger les Media Queries et débogage des variables de session pour assurer la transmission des données vers la base de données.</p>
-      </section>
+    <section>
+      <h2>Présentation et Contexte</h2>
+      <p>La Boucherie Agadir souhaitait moderniser son activité en se dotant d'un outil numérique permettant à ses clients de consulter les produits disponibles, de profiter de promotions en ligne et de passer commande à distance via un système de Click & Collect. L'objectif était de proposer une expérience client fluide, depuis la navigation dans le catalogue jusqu'à la validation de la commande.</p>
+      <p>J'ai travaillé en binôme sur ce projet. Mon camarade a pris en charge la mise en place de l'environnement Docker ainsi que la partie back-end en PHP, tandis que je me suis concentré sur la conception de la base de données, l'intégration front-end et la réalisation des maquettes Figma.</p>
+    </section>
 
-      <section>
-        <h2>Compétences du Référentiel SIO</h2>
-        <ul>
-          <li><strong>Bloc 1 :</strong> 1.2 (Réponse aux demandes), 1.3 (Présence en ligne), 1.4 (Mode projet).</li>
-          <li><strong>Bloc 2 (SLAM) :</strong> 2.1 (Conception et développement), 2.2 (Maintenance évolutive), 2.3 (Gestion des données).</li>
-          <li><strong>Bloc 3 (Cybersécurité) :</strong> 3.5 (Vérification de la qualité et des accès sécurisés).</li>
-        </ul>
-      </section>
+    <section>
+      <h2>Fonctionnalités du site</h2>
+      <p>Le site développé va bien au-delà d'un simple site vitrine. Il intègre un ensemble de fonctionnalités pensées pour répondre aux besoins concrets d'une boucherie :</p>
+      <ul>
+        <li><strong>Gestion du catalogue produits :</strong> L'administrateur peut ajouter, modifier et supprimer ses propres produits directement depuis une interface dédiée, sans aucune compétence technique requise.</li>
+        <li><strong>Système de promotions :</strong> Possibilité de créer des offres promotionnelles sur des produits spécifiques, affichées automatiquement sur le site côté client.</li>
+        <li><strong>Panier dynamique :</strong> Les clients peuvent ajouter des articles à leur panier, modifier les quantités et visualiser le récapitulatif de leur commande en temps réel.</li>
+        <li><strong>Click & Collect :</strong> Le client valide sa commande en ligne et la récupère directement en boutique à l'heure souhaitée, évitant ainsi toute attente.</li>
+        <li><strong>Espace client :</strong> Création de compte, connexion sécurisée et suivi des commandes passées.</li>
+      </ul>
+    </section>
 
-    </div>
-    <script src="../script.js"></script>
-  </body>
+    <section>
+      <h2>Conception de la Base de Données</h2>
+      <p>La conception de la base de données a représenté le cœur de mon travail et le défi le plus important du stage. À partir du cahier des charges et des besoins exprimés par le client, j'ai modélisé un schéma relationnel complet sous MySQL comprenant <strong>14 tables</strong>.</p>
+      <p>L'enjeu principal était d'anticiper tous les cas d'usage : gestion des produits et de leurs catégories, association des promotions, gestion des comptes clients, construction du panier, enregistrement des commandes et suivi de leur statut. Chaque relation entre les tables a été pensée pour garantir la cohérence des données et faciliter les requêtes nécessaires à l'affichage dynamique du site.</p>
+      <p>Cette étape m'a appris à traduire des besoins métier concrets en une structure de données robuste, un exercice bien plus exigeant qu'il n'y paraît lorsqu'on part d'une page blanche.</p>
+    </section>
+
+    <section>
+      <h2>Maquettes Figma et Intégration Front-End</h2>
+      <p>Avant de commencer l'intégration, j'ai effectué une phase de recherche visuelle approfondie en m'inspirant de sites de boucheries et commerces alimentaires existants, ainsi que de références trouvées sur Figma Community. Cette veille m'a permis de définir une direction graphique cohérente : mise en avant des produits, palette sobre et lisible, navigation intuitive.</p>
+      <p>L'intégration front-end a été réalisée en HTML, CSS et JavaScript vanilla. Un soin particulier a été apporté à la responsivité du site afin qu'il soit aussi agréable à utiliser sur mobile que sur desktop, un critère important pour une clientèle de proximité.</p>
+    </section>
+
+    <section>
+      <h2>Environnement de Développement – Docker</h2>
+      <p>Mon camarade a mis en place l'environnement Docker du projet, configurant les conteneurs nécessaires pour le serveur web, PHP et MySQL. De mon côté, j'ai appris à utiliser cet environnement au quotidien : lancer les conteneurs, interagir avec la base de données, et comprendre l'intérêt de conteneuriser un projet pour garantir que le code fonctionne de manière identique sur toutes les machines de l'équipe.</p>
+      <p>Cette expérience m'a donné une première approche concrète de Docker, un outil devenu incontournable dans les équipes de développement professionnelles.</p>
+    </section>
+
+    <section>
+      <h2>Technologies et Outils</h2>
+      <div class="techno-list">
+        <span>HTML5 / CSS3</span>
+        <span>JavaScript</span>
+        <span>PHP</span>
+        <span>MySQL</span>
+        <span>Figma</span>
+        <span>Docker</span>
+      </div>
+    </section>
+
+    <section>
+      <h2>Compétences du Référentiel SIO</h2>
+      <ul>
+        <li><strong>Bloc 1 :</strong> 1.2 (Réponse aux demandes), 1.3 (Présence en ligne), 1.4 (Mode projet).</li>
+        <li><strong>Bloc 2 (SLAM) :</strong> 2.1 (Conception et développement), 2.2 (Maintenance évolutive), 2.3 (Gestion des données).</li>
+        <li><strong>Bloc 3 (Cybersécurité) :</strong> 3.5 (Vérification de la qualité et des accès sécurisés).</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Bilan</h2>
+      <p>Ce stage a été une expérience particulièrement formatrice. Travailler en binôme sur un projet réel destiné à un vrai client m'a confronté à des contraintes que l'on ne rencontre pas en cours : des besoins qui évoluent, des délais à respecter et des choix techniques qui ont des conséquences concrètes.</p>
+      <p>La conception de la base de données a été sans conteste l'exercice le plus enrichissant. Elle m'a forcé à penser le projet dans sa globalité avant d'écrire la moindre ligne de code, une discipline essentielle pour tout développeur. Ce stage a renforcé ma conviction de vouloir évoluer dans le développement web, en particulier sur des projets mêlant conception, back-end et expérience utilisateur.</p>
+    </section>
+  </div>
+
+  <script src="../script.js"></script>
+</body>
 </html>

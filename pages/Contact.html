@@ -1,98 +1,65 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <link rel="stylesheet" href="../styles.css" />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Contactez Youssef Lahrour pour toute proposition de stage, collaboration ou question. Formulaire de contact disponible sur cette page."
-    />
-    <link rel="icon" type="image/webp" href="../image/logo-portfolio.webp" />
-    <title>Me Contacter - Youssef Lahrour</title>
-  </head>
-
-  <body>
-    <header>
-      <div class="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
+<head>
+  <link rel="stylesheet" href="../styles.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contactez Youssef Lahrour pour toute proposition de stage, collaboration ou question." />
+  <link rel="icon" type="image/webp" href="../image/logo-portfolio.webp" />
+  <title>Me Contacter - Youssef Lahrour</title>
+</head>
+<body>
+  <header>
+    <div class="hamburger"><span></span><span></span><span></span></div>
+    <nav class="nav-menu">
+      <a href="../index.html" class="logo-link">
+        <img src="../image/logo-portfolio.webp" alt="Logo Youssef Lahrour" />
+      </a>
+      <a href="CV.html">CV</a>
+      <div class="dropdown">
+        <a href="Projets.html" class="dropbtn">Projets</a>
+        <div class="dropdown-content">
+          <div class="dropdown-content-inner">
+            <a href="ProjetGestionVersionGit.html">Projet Git</a>
+            <a href="Dunewave.html">Dunewave – Locaboard</a>
+            <a href="Stage.html">Stage 1ère année</a>
+            <a href="Stage2.html">Stage 2ème année</a>
+          </div>
+        </div>
       </div>
+      <a href="Stage.html">Stages</a>
+      <a href="Veille.html">Veille</a>
+      <a href="Competence.html">Compétences</a>
+      <a href="Contact.html" class="btn">Me contacter</a>
+    </nav>
+  </header>
 
-      <nav class="nav-menu">
-        <a href="../index.html" class="logo-link">
-          <img
-            src="../image/logo-portfolio.webp"
-            alt="Logo de Youssef Lahrour, développeur"
-          />
-        </a>
-        <a href="CV.html">CV</a>
-        <a href="Projets.html">Projets</a>
-        <a href="Stage.html">Stages</a>
-        <a href="Veille.html">Veille</a>
-        <a href="Competence.html">Compétences</a>
-        <a href="Contact.html" class="btn">Me contacter</a>
-      </nav>
-    </header>
+  <div class="main-container contact-page">
+    <h1>Me Contacter</h1>
+    <p>Une question, une proposition de stage ou simplement envie d'échanger ?<br />N'hésitez pas à utiliser le formulaire ci-dessous.</p>
 
-    <div class="main-container contact-page">
-      <h1>Me Contacter</h1>
-      <p>
-        Une question, une proposition de stage ou simplement envie d'échanger ?
-        <br>N'hésitez pas à utiliser le formulaire ci-dessous.
-      </p>
-
-      <div class="contact-info">
-        <p>
-          <strong>Téléphone :</strong>
-          <a href="tel:+330771149653">07 71 14 96 53</a>
-        </p>
-        <p>
-          <strong>Email :</strong>
-          <a href="mailto:lahrouryoussef2@gmail.com"
-            >lahrouryoussef2@gmail.com</a
-          >
-        </p>
-      </div>
-
-      <form action="https://formspree.io/f/mblzvnob"
-        method="post"
-        class="contact-form">
-        <div class="form-group">
-          <label for="name">Nom</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            placeholder="Votre nom complet"
-            required
-          />
-        </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Votre adresse email"
-            required
-          />
-        </div>
-        <div class="form-group">
-          <label for="message">Message</label>
-          <textarea
-            id="message"
-            name="message"
-            rows="6"
-            placeholder="Écrivez votre message ici..."
-            required
-          ></textarea>
-        </div>
-        <button class="form-submit-btn" type="submit">Envoyer</button>
-      </form>
+    <div class="contact-info">
+      <p><strong>Téléphone :</strong> <a href="tel:+330771149653">07 71 14 96 53</a></p>
+      <p><strong>Email :</strong> <a href="mailto:lahrouryoussef2@gmail.com">lahrouryoussef2@gmail.com</a></p>
     </div>
 
-    <script src="../script.js"></script>
-  </body>
+    <form action="https://formspree.io/f/mblzvnob" method="post" class="contact-form">
+      <div class="form-group">
+        <label for="name">Nom</label>
+        <input type="text" id="name" name="name" placeholder="Votre nom complet" required />
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Votre adresse email" required />
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="6" placeholder="Écrivez votre message ici..." required></textarea>
+      </div>
+      <button class="form-submit-btn" type="submit">Envoyer</button>
+    </form>
+  </div>
+
+  <script src="../script.js"></script>
+</body>
 </html>

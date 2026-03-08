@@ -1,469 +1,698 @@
-* {
+/* ============================================= */
+/* ===     VARIABLES & FONDATIONS            === */
+/* ============================================= */
+
+:root {
+  --bg:          #0f0f0e;
+  --bg-raised:   #161614;
+  --bg-card:     #1c1c1a;
+  --bg-hover:    #222220;
+
+  --text-1:      #eeece8;   /* titres */
+  --text-2:      #888682;   /* corps */
+  --text-3:      #4a4845;   /* placeholders, labels */
+
+  --accent:      #40e0d0;
+  --accent-dim:  rgba(64, 224, 208, 0.12);
+  --green:       #4a9e00;
+
+  --line:        rgba(255, 255, 255, 0.07);
+  --line-accent: rgba(64, 224, 208, 0.25);
+
+  --r-sm:  5px;
+  --r-md:  10px;
+  --r-lg:  16px;
+
+  --mono:    "IBM Plex Mono", monospace;
+  --display: "Raleway", sans-serif;
+
+  --ease:   cubic-bezier(0.4, 0, 0.2, 1);
+  --t-fast: 180ms;
+  --t-med:  300ms;
+}
+
+/* ============================================= */
+/* ===     RESET & BASE                      === */
+/* ============================================= */
+
+*, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-body {
-  background-color: #161513;
-  color: #9c9c9c;
-  font-family: "IBM Plex Mono", monospace;
-  position: relative; /* Nécessaire pour les transitions */
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
 }
 
-/* NOUVEAU : Bloque le défilement de la page quand le menu est ouvert */
+body {
+  background: var(--bg);
+  color: var(--text-2);
+  font-family: var(--mono);
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
+
 body.menu-open {
   overflow: hidden;
 }
 
-/* ############################################### */
-/* ###       STYLES POUR LE MENU DESKTOP       ### */
-/* ############################################### */
-.nav-menu {
-  background: #222222;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 40px;
-  width: 100%;
-  max-width: 100%;
-  height: 70px;
-  padding: 0 40px;
+::selection {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+::-webkit-scrollbar       { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--bg-card); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-3); }
+
+/* ============================================= */
+/* ===     TYPOGRAPHIE                       === */
+/* ============================================= */
+
+h1, h2, h3, h4 {
+  font-family: var(--display);
+  font-weight: 800;
+  color: var(--text-1);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+h1 { font-size: clamp(38px, 5.5vw, 60px); margin-bottom: 20px; }
+h2 { font-size: clamp(28px, 3.5vw, 40px); margin-bottom: 24px; }
+h3 { font-size: 22px; margin-top: 28px; margin-bottom: 12px; }
+h4 { font-size: 18px; margin-top: 20px; margin-bottom: 8px; }
+
+p, li {
+  font-size: 16px;
+  line-height: 1.85;
+  color: var(--text-2);
+}
+
+/* Label style — utilisé pour les surtitrages */
+.label {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  font-family: var(--mono);
+}
+
+/* ============================================= */
+/* ===     HEADER                            === */
+/* ============================================= */
+
+header {
   position: fixed;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
+  width: 100%;
   z-index: 1000;
 }
 
-/* NOUVEAU : Style pour le bouton "Me contacter" quand c'est un lien */
-.nav-menu a.btn {
-  padding: 0.8em 2em;
-  text-decoration: none;
+/* ============================================= */
+/* ===     NAVIGATION                        === */
+/* ============================================= */
+
+.nav-menu {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 24px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 36px;
+  background: rgba(15, 15, 14, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--line);
+  z-index: 1000;
 }
 
 .nav-menu a {
-  color: #9c9c9c;
+  color: var(--text-2);
   text-decoration: none;
-  font-size: 16px;
+  font-size: 15px;
+  letter-spacing: 0.04em;
   white-space: nowrap;
-  transition: color 0.3s ease;
+  transition: color var(--t-fast) var(--ease);
 }
 
-.nav-menu a:hover {
-  color: #40e0d0;
+.nav-menu a:not(.btn):not(.logo-link) {
+  position: relative;
 }
+
+.nav-menu a:not(.btn):not(.logo-link)::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transition: width var(--t-med) var(--ease);
+}
+
+.nav-menu a:not(.btn):not(.logo-link):hover::after { width: 100%; }
+.nav-menu a:hover { color: var(--text-1); }
+
+.logo-link { line-height: 0; }
 
 .nav-menu img {
-  height: 40px;
-  width: 40px;
-  border-radius: 10px 10px 10px 10px;
+  height: 34px;
+  width: 34px;
+  border-radius: var(--r-sm);
+  transition: opacity var(--t-fast) var(--ease);
 }
 
-.logo-link {
-  /* Assure que le lien n'a pas de styles parasites */
-  line-height: 0;
-}
+.nav-menu img:hover { opacity: 0.7; }
+
+/* ============================================= */
+/* ===     BOUTON NAV                        === */
+/* ============================================= */
 
 .btn {
-  --bg: #222222;
-  --hover-bg: #3f8e00;
-  --hover-text: #fff;
-  color: #fff;
-  border: 1px solid var(--bg);
-  border-radius: 4px;
-  padding: 0.8em 2em;
-  background: var(--bg);
-  transition: 0.2s;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--text-1);
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  padding: 7px 18px;
+  cursor: pointer;
+  transition: border-color var(--t-fast) var(--ease),
+              color var(--t-fast) var(--ease),
+              background var(--t-fast) var(--ease);
 }
 
-.nav-menu a.btn:hover {
-  color: var(--hover-text);
-  transform: translate(0.25rem, -0.25rem);
-  background: var(--hover-bg);
-  box-shadow: -0.25rem 0.25rem var(--bg);
+.nav-menu a.btn {
+  text-decoration: none;
+  padding: 7px 18px;
 }
 
-.btn:active {
-  transform: translate(0);
-  box-shadow: none;
+.nav-menu a.btn:hover,
+.btn:hover {
+  border-color: var(--text-1);
+  color: var(--bg);
+  background: var(--text-1);
 }
+
+.btn:active { transform: scale(0.97); }
+
+/* ============================================= */
+/* ===     HAMBURGER                         === */
+/* ============================================= */
 
 .hamburger {
   display: none;
   cursor: pointer;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1001;
+  padding: 4px;
 }
 
-/* NOUVEAU : Styles pour le sous-menu (dropdown) */
-.dropdown {
-  position: relative;
-  display: inline-block;
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  margin: 6px 0;
+  background: var(--text-1);
+  border-radius: 1px;
+  transition: transform var(--t-med) var(--ease),
+              opacity var(--t-fast) var(--ease);
 }
+
+.hamburger.active span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+
+/* ============================================= */
+/* ===     DROPDOWN                          === */
+/* ============================================= */
+
+.dropdown { position: relative; display: inline-block; }
 
 .dropbtn {
-  /* On reprend le style des autres liens du menu */
   background: none;
   border: none;
   cursor: pointer;
-  color: #9c9c9c;
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 16px;
+  color: var(--text-2);
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: 0.04em;
   white-space: nowrap;
-  transition: color 0.3s ease;
-  padding: 0; /* Important pour l'alignement */
-  text-decoration: none; /* Supprime le soulignement par défaut des liens */
+  transition: color var(--t-fast) var(--ease);
+  padding: 0;
 }
 
-.dropbtn:hover {
-  color: #40e0d0;
-}
+.dropbtn:hover { color: var(--text-1); }
+
 
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #222222;
-  min-width: 200px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-  border-radius: 5px;
-  padding: 10px 0;
-  /* margin-top: 10px; */ /* Supprimé pour éviter le problème de survol */
+  top: 100%;
+  left: 0;
+  padding-top: 10px;
+  min-width: 210px;
+  z-index: 10;
+}
+
+.dropdown-content-inner {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  padding: 6px;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.6);
 }
 
 .dropdown-content a {
-  color: #9c9c9c;
-  padding: 12px 16px;
+  display: block;
+  padding: 9px 14px;
+  font-size: 15px;
+  color: var(--text-2);
   text-decoration: none;
-  display: block;
+  border-radius: var(--r-sm);
+  white-space: nowrap;
+  transition: background var(--t-fast) var(--ease), color var(--t-fast) var(--ease);
 }
 
-.dropdown:hover .dropdown-content {
-  display: block;
+.dropdown-content a::after { display: none !important; }
+
+.dropdown-content a:hover {
+  background: var(--bg-hover);
+  color: var(--text-1);
 }
 
-/* --- Styles pour la section d'accueil --- */
+.dropdown:hover .dropdown-content,
+.dropdown.open .dropdown-content { display: block; }
+
+/* ============================================= */
+/* ===     SECTION ACCUEIL                   === */
+/* ============================================= */
+
 .txt-accueil {
-  display: flex; /* Active le modèle de boîte flexible */
-  flex-direction: column; /* Aligne les éléments verticalement */
-  justify-content: center; /* Centre verticalement le contenu */
-  align-items: center; /* Centre horizontalement le contenu */
-  text-align: center; /* Centre le texte à l'intérieur des éléments */
-  margin-top: 70px;
-  padding: 100px 15%; /* Garde un peu d'espace autour */
-}
-.techno {
-  display: flex; /* Active le modèle de boîte flexible */
-  flex-direction: column; /* Aligne les éléments verticalement */
-  justify-content: center; /* Centre verticalement le contenu */
-  align-items: center; /* Centre horizontalement le contenu */
-  text-align: center; /* Centre le texte à l'intérieur des éléments */
-  padding-bottom: 60px; /* Ajoute un peu d'espace en bas */
-}
-.techno h3 {
-  font-family: "Raleway", sans-serif;
-  color: #fafafa;
-  font-weight: 800;
-  font-size: 22px;
-  margin-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 140px 15% 80px;
 }
 
-/* NOUVEAU : Conteneur pour le carrousel qui masque le surplus */
+/* ============================================= */
+/* ===     TECHNOS / CARROUSEL               === */
+/* ============================================= */
+
+.techno {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-bottom: 80px;
+}
+
+.techno h3 {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-top: 0;
+  margin-bottom: 44px;
+}
+
 .logo-scroller {
-  /* Largeur par défaut pour les grands écrans (desktop), environ 7-8 logos */
-  max-width: 700px;
+  max-width: 680px;
   width: 90%;
   overflow: hidden;
-  margin: 0 auto; /* Centre le carrousel horizontalement */
-  /* Masque dégradé pour une disparition douce des logos sur les côtés */
-  -webkit-mask-image: linear-gradient(
-    to right,
-    transparent,
-    black 20%,
-    black 80%,
-    transparent
-  );
-  mask-image: linear-gradient(
-    to right,
-    transparent,
-    black 20%,
-    black 80%,
-    transparent
-  );
+  margin: 0 auto;
+  -webkit-mask-image: linear-gradient(to right, transparent, black 18%, black 82%, transparent);
+  mask-image:         linear-gradient(to right, transparent, black 18%, black 82%, transparent);
 }
 
 .techno-logos {
   display: flex;
-  white-space: nowrap; /* Empêche les logos de passer à la ligne */
-  gap: 30px; /* Espace entre les logos */
-  /* Animation */
-  animation: scroll 30s linear infinite;
-  width: max-content; /* Permet au conteneur flex de prendre la largeur nécessaire pour tous les logos */
+  white-space: nowrap;
+  gap: 44px;
+  width: max-content;
+  animation: ticker 32s linear infinite;
 }
+
+.techno-logos:hover { animation-play-state: paused; }
 
 .techno-logos img {
-  height: 60px; /* Hauteur unifiée pour les logos */
+  height: 44px;
   width: auto;
-  flex-shrink: 0; /* Empêche les images de rétrécir dans le conteneur flex */
+  flex-shrink: 0;
+  opacity: 0.3;
+  filter: grayscale(1);
+  transition: opacity var(--t-med) var(--ease),
+              filter var(--t-med) var(--ease);
 }
 
-/* NOUVEAU : Styles pour la section des projets */
-.projets-section {
-  padding: 60px 15%;
-  text-align: center;
+.techno-logos img:hover {
+  opacity: 0.9;
+  filter: grayscale(0);
 }
-.projets-section h2 {
-  font-family: "Raleway", sans-serif;
-  color: #fafafa;
-  font-weight: 800;
-  font-size: 22px;
+
+/* ============================================= */
+/* ===     SECTION PROJETS                   === */
+/* ============================================= */
+
+.projets-section {
+  padding: 80px 15%;
+}
+
+/* Titre de section — style épuré avec numéro */
+.projets-section h2,
+.section-heading {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 48px;
+  text-align: left;
 }
 
 .projets-grid {
   display: grid;
-  /* Crée une grille responsive qui s'adapte à la taille de l'écran */
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(250px, 1fr)
-  ); /* Taille minimale réduite */
-  gap: 25px; /* Espacement réduit */
-  text-align: left; /* Réinitialise l'alignement pour le contenu des cartes */
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1px;                         /* joints fins entre cartes */
+  background: var(--line);          /* la grille "transparaît" */
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  overflow: hidden;
 }
 
 .projet-card {
-  background-color: #222222;
-  border-radius: 10px;
-  padding: 30px 25px; /* 30px en haut/bas, 25px sur les côtés */
+  background: var(--bg-raised);
+  padding: 28px 24px 24px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* Aligne les éléments en haut */
-  /* aspect-ratio: 1 / 1; */ /* J'ai retiré cette ligne pour que la hauteur s'adapte au contenu */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: background var(--t-fast) var(--ease);
 }
 
 .projet-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  background: var(--bg-card);
 }
 
 .projet-card h3 {
-  margin-top: 0; /* Retire la marge du haut pour le titre de la carte */
-  margin-bottom: 15px; /* Augmente légèrement l'espace sous le titre */
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--text-1);
 }
+
 .projet-card img {
   width: 100%;
   height: auto;
-  border-radius: 8px;
-  margin-bottom: 15px;
+  border-radius: var(--r-sm);
+  margin-bottom: 14px;
+  opacity: 0.85;
+  transition: opacity var(--t-med) var(--ease);
+}
+
+.projet-card:hover img { opacity: 1; }
+
+.projet-card p {
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--text-2);
+  flex: 1;
 }
 
 .projet-link {
-  display: inline-block;
-  margin-top: 25px; /* Augmente légèrement l'espace au-dessus du lien */
-  color: #40e0d0; /* Couleur turquoise pour correspondre au survol du menu */
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 20px;
+  color: var(--accent);
   text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s ease;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: gap var(--t-fast) var(--ease), opacity var(--t-fast) var(--ease);
 }
 
-.projet-link:hover {
-  color: #ffffff;
-}
+.projet-link::after { content: '↗'; }
+.projet-link:hover  { opacity: 0.7; gap: 8px; }
 
-/* NOUVEAU : Styles pour les pages de projet détaillées */
+/* ============================================= */
+/* ===     PAGES PROJET DÉTAILLÉES           === */
+/* ============================================= */
+
 .project-page .project-intro {
   text-align: center;
-  font-size: 1.1em;
-  margin-bottom: 50px;
+  font-size: 16px;
+  line-height: 1.9;
+  color: var(--text-2);
+  max-width: 580px;
+  margin: 0 auto 56px;
 }
 
-.project-page section {
-  margin-bottom: 40px;
-}
+.project-page section { margin-bottom: 48px; }
 
-/* NOUVEAU : Ajoute une indentation pour les listes sur les pages de projet */
+.project-page p       { padding-left: 0; line-height: 1.85; }
+
 .project-page ul {
-  padding-left: 40px;
+  padding-left: 0;
+  list-style: none;
 }
 
-/* NOUVEAU : Ajoute une indentation pour les paragraphes sur les pages de projet */
-.project-page p {
-  padding-left: 40px;
+.project-page ul li {
+  position: relative;
+  padding-left: 18px;
+  color: var(--text-2);
+}
+
+.project-page ul li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--text-3);
 }
 
 .techno-list {
   display: flex;
-  gap: 15px;
+  gap: 8px;
   flex-wrap: wrap;
 }
 
 .techno-list span {
-  background-color: #222;
-  padding: 8px 15px;
-  border-radius: 20px;
-  font-size: 14px;
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--text-3);
+  padding: 5px 12px;
+  border-radius: 100px;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  transition: border-color var(--t-fast) var(--ease),
+              color var(--t-fast) var(--ease);
 }
 
-/* --- Styles pour les autres sections de contenu --- */
+.techno-list span:hover {
+  border-color: var(--text-2);
+  color: var(--text-1);
+}
+
+/* ============================================= */
+/* ===     SECTIONS GÉNÉRIQUES               === */
+/* ============================================= */
+
 .txt-git,
 .txt-profil,
 .main-container {
-  padding-top: 150px;
+  padding-top: 100px;
   padding-left: 15%;
   padding-right: 15%;
-  margin-bottom: 60px;
+  margin-bottom: 64px;
 }
 
-/* On donne un espacement plus raisonnable à la section compétences du CV */
 .txt-competences-cv {
-  padding: 0 15%; /* On garde le padding latéral */
-  margin-bottom: 80px; /* Ajoute un espace en bas de la page */
+  padding: 0 15%;
+  margin-bottom: 80px;
 }
 
-h1,
-h2,
-h3,
-h4 {
-  font-family: "Raleway", sans-serif;
-  color: #fafafa;
-  font-weight: 800;
-}
-h1 {
-  font-size: 48px;
-  margin-bottom: 20px;
-}
-h2 {
-  font-size: 32px;
-  margin-bottom: 25px;
-}
-h3 {
-  font-size: 22px;
-  margin-top: 30px;
-  margin-bottom: 15px;
-}
-h4 {
-  font-size: 20px;
-  margin-top: 25px;
-  margin-bottom: 10px;
-}
-p,
-li {
-  font-size: 18px;
-  line-height: 30px;
-}
+/* ============================================= */
+/* ===     CTA BUTTON                        === */
+/* ============================================= */
 
-/* NOUVEAU : Animation de défilement */
-@keyframes scroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%); /* Défile de la moitié de la largeur totale */
-  }
-}
-
-/* Styles de la page d'accueil (inchangés) */
 .cta-button {
-  display: inline-block;
-  padding: 14px 28px;
-  background-color: #3f8e00;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  border-radius: 20px 20px 20px 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  background: var(--green);
+  color: #fff;
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  border-radius: 100px;
   text-decoration: none;
-  box-shadow: 0 0 12px rgba(50, 205, 50, 0.5);
-  transition: all 0.3s ease;
-  margin-top: 25px;
+  border: none;
+  transition: opacity var(--t-fast) var(--ease),
+              transform var(--t-fast) var(--ease);
+  margin-top: 28px;
 }
+
 .cta-button:hover {
-  box-shadow: 0 0 18px rgba(40, 164, 40, 0.7);
+  opacity: 0.85;
   transform: translateY(-2px);
 }
+
+/* ============================================= */
+/* ===     RÉSEAUX / LOGOS SOCIAUX           === */
+/* ============================================= */
+
 .réseaux {
   padding: 0 15%;
-  margin-top: 30px;
+  margin-top: 28px;
 }
+
 .logo {
   display: flex;
-  gap: 20px;
+  gap: 14px;
   padding: 0 15%;
-  margin-top: 15px;
+  margin-top: 14px;
 }
+
 .logo img {
-  width: 32px;
+  width: 24px;
   height: auto;
-  transition: opacity 0.3s;
+  opacity: 0.3;
+  filter: grayscale(1);
+  transition: opacity var(--t-fast) var(--ease),
+              filter var(--t-fast) var(--ease),
+              transform var(--t-fast) var(--ease);
 }
+
 .logo img:hover {
-  opacity: 0.7;
+  opacity: 0.9;
+  filter: grayscale(0);
+  transform: translateY(-2px);
 }
+
+/* ============================================= */
+/* ===     ACCORDÉON COMPÉTENCES             === */
+/* ============================================= */
+
 .txt-competences-cv ul {
-  list-style-type: none;
+  list-style: none;
   padding-left: 0;
 }
-.txt-competences-cv li {
-  margin-bottom: 8px;
-}
+
+.txt-competences-cv li { margin-bottom: 10px; }
+
 .main-container h1 {
   text-align: center;
   margin-bottom: 5%;
 }
+
 details {
-  background-color: #212121;
-  border: 1px solid #333;
-  border-radius: 8px;
-  margin-bottom: 3%;
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  margin-bottom: 12px;
+  transition: border-color var(--t-fast) var(--ease);
 }
+
+details:hover {
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+details[open] {
+  border-color: var(--line-accent);
+}
+
 summary {
-  font-family: "Raleway", sans-serif;
-  font-weight: bold;
-  font-size: 1.4em;
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
   cursor: pointer;
   outline: none;
-  padding: 20px;
-  text-align: center;
-  background-color: #1b1b1b;
-  color: #ffffff;
-  border-radius: 8px;
-  transition: background-color 0.3s;
+  list-style: none;
+  padding: 20px 24px;
+  color: var(--text-2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: var(--r-md);
+  transition: color var(--t-fast) var(--ease);
 }
+
+summary::-webkit-details-marker { display: none; }
+
+summary::after {
+  content: '+';
+  color: var(--text-3);
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1;
+  transition: transform var(--t-med) var(--ease),
+              color var(--t-fast) var(--ease);
+}
+
 details[open] > summary {
-  background-color: #3f8e00;
-  border-radius: 8px 8px 0 0;
+  color: var(--text-1);
 }
+
+details[open] > summary::after {
+  transform: rotate(45deg);
+  color: var(--accent);
+}
+
 details > div {
-  padding: 25px;
-  border-top: 1px solid #333;
-  border-radius: 0 0 8px 8px;
-}
-details ul {
-  list-style-position: inside;
+  padding: 20px 24px 24px;
+  border-top: 1px solid var(--line);
 }
 
-/* ############################################### */
-/* ###         STYLES POUR PAGE CONTACT        ### */
-/* ############################################### */
+details ul { list-style-position: inside; }
 
-.contact-page {
-  text-align: center;
-}
+/* ============================================= */
+/* ===     PAGE CONTACT                      === */
+/* ============================================= */
+
+.contact-page { text-align: center; }
 
 .contact-info {
-  margin-top: 30px;
-  margin-bottom: 30px;
-  font-size: 1.1em;
+  margin: 28px 0;
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--text-2);
 }
 
 .contact-info a {
-  color: #fff;
+  color: var(--text-1);
   text-decoration: none;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 1px;
+  transition: border-color var(--t-fast) var(--ease),
+              color var(--t-fast) var(--ease);
 }
 
+.contact-info a:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
 
+/* ============================================= */
+/* ===     ICÔNES SOCIALES                   === */
+/* ============================================= */
 
-/* ############################################### */
-/* ###        STYLES POUR ICONES SOCIAUX       ### */
-/* ############################################### */
 .social-section {
   text-align: center;
   padding: 40px 15%;
@@ -476,320 +705,481 @@ details ul {
   margin-top: 20px;
   display: flex;
   justify-content: center;
-  gap: 25px;
+  gap: 12px;
 }
 
-.icon {
-  position: relative;
-}
+.icon { position: relative; }
 
 .icon a {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50px;
-  height: 50px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
-  background-color: #222;
-  color: #9c9c9c;
-  font-size: 24px;
-  transition: all 0.3s ease-in-out;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  color: var(--text-3);
+  font-size: 18px;
+  transition: border-color var(--t-fast) var(--ease),
+              color var(--t-fast) var(--ease),
+              transform var(--t-fast) var(--ease);
 }
 
 .icon a:hover {
-  transform: translateY(-5px);
-  color: #fff;
+  color: var(--text-1);
+  border-color: rgba(255,255,255,0.18);
+  transform: translateY(-3px);
 }
 
 .icon .tooltip {
   position: absolute;
-  top: -45px;
+  top: -38px;
   left: 50%;
   transform: translateX(-50%);
-  background-color: #fff;
-  color: #161513;
-  padding: 5px 10px;
-  border-radius: 5px;
-  font-size: 14px;
-  font-weight: bold;
+  background: var(--text-1);
+  color: var(--bg);
+  padding: 4px 10px;
+  border-radius: var(--r-sm);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+  transition: opacity var(--t-fast) var(--ease),
+              visibility var(--t-fast) var(--ease);
   white-space: nowrap;
+  pointer-events: none;
 }
 
-.icon a:hover .tooltip {
+.icon a:hover ~ .tooltip,
+.icon a:hover + .tooltip {
   opacity: 1;
   visibility: visible;
 }
 
+/* ============================================= */
+/* ===     FORMULAIRE CONTACT                === */
+/* ============================================= */
 
-/* ############################################### */
-/* ###       MEDIA QUERIES - RESPONSIVE        ### */
-/* ############################################### */
+.contact-form {
+  max-width: 640px;
+  width: 100%;
+  margin: 48px auto 0;
+  text-align: left;
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  padding: 36px 32px;
+  font-family: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.contact-form .form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.contact-form .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.contact-form .form-group label {
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  font-weight: 600;
+}
+
+.contact-form .form-group input,
+.contact-form .form-group textarea {
+  width: 100%;
+  padding: 11px 14px;
+  border-radius: var(--r-sm);
+  color: var(--text-1);
+  font-family: var(--mono);
+  font-size: 15px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  transition: border-color var(--t-fast) var(--ease),
+              box-shadow var(--t-fast) var(--ease);
+}
+
+.contact-form .form-group textarea {
+  resize: none;
+  height: 96px;
+}
+
+.contact-form .form-group input::placeholder,
+.contact-form .form-group textarea::placeholder {
+  color: var(--text-3);
+}
+
+.contact-form .form-group input:focus,
+.contact-form .form-group textarea:focus {
+  outline: none;
+  border-color: var(--line-accent);
+  box-shadow: 0 0 0 3px rgba(64, 224, 208, 0.07);
+}
+
+.contact-form .form-submit-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-start;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-2);
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  padding: 11px 22px;
+  gap: 8px;
+  cursor: pointer;
+  transition: border-color var(--t-fast) var(--ease),
+              color var(--t-fast) var(--ease),
+              background var(--t-fast) var(--ease);
+}
+
+.contact-form .form-submit-btn:hover {
+  border-color: var(--text-1);
+  color: var(--bg);
+  background: var(--text-1);
+}
+
+.contact-form .form-submit-btn:active { transform: scale(0.97); }
+
+/* ============================================= */
+/* ===     ANIMATION TICKER                  === */
+/* ============================================= */
+
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ============================================= */
+/* ===     RESPONSIVE                        === */
+/* ============================================= */
 
 @media (max-width: 992px) {
-  /* Ajustements pour tablette (inchangés) */
   .txt-accueil,
   .txt-git,
   .txt-profil,
   .txt-competences-cv,
   .main-container,
   .réseaux,
-  .logo {
-    padding-left: 10%;
-    padding-right: 10%;
+  .logo,
+  .projets-section {
+    padding-left: 8%;
+    padding-right: 8%;
   }
 
-  /* NOUVEAU : On réduit la taille du carrousel pour les tablettes (environ 5-6 logos) */
-  .logo-scroller {
-    max-width: 520px;
-  }
-  .projets-section {
-    padding-left: 10%;
-    padding-right: 10%;
-  }
+  .logo-scroller { max-width: 480px; }
 }
 
 @media (max-width: 768px) {
-  /* --- STYLES DU MENU HAMBURGER POUR MOBILE (AMÉLIORÉS) --- */
-
-  /* NOUVEAU : Fond grisé (overlay) */
   body.menu-open::before {
     content: "";
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    z-index: 999; /* Juste en dessous du menu */
-    transition: background-color 0.3s ease;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    z-index: 999;
   }
 
-  /* 1. On affiche l'icône hamburger */
-  .hamburger {
-    display: block;
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 1001;
-  }
-  .hamburger span {
-    display: block;
-    width: 25px;
-    height: 3px;
-    margin: 5px 0;
-    background-color: white;
-    transition: all 0.3s ease-in-out;
-  }
+  .hamburger { display: block; }
 
-  /* 2. On transforme l'icône en croix (X) quand le menu est actif */
-  .hamburger.active span:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-  }
-  .hamburger.active span:nth-child(2) {
-    opacity: 0;
-  }
-  .hamburger.active span:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-  }
-
-  /* 3. On prépare le menu en panneau latéral (MODIFIÉ) */
   .nav-menu {
     position: fixed;
     top: 0;
-    right: -100%; /* Caché complètement sur la droite */
-    /* On réinitialise les propriétés du desktop qui posent problème */
+    right: -100%;
     left: auto;
     transform: none;
-    width: 300px; /* Largeur fixe pour le panneau */
-    max-width: 80%; /* S'assure qu'il ne prend pas tout l'écran sur les petits mobiles */
-    height: 100vh; /* Toute la hauteur de l'écran */
-
-    /* Styles pour l'affichage en colonne */
-    gap: 0;
+    width: 270px;
+    max-width: 80%;
+    height: 100dvh;
     flex-direction: column;
-    background-color: #1b1b1b;
-    transition: right 0.35s ease-in-out;
-    z-index: 1000;
-    justify-content: flex-start; /* Aligne les liens en haut */
-    align-items: flex-start; /* Aligne les liens à gauche */
-    padding: 100px 40px; /* Espace en haut et à gauche */
-    border-radius: 0;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 0;
+    padding: 88px 32px;
+    background: var(--bg-raised);
+    border-left: 1px solid var(--line);
+    backdrop-filter: none;
+    transition: right var(--t-med) var(--ease);
   }
 
-  /* NOUVEAU : Gestion du logo sur mobile */
+  .nav-menu.active { right: 0; }
+
   .logo-link {
     position: fixed;
-    top: 20px; /* Même hauteur que le hamburger */
-    left: 50%; /* Centré horizontalement */
-    transform: translateX(-50%); /* Ajustement précis du centrage */
-    z-index: 1002; /* Au-dessus de tout */
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1002;
   }
 
   .nav-menu a {
-    margin: 16px 0;
-    font-size: 22px; /* Taille de police légèrement réduite */
-    white-space: normal; /* Permet au texte de passer à la ligne si besoin */
+    display: block;
+    margin: 14px 0;
+    font-size: 16px;
   }
 
-  /* 4. On fait apparaître le menu (MODIFIÉ) */
-  .nav-menu.active {
-    right: 0; /* Le menu glisse jusqu'au bord droit */
-  }
-
-  /* 5. Ajustements du contenu de la page (inchangés) */
   .txt-accueil,
   .txt-git,
   .txt-profil,
   .projets-section,
   .txt-competences-cv,
   .main-container {
-    padding-top: 100px;
+    padding-top: 80px;
     padding-left: 5%;
     padding-right: 5%;
   }
-  h1 {
-    font-size: 36px; /* Taille réduite pour les écrans mobiles */
-  }
-  h2 {
-    font-size: 28px;
-  }
-  p,
-  li {
-    font-size: 16px;
-  }
-}
 
-/* NOUVEAU : Ajustements spécifiques pour le défilement des logos sur les petits écrans */
-@media (max-width: 768px) {
-  .logo-scroller {
-    /* Réduit la largeur pour afficher environ 4 logos sur mobile */
-    max-width: 240px;
+  h1 { font-size: 32px; }
+  h2 { font-size: 26px; }
+  p, li { font-size: 15px; }
+
+  .logo-scroller   { max-width: 220px; }
+  .techno-logos    { gap: 24px; animation-duration: 20s; }
+  .techno-logos img { height: 34px; }
+
+  .projets-grid {
+    grid-template-columns: 1fr;
+    gap: 1px;
   }
 
-  .techno-logos {
-    gap: 20px; /* Réduit l'espace entre les logos */
-    animation-duration: 20s; /* Accélère l'animation sur mobile */
-  }
+  .projet-card { aspect-ratio: unset; }
 
-  .techno-logos img {
-    height: 40px; /* Réduit la taille des logos */
-  }
+  .contact-form { padding: 24px 18px; }
 
-  /* La carte n'est plus carrée sur mobile pour mieux afficher le contenu */
-  .projet-card {
-    aspect-ratio: unset;
-  }
-
-  /* NOUVEAU : Ajustement du formulaire de contact sur mobile */
   .contact-form .form-submit-btn {
-    width: 100%; /* Le bouton prend toute la largeur */
-    justify-content: center; /* Centre le texte du bouton */
+    width: 100%;
+    justify-content: center;
   }
 }
 
-.contact-form {
-  max-width: 700px; /* Largeur maximale */
-  width: 100%; /* Prend toute la largeur disponible */
-  margin: 40px auto 0;
-  text-align: left;
-  background: linear-gradient(#212121, #212121) padding-box,
-              linear-gradient(145deg, transparent 35%,#e81cff, #40c9ff) border-box;
-  border: 2px solid transparent;
-  padding: 32px 24px;
-  font-size: 14px;
-  font-family: inherit;
-  color: white;
+/* ============================================= */
+/* ===     FOOTER                            === */
+/* ============================================= */
+
+.site-footer {
+  margin-top: 80px;
+  border-top: 1px solid var(--line);
+  padding: 48px 15% 32px;
+}
+
+.footer-inner {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: start;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+/* Colonne gauche — identité */
+.footer-brand p {
+  font-size: 13px;
+  line-height: 1.75;
+  color: var(--text-3);
+  margin-top: 10px;
+  max-width: 220px;
+}
+
+.footer-brand-name {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 16px;
+  color: var(--text-1);
+  letter-spacing: -0.01em;
+}
+
+/* Colonne centre — navigation */
+.footer-nav {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  box-sizing: border-box;
-  border-radius: 16px;
+  align-items: center;
+  gap: 10px;
 }
 
-.contact-form button:active {
-  scale: 0.95;
+.footer-nav a {
+  font-size: 13px;
+  color: var(--text-3);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  transition: color var(--t-fast) var(--ease);
 }
 
-.contact-form .form {
+.footer-nav a:hover {
+  color: var(--text-1);
+}
+
+/* Colonne droite — contact & réseaux */
+.footer-contact {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  align-items: flex-end;
+  gap: 10px;
 }
 
-.contact-form .form-group {
+.footer-contact a {
+  font-size: 13px;
+  color: var(--text-3);
+  text-decoration: none;
+  transition: color var(--t-fast) var(--ease);
+}
+
+.footer-contact a:hover {
+  color: var(--accent);
+}
+
+.footer-socials {
   display: flex;
-  flex-direction: column;
-  gap: 2px;
+  gap: 12px;
+  margin-top: 6px;
 }
 
-.contact-form .form-group label {
-  display: block;
-  margin-bottom: 5px;
-  color: #717171;
-  font-weight: 600;
-  font-size: 12px;
-}
-
-.contact-form .form-group input {
-  width: 100%;
-  padding: 12px 16px;
-  border-radius: 8px;
-  color: #fff;
-  font-family: inherit;
-  background-color: transparent;
-  border: 1px solid #414141;
-}
-
-.contact-form .form-group textarea {
-  width: 100%;
-  padding: 12px 16px;
-  border-radius: 8px;
-  resize: none;
-  color: #fff;
-  height: 96px;
-  border: 1px solid #414141;
-  background-color: transparent;
-  font-family: inherit;
-}
-
-.contact-form .form-group input::placeholder {
-  opacity: 0.5;
-}
-
-.contact-form .form-group input:focus {
-  outline: none;
-  border-color: #e81cff;
-}
-
-.contact-form .form-group textarea:focus {
-  outline: none;
-  border-color: #e81cff;
-}
-
-.contact-form .form-submit-btn {
+.footer-socials a {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
-  align-self: flex-start;
-  font-family: inherit;
-  color: #717171;
-  font-weight: 600;
-  width: 40%;
-  background: #313131;
-  border: 1px solid #414141;
-  padding: 12px 16px;
-  font-size: inherit;
-  gap: 8px;
-  margin-top: 8px;
-  cursor: pointer;
-  border-radius: 6px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  color: var(--text-3);
+  transition: border-color var(--t-fast) var(--ease),
+              color var(--t-fast) var(--ease);
 }
 
-.contact-form .form-submit-btn:hover {
-  background-color: #fff;
-  border-color: #fff;
+.footer-socials a:hover {
+  color: var(--text-1);
+  border-color: rgba(255,255,255,0.18);
+}
+
+/* Barre du bas */
+.footer-bottom {
+  border-top: 1px solid var(--line);
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-bottom p {
+  font-size: 11px;
+  color: var(--text-3);
+  letter-spacing: 0.06em;
+}
+
+.footer-bottom span {
+  font-size: 11px;
+  color: var(--text-3);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Responsive footer */
+@media (max-width: 768px) {
+  .site-footer {
+    padding: 40px 5% 24px;
+  }
+
+  .footer-inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    text-align: center;
+  }
+
+  .footer-brand p {
+    max-width: 100%;
+  }
+
+  .footer-contact {
+    align-items: center;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+}
+
+/* ============================================= */
+/* ===     LIEN ACTIF NAVBAR                 === */
+/* ============================================= */
+
+.nav-menu a.nav-active {
+  color: var(--text-1);
+}
+
+.nav-menu a.nav-active:not(.btn):not(.logo-link)::after {
+  width: 100%;
+}
+
+.dropdown.nav-active .dropbtn {
+  color: var(--text-1);
+}
+
+/* ============================================= */
+/* ===     ANIMATIONS D'ENTRÉE AU SCROLL     === */
+/* ============================================= */
+
+
+
+/* ============================================= */
+/* ===     TRANSITION ENTRE PAGES            === */
+/* ============================================= */
+
+
+
+/* ============================================= */
+/* ===     CODE INLINE                       === */
+/* ============================================= */
+
+code {
+  font-family: var(--mono);
+  font-size: 0.88em;
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  color: var(--accent);
+  padding: 2px 7px;
+  border-radius: var(--r-sm);
+  letter-spacing: 0.02em;
+}
+
+/* ============================================= */
+/* ===     UTILITAIRES                       === */
+/* ============================================= */
+
+.text-center { text-align: center; }
+
+.page-intro {
+  text-align: center;
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--text-2);
+  max-width: 640px;
+  margin: 0 auto 48px;
+}
+
+.section-note {
+  margin-top: 20px;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.cta-wrap {
+  text-align: center;
+  margin-bottom: 40px;
 }

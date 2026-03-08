@@ -1,106 +1,91 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <link rel="stylesheet" href="../styles.css" />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Consultez le CV de Youssef Lahrour, développeur en formation BTS SIO SLAM. Compétences en Python, Java, PHP, SQL, gestion de projet et cybersécurité."
-    />
-    <link rel="icon" type="image/webp" href="../image/logo-portfolio.webp" />
-    <title>CV de Youssef Lahrour - Développeur SLAM</title>
-  </head>
-
-  <body>
-    <header>
-      <div class="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
+<head>
+  <link rel="stylesheet" href="../styles.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Consultez le CV de Youssef Lahrour, développeur en formation BTS SIO SLAM." />
+  <link rel="icon" type="image/webp" href="../image/logo-portfolio.webp" />
+  <title>CV de Youssef Lahrour - Développeur SLAM</title>
+</head>
+<body>
+  <header>
+    <div class="hamburger"><span></span><span></span><span></span></div>
+    <nav class="nav-menu">
+      <a href="../index.html" class="logo-link">
+        <img src="../image/logo-portfolio.webp" alt="Logo Youssef Lahrour" />
+      </a>
+      <a href="CV.html">CV</a>
+      <div class="dropdown">
+        <a href="Projets.html" class="dropbtn">Projets</a>
+        <div class="dropdown-content">
+          <div class="dropdown-content-inner">
+            <a href="ProjetGestionVersionGit.html">Projet Git</a>
+            <a href="Dunewave.html">Dunewave – Locaboard</a>
+            <a href="Stage.html">Stage 1ère année</a>
+            <a href="Stage2.html">Stage 2ème année</a>
+          </div>
+        </div>
       </div>
+      <a href="Stage.html">Stages</a>
+      <a href="Veille.html">Veille</a>
+      <a href="Competence.html">Compétences</a>
+      <a href="Contact.html" class="btn">Me contacter</a>
+    </nav>
+  </header>
 
-      <nav class="nav-menu">
-        <a href="../index.html" class="logo-link">
-          <img
-            src="../image/logo-portfolio.webp"
-            alt="Logo de Youssef Lahrour, développeur"
-          />
-        </a>
-        <a href="CV.html">CV</a>
-        <a href="Projets.html">Projets</a>
-        <a href="Stage.html">Stages</a>
-        <a href="Veille.html">Veille</a>
-        <a href="Competence.html">Compétences</a>
-        <a href="Contact.html" class="btn">Me contacter</a>
-      </nav>
-    </header>
-    <section class="txt-profil">
-      <h2>Mon Profil</h2>
-      <p>
-        Étudiant en BTS SIO option SLAM (2°année) à la recherche de stage de 7 semaines dans
-        le développement informatique à partir du 5 janvier au 13 février , possédant une forte motivation et
-        une capacité à s'adapter rapidement et prêt à apprendre
-      </p>
-    </section>
+  <section class="txt-profil">
+    <h2>Mon Profil</h2>
+    <p>Étudiant en BTS SIO option SLAM (2ème année) à la recherche d'un stage de 7 semaines dans le développement informatique à partir du 5 janvier au 13 février, possédant une forte motivation et une capacité à s'adapter rapidement.</p>
+  </section>
 
-    <div style="text-align: center; margin-bottom: 40px">
-      <a href="../documents/CV.pdf" class="cta-button" target="_blank"
-        >Voir Mon CV</a
-      >
-    </div>
+  <div class="cta-wrap">
+    <a href="../documents/CV.pdf" class="cta-button" target="_blank">Voir Mon CV</a>
+  </div>
 
-    <section class="txt-competences-cv">
-      <h2>Mes Compétences</h2>
-      <h3>Développement</h3>
-      <nav class="nav-comp">
-        <ul>
-          <li>Langages : Python, Java, Javascript, HTML, CSS, PHP, SQL</li>
-          <li>Bases de données : MySQL ,SQL , NoSQL</li>
-          <li>
-            Web : CMS (WordPress), référencement SEO, création de sites
-            dynamiques
-          </li>
-        </ul>
-      </nav>
-      <h3>Frameworks</h3>
-      <nav class="nav-comp">
-        <ul>
-          <li>Android</li>
-          <li>Symfony</li>
-        </ul>
-      </nav>
-      <h3>Gestion de projets</h3>
-      <nav class="nav-comp">
-        <ul>
-          <li>GIT</li>
-          <li>Bases en organisation et suivi de projet</li>
-          <li>Travail en équipe, documentation technique</li>
-        </ul>
-      </nav>
-      <h3>Analyse</h3>
-      <nav class="nav-comp">
-        <ul>
-          <li>UML</li>
-          <li>MERISE</li>
-        </ul>
-      </nav>
-      <h3>Systèmes & Réseaux</h3>
-      <nav class="nav-comp">
-        <ul>
-          <li>Installation et paramétrage d’OS (Windows, Linux)</li>
-          <li>Commandes DOS & UNIX, scripts, SSH, FTP, serveur web</li>
-          <li>Administration réseaux : adressage IP</li>
-        </ul>
-      </nav>
-      <h3>Cybersécurité</h3>
-      <nav class="nav-comp">
-        <ul>
-          <li>Bonnes pratiques (loi, RGPD, CNIL)</li>
-          <li>Sécurisation d’un SI, sauvegarde et gestion des accès</li>
-        </ul>
-      </nav>
-    </section>
-    <script src="../script.js"></script>
-  </body>
+  <section class="txt-competences-cv">
+    <h2>Mes Compétences</h2>
+
+    <h3>Développement</h3>
+    <ul>
+      <li>Langages : Python, Java, Javascript, HTML, CSS, PHP, SQL</li>
+      <li>Bases de données : MySQL, SQL, NoSQL</li>
+      <li>Web : CMS (WordPress), référencement SEO, création de sites dynamiques</li>
+    </ul>
+
+    <h3>Frameworks</h3>
+    <ul>
+      <li>Android</li>
+      <li>Symfony</li>
+    </ul>
+
+    <h3>Gestion de projets</h3>
+    <ul>
+      <li>GIT</li>
+      <li>Bases en organisation et suivi de projet</li>
+      <li>Travail en équipe, documentation technique</li>
+    </ul>
+
+    <h3>Analyse</h3>
+    <ul>
+      <li>UML</li>
+      <li>MERISE</li>
+    </ul>
+
+    <h3>Systèmes & Réseaux</h3>
+    <ul>
+      <li>Installation et paramétrage d'OS (Windows, Linux)</li>
+      <li>Commandes DOS & UNIX, scripts, SSH, FTP, serveur web</li>
+      <li>Administration réseaux : adressage IP</li>
+    </ul>
+
+    <h3>Cybersécurité</h3>
+    <ul>
+      <li>Bonnes pratiques (loi, RGPD, CNIL)</li>
+      <li>Sécurisation d'un SI, sauvegarde et gestion des accès</li>
+    </ul>
+  </section>
+
+  <script src="../script.js"></script>
+</body>
 </html>

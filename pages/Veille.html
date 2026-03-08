@@ -1,62 +1,53 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <link rel="stylesheet" href="../styles.css" />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Consultez la veille technologique de Youssef Lahrour, étudiant en BTS SIO, sur des sujets comme VSCode et GitHub Copilot. Analyse des tendances et outils du développement."
-    />
-    <link rel="icon" type="image/webp" href="../image/logo-portfolio.webp" />
-    <title>Veille Technologique de Youssef Lahrour - BTS SIO</title>
-  </head>
-
-  <body>
-    <header>
-      <div class="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-
-      <nav class="nav-menu">
-        <a href="../index.html" class="logo-link">
-          <img
-            src="../image/logo-portfolio.webp"
-            alt="Logo de Youssef Lahrour, développeur"
-          />
-        </a>
-        <a href="CV.html">CV</a>
-        <a href="Projets.html">Projets</a>
-        <a href="Stage.html">Stages</a>
-        <a href="Veille.html">Veille</a>
-        <a href="Competence.html">Compétences</a>
-        <a href="Contact.html" class="btn">Me contacter</a>
-      </nav>
-    </header>
-    <div class="main-container">
-      <h1>Ma Veille Technologique</h1>
-      <p style="text-align: center; margin-bottom: 40px">
-        Ici, je documente mes activités de veille technologique, essentielles
-        pour rester à jour sur les évolutions du secteur du numérique. Chaque
-        article synthétise un sujet, les outils utilisés pour la recherche et
-        les compétences que j'ai pu développer.
-      </p>
-      <div class="projets-grid">
-        <div class="projet-card">
-          <h3>Veille Technologique — 1ʳᵉ année de BTS SIO</h3>
-          <p>
-            Une veille portant sur Visual Studio Code et GitHub Copilot, deux
-            outils devenus incontournables pour les développeurs.
-          </p>
-          <a href="Veille-VSCode-Copilot.html" class="projet-link"
-            >En savoir plus</a
-          >
+<head>
+  <link rel="stylesheet" href="../styles.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Veille technologique de Youssef Lahrour, étudiant en BTS SIO, sur VSCode et GitHub Copilot." />
+  <link rel="icon" type="image/webp" href="../image/logo-portfolio.webp" />
+  <title>Veille Technologique de Youssef Lahrour - BTS SIO</title>
+</head>
+<body>
+  <header>
+    <div class="hamburger"><span></span><span></span><span></span></div>
+    <nav class="nav-menu">
+      <a href="../index.html" class="logo-link">
+        <img src="../image/logo-portfolio.webp" alt="Logo Youssef Lahrour" />
+      </a>
+      <a href="CV.html">CV</a>
+      <div class="dropdown">
+        <a href="Projets.html" class="dropbtn">Projets</a>
+        <div class="dropdown-content">
+          <div class="dropdown-content-inner">
+            <a href="ProjetGestionVersionGit.html">Projet Git</a>
+            <a href="Dunewave.html">Dunewave – Locaboard</a>
+            <a href="Stage.html">Stage 1ère année</a>
+            <a href="Stage2.html">Stage 2ème année</a>
+          </div>
         </div>
-        <!-- Vous pourrez ajouter la carte pour la veille de 2ème année ici -->
+      </div>
+      <a href="Stage.html">Stages</a>
+      <a href="Veille.html">Veille</a>
+      <a href="Competence.html">Compétences</a>
+      <a href="Contact.html" class="btn">Me contacter</a>
+    </nav>
+  </header>
+
+  <div class="main-container">
+    <h1>Ma Veille Technologique</h1>
+    <p class="page-intro">
+      Ici, je documente mes activités de veille technologique, essentielles pour rester à jour sur les évolutions du secteur du numérique. Chaque article synthétise un sujet, les outils utilisés pour la recherche et les compétences que j'ai pu développer.
+    </p>
+    <div class="projets-grid">
+      <div class="projet-card">
+        <h3>Veille Technologique — 1ʳᵉ année de BTS SIO</h3>
+        <p>Une veille portant sur Visual Studio Code et GitHub Copilot, deux outils devenus incontournables pour les développeurs.</p>
+        <a href="Veille-VSCode-Copilot.html" class="projet-link">En savoir plus</a>
       </div>
     </div>
-    <script src="../script.js"></script>
-  </body>
+  </div>
+
+  <script src="../script.js"></script>
+</body>
 </html>

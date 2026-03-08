@@ -1,117 +1,79 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <link rel="stylesheet" href="../styles.css" />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Découvrez Dunewave - Locaboard, un projet de plateforme de location de planches de surf réalisé par Youssef Lahrour en BTS SIO, utilisant HTML, CSS, JavaScript."
-    />
-    <link rel="icon" type="image/webp" href="../image/logo-portfolio.webp" />
-    <title>Projet Dunewave - Locaboard par Youssef Lahrour</title>
-  </head>
-
-  <body>
-    <header>
-      <div class="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-
-      <nav class="nav-menu">
-        <a href="../index.html" class="logo-link">
-          <img
-            src="../image/logo-portfolio.webp"
-            alt="Logo de Youssef Lahrour, développeur"
-          />
-        </a>
-        <a href="CV.html">CV</a>
-        <a href="Projets.html">Projets</a>
-        <a href="Stage.html">Stages</a>
-        <a href="Veille.html">Veille</a>
-        <a href="Competence.html">Compétences</a>
-        <a href="Contact.html" class="btn">Me contacter</a>
-      </nav>
-    </header>
-
-    <div class="main-container project-page">
-      <h1>Dunewave - Locaboard</h1>
-      <p class="project-intro">
-        Une plateforme web pour la location de planches de surf, réalisée en
-        début de formation pour maîtriser les bases du développement web et de
-        la gestion de projet.
-      </p>
-
-      <section>
-        <h2>Contexte et Objectifs</h2>
-        <p>
-          Ce projet a été notre première expérience de travail en groupe de
-          trois en début d'année. L'objectif principal était double : d'une
-          part, mettre en pratique nos connaissances en HTML, CSS et JavaScript,
-          et d'autre part, apprendre à utiliser des outils de gestion de projet
-          essentiels comme <strong>Git</strong> pour le versioning et
-          <strong>Kanban</strong> pour le suivi des tâches. Mon rôle s'est
-          principalement concentré sur le développement front-end.
-        </p>
-      </section>
-
-      <section>
-        <h2>Technologies Utilisées</h2>
-        <div class="techno-list">
-          <span>HTML</span>
-          <span>CSS</span>
-          <span>JavaScript</span>
+<head>
+  <link rel="stylesheet" href="../styles.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Dunewave – Locaboard, projet de plateforme de location de planches de surf par Youssef Lahrour." />
+  <link rel="icon" type="image/webp" href="../image/logo-portfolio.webp" />
+  <title>Projet Dunewave – Locaboard – Youssef Lahrour</title>
+</head>
+<body>
+  <header>
+    <div class="hamburger"><span></span><span></span><span></span></div>
+    <nav class="nav-menu">
+      <a href="../index.html" class="logo-link">
+        <img src="../image/logo-portfolio.webp" alt="Logo Youssef Lahrour" />
+      </a>
+      <a href="CV.html">CV</a>
+      <div class="dropdown">
+        <a href="Projets.html" class="dropbtn">Projets</a>
+        <div class="dropdown-content">
+          <div class="dropdown-content-inner">
+            <a href="ProjetGestionVersionGit.html">Projet Git</a>
+            <a href="Dunewave.html">Dunewave – Locaboard</a>
+            <a href="Stage.html">Stage 1ère année</a>
+            <a href="Stage2.html">Stage 2ème année</a>
+          </div>
         </div>
-      </section>
+      </div>
+      <a href="Stage.html">Stages</a>
+      <a href="Veille.html">Veille</a>
+      <a href="Competence.html">Compétences</a>
+      <a href="Contact.html" class="btn">Me contacter</a>
+    </nav>
+  </header>
 
-      <section>
-        <h2>Fonctionnalités Clés</h2>
-        <ul>
-          <li>
-            <strong>Catalogue de planches :</strong> Affichage des produits avec
-            des filtres de recherche.
-          </li>
-          <li>
-            <strong>Calendrier de réservation :</strong> Interface pour
-            sélectionner les dates de location.
-          </li>
-          <li>
-            <strong>Panier et simulation de paiement :</strong> Processus de
-            commande simulé.
-          </li>
-          <li>
-            <strong>Système d'authentification :</strong> Concept d'un espace
-            utilisateur (non fonctionnel en back-end).
-          </li>
-        </ul>
-      </section>
+  <div class="main-container project-page">
+    <h1>Dunewave – Locaboard</h1>
+    <p class="project-intro">Une plateforme web pour la location de planches de surf, réalisée en début de formation pour maîtriser les bases du développement web et de la gestion de projet.</p>
 
-      <section>
-        <h2>Défis et Apprentissages</h2>
-        <p>
-          Le principal défi de ce projet a été l'organisation du travail en
-          équipe. Apprendre à se répartir les tâches efficacement et à
-          communiquer pour avancer rapidement a été un apprentissage majeur. Ce
-          fut une excellente introduction à la collaboration en environnement de
-          développement.
-        </p>
-      </section>
+    <section>
+      <h2>Contexte et Objectifs</h2>
+      <p>Ce projet a été notre première expérience de travail en groupe de trois en début d'année. L'objectif principal était double : d'une part, mettre en pratique nos connaissances en HTML, CSS et JavaScript, et d'autre part, apprendre à utiliser des outils de gestion de projet essentiels comme <strong>Git</strong> pour le versioning et <strong>Kanban</strong> pour le suivi des tâches. Mon rôle s'est principalement concentré sur le développement front-end.</p>
+    </section>
 
-      <section class="project-links">
-        <a href="https://dune-wave.vercel.app/" class="projet-link"
-          >Lien vers le site web</a
-        ><br />
-        <a
-          href="https://github.com/vasin-oleksii/DuneWave"
-          class="projet-link"
-          target="_blank"
-          >Voir le code sur GitHub</a
-        >
-      </section>
-    </div>
+    <section>
+      <h2>Technologies Utilisées</h2>
+      <div class="techno-list">
+        <span>HTML</span>
+        <span>CSS</span>
+        <span>JavaScript</span>
+      </div>
+    </section>
 
-    <script src="../script.js"></script>
-  </body>
+    <section>
+      <h2>Fonctionnalités Clés</h2>
+      <ul>
+        <li><strong>Catalogue de planches :</strong> Affichage des produits avec des filtres de recherche.</li>
+        <li><strong>Calendrier de réservation :</strong> Interface pour sélectionner les dates de location.</li>
+        <li><strong>Panier et simulation de paiement :</strong> Processus de commande simulé.</li>
+        <li><strong>Système d'authentification :</strong> Concept d'un espace utilisateur (non fonctionnel en back-end).</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Défis et Apprentissages</h2>
+      <p>Le principal défi de ce projet a été l'organisation du travail en équipe. Apprendre à se répartir les tâches efficacement et à communiquer pour avancer rapidement a été un apprentissage majeur. Ce fut une excellente introduction à la collaboration en environnement de développement.</p>
+    </section>
+
+    <section class="project-links">
+      <a href="https://dune-wave.vercel.app/" class="projet-link" target="_blank">Voir le site web</a>
+      <br />
+      <a href="https://github.com/vasin-oleksii/DuneWave" class="projet-link" target="_blank">Voir le code sur GitHub</a>
+    </section>
+  </div>
+
+  <script src="../script.js"></script>
+</body>
 </html>
