@@ -57,7 +57,7 @@ document.addEventListener('click', (e) => {
   });
 
   // Marquer "Projets" si on est sur une page projet ou stage
-  const projectPages = ['ProjetGestionVersionGit.html','Dunewave.html','Stage.html','Stage2.html','Projets.html'];
+  const projectPages = ['ProjetGestionVersionGit.html','Dunewave.html','Stages.html','Projets.html'];
   if (projectPages.includes(currentFile)) {
     const dropbtn = navMenu.querySelector('.dropbtn');
     if (dropbtn) dropbtn.classList.add('nav-active');
@@ -68,7 +68,7 @@ document.addEventListener('click', (e) => {
 const footerLinks = [
   { label: 'CV',          href: 'pages/CV.html'         },
   { label: 'Projets',     href: 'pages/Projets.html'    },
-  { label: 'Stages',      href: 'pages/Stage.html'      },
+  { label: 'Stages',      href: 'pages/Stages.html'     },
   { label: 'Veille',      href: 'pages/Veille.html'     },
   { label: 'Compétences', href: 'pages/Competence.html' },
   { label: 'Contact',     href: 'pages/Contact.html'    },
