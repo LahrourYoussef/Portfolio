@@ -3,23 +3,23 @@
 /* ============================================= */
 
 :root {
-  --bg:          #0f0f0e;
-  --bg-raised:   #161614;
-  --bg-card:     #1c1c1a;
-  --bg-hover:    #242422;
+  --bg:          #edf1f8;
+  --bg-raised:   #ffffff;
+  --bg-card:     #f4f7fc;
+  --bg-hover:    #e6ecf6;
 
-  --text-1:      #ffffff;   /* titres h2/h3/h4 — blanc pur */
-  --text-2:      #e8e5e0;   /* corps — blanc cassé doux */  
-  --text-3:      #5a5855;   /* placeholders, labels */
+  --text-1:      #071428;   /* titres — navy quasi-noir */
+  --text-2:      #1e3256;   /* corps — bleu foncé lisible */
+  --text-3:      #6478a0;   /* placeholders, labels */
 
-  --accent:      #f0a500;           /* ambre chaud */
-  --accent-dim:  rgba(240, 165, 0, 0.12);
-  --green:       #4a9e00;
+  --accent:      #0f3d8c;           /* bleu navy profond */
+  --accent-dim:  rgba(15, 61, 140, 0.10);
+  --green:       #1a7a4a;
 
-  --gradient-h1: linear-gradient(135deg, #ffffff 30%, #f0a500 100%);
+  --gradient-h1: linear-gradient(135deg, #071428 30%, #0f3d8c 100%);
 
-  --line:        rgba(255, 255, 255, 0.08);
-  --line-accent: rgba(240, 165, 0, 0.28);
+  --line:        rgba(15, 61, 140, 0.14);
+  --line-accent: rgba(15, 61, 140, 0.36);
 
   --r-sm:  5px;
   --r-md:  10px;
@@ -62,12 +62,12 @@ body.menu-open {
 
 ::selection {
   background: var(--accent);
-  color: var(--bg);
+  color: #ffffff;
 }
 
 ::-webkit-scrollbar       { width: 3px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: var(--bg-card); border-radius: 2px; }
+::-webkit-scrollbar-thumb { background: #c2ceea; border-radius: 2px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--text-3); }
 
 /* ============================================= */
@@ -81,41 +81,37 @@ h1, h2, h3, h4 {
   letter-spacing: -0.02em;
 }
 
-/* H1 — blanc pur, gras, maximum de contraste */
 h1 {
   font-size: clamp(38px, 5.5vw, 60px);
   margin-bottom: 20px;
-  color: #ffffff;
+  color: #071428;
 }
 
-/* H2 — blanc pur, très contrasté */
 h2 {
   font-size: clamp(28px, 3.5vw, 40px);
   margin-bottom: 24px;
-  color: #ffffff;
+  color: #071428;
 }
 
-/* H3 — blanc légèrement teinté, nettement distinct du corps */
 h3 {
   font-size: 22px;
   margin-top: 28px;
   margin-bottom: 12px;
-  color: #e2dfd9;
+  color: #0f2040;
 }
 
-/* H4 — un cran en dessous, accent subtil */
 h4 {
   font-size: 18px;
   margin-top: 20px;
   margin-bottom: 8px;
-  color: #c8c5bf;
+  color: #1e3256;
   font-weight: 700;
 }
 
 p, li {
   font-size: 16px;
   line-height: 1.85;
-  color: var(--text-2); /* gris clair — clairement distinct des titres */
+  color: var(--text-2);
 }
 
 .label {
@@ -183,7 +179,7 @@ header {
   align-items: center;
   justify-content: center;
   gap: 36px;
-  background: rgba(15, 15, 14, 0.88);
+  background: rgba(237, 241, 248, 0.94);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--line);
@@ -236,9 +232,9 @@ header {
   font-family: var(--mono);
   font-size: 12px;
   letter-spacing: 0.08em;
-  color: var(--text-1);
+  color: var(--accent);
   background: transparent;
-  border: 1px solid var(--line);
+  border: 1px solid var(--line-accent);
   border-radius: var(--r-sm);
   padding: 7px 18px;
   cursor: pointer;
@@ -254,9 +250,9 @@ header {
 
 .nav-menu a.btn:hover,
 .btn:hover {
-  border-color: var(--text-1);
-  color: var(--bg);
-  background: var(--text-1);
+  border-color: var(--accent);
+  color: #ffffff;
+  background: var(--accent);
 }
 
 .btn:active { transform: scale(0.97); }
@@ -322,11 +318,11 @@ header {
 }
 
 .dropdown-content-inner {
-  background: var(--bg-card);
+  background: var(--bg-raised);
   border: 1px solid var(--line);
   border-radius: var(--r-md);
   padding: 6px;
-  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 20px 48px rgba(15, 61, 140, 0.12);
 }
 
 .dropdown-content a {
@@ -344,7 +340,7 @@ header {
 
 .dropdown-content a:hover {
   background: var(--bg-hover);
-  color: var(--text-1);
+  color: var(--accent);
 }
 
 .dropdown:hover .dropdown-content,
@@ -403,13 +399,12 @@ header {
   animation: ticker 32s linear infinite;
 }
 
-.techno-logos:hover { animation-play-state: paused; }
 
 .techno-logos img {
   height: 44px;
   width: auto;
   flex-shrink: 0;
-  opacity: 0.7;
+  opacity: 0.55;
   filter: none;
   transition: opacity var(--t-med) var(--ease);
 }
@@ -477,7 +472,7 @@ header {
   height: auto;
   border-radius: var(--r-sm);
   margin-bottom: 14px;
-  opacity: 0.85;
+  opacity: 0.9;
   transition: opacity var(--t-med) var(--ease);
 }
 
@@ -559,8 +554,8 @@ header {
 }
 
 .techno-list span:hover {
-  border-color: var(--text-2);
-  color: var(--text-1);
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 /* ============================================= */
@@ -627,7 +622,7 @@ header {
 .logo img {
   width: 24px;
   height: auto;
-  opacity: 0.6;
+  opacity: 0.5;
   filter: none;
   transition: opacity var(--t-fast) var(--ease),
               transform var(--t-fast) var(--ease);
@@ -664,7 +659,7 @@ details {
 }
 
 details:hover {
-  border-color: rgba(255, 255, 255, 0.14);
+  border-color: rgba(15, 61, 140, 0.24);
 }
 
 details[open] {
@@ -731,17 +726,17 @@ details ul { list-style-position: inside; }
 }
 
 .contact-info a {
-  color: var(--text-1);
+  color: var(--accent);
   text-decoration: none;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--line-accent);
   padding-bottom: 1px;
   transition: border-color var(--t-fast) var(--ease),
               color var(--t-fast) var(--ease);
 }
 
 .contact-info a:hover {
-  color: var(--accent);
-  border-color: var(--accent);
+  color: var(--text-1);
+  border-color: var(--text-1);
 }
 
 /* ============================================= */
@@ -772,7 +767,7 @@ details ul { list-style-position: inside; }
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: var(--bg-card);
+  background: var(--bg-raised);
   border: 1px solid var(--line);
   color: var(--text-2);
   font-size: 18px;
@@ -782,8 +777,8 @@ details ul { list-style-position: inside; }
 }
 
 .icon a:hover {
-  color: var(--text-1);
-  border-color: rgba(255,255,255,0.22);
+  color: var(--accent);
+  border-color: var(--line-accent);
   transform: translateY(-3px);
 }
 
@@ -793,7 +788,7 @@ details ul { list-style-position: inside; }
   left: 50%;
   transform: translateX(-50%);
   background: var(--text-1);
-  color: var(--bg);
+  color: #ffffff;
   padding: 4px 10px;
   border-radius: var(--r-sm);
   font-size: 11px;
@@ -880,7 +875,7 @@ details ul { list-style-position: inside; }
 .contact-form .form-group textarea:focus {
   outline: none;
   border-color: var(--line-accent);
-  box-shadow: 0 0 0 3px rgba(240, 165, 0, 0.08);
+  box-shadow: 0 0 0 3px rgba(15, 61, 140, 0.10);
 }
 
 .contact-form .form-submit-btn {
@@ -893,9 +888,9 @@ details ul { list-style-position: inside; }
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--text-2);
+  color: var(--accent);
   background: transparent;
-  border: 1px solid var(--line);
+  border: 1px solid var(--line-accent);
   border-radius: var(--r-sm);
   padding: 11px 22px;
   gap: 8px;
@@ -906,9 +901,9 @@ details ul { list-style-position: inside; }
 }
 
 .contact-form .form-submit-btn:hover {
-  border-color: var(--text-1);
-  color: var(--bg);
-  background: var(--text-1);
+  border-color: var(--accent);
+  color: #ffffff;
+  background: var(--accent);
 }
 
 .contact-form .form-submit-btn:active { transform: scale(0.97); }
@@ -929,7 +924,7 @@ details ul { list-style-position: inside; }
 code {
   font-family: var(--mono);
   font-size: 0.88em;
-  background: var(--bg-card);
+  background: #dce6f5;
   border: 1px solid var(--line);
   color: var(--accent);
   padding: 2px 7px;
@@ -962,7 +957,7 @@ code {
     content: "";
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.65);
+    background: rgba(7, 20, 40, 0.45);
     z-index: 999;
   }
 
@@ -1088,7 +1083,7 @@ code {
 }
 
 .footer-nav a:hover {
-  color: var(--text-1);
+  color: var(--accent);
 }
 
 .footer-contact {
@@ -1129,8 +1124,8 @@ code {
 }
 
 .footer-socials a:hover {
-  color: var(--text-1);
-  border-color: rgba(255,255,255,0.22);
+  color: var(--accent);
+  border-color: var(--line-accent);
 }
 
 .footer-bottom {
@@ -1143,13 +1138,13 @@ code {
 
 .footer-bottom p {
   font-size: 11px;
-  color: var(--text-2);
+  color: var(--text-3);
   letter-spacing: 0.06em;
 }
 
 .footer-bottom span {
   font-size: 11px;
-  color: var(--text-2);
+  color: var(--text-3);
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
@@ -1185,7 +1180,7 @@ code {
 /* ============================================= */
 
 .nav-menu a.nav-active {
-  color: var(--text-1);
+  color: var(--accent);
 }
 
 .nav-menu a.nav-active:not(.btn):not(.logo-link)::after {
@@ -1193,7 +1188,7 @@ code {
 }
 
 .dropdown.nav-active .dropbtn {
-  color: var(--text-1);
+  color: var(--accent);
 }
 
 /* ============================================= */
@@ -1202,142 +1197,228 @@ code {
 
 .text-center { text-align: center; }
 
-
-
 .page-intro {
-
   text-align: center;
-
   font-size: 15px;
-
   line-height: 1.8;
-
   color: var(--text-2);
-
   max-width: 640px;
-
   margin: 0 auto 48px;
-
 }
-
-
-
-
-
-
 
 .stages-grid {
-
-
-
   display: flex;
-
-
-
   justify-content: center;
-
-
-
   gap: 1px;
-
-
-
   flex-wrap: wrap;
-
-
-
   background: var(--line);
-
-
-
   border: 1px solid var(--line);
-
-
-
   border-radius: var(--r-md);
-
-
-
   overflow: hidden;
-
-
-
 }
-
-
-
-
-
-
 
 .veilles-grid {
-
-
-
   display: flex;
-
-
-
   justify-content: center;
-
-
-
   gap: 1px;
-
-
-
   flex-wrap: wrap;
-
-
-
   background: var(--line);
-
-
-
   border: 1px solid var(--line);
-
-
-
   border-radius: var(--r-md);
-
-
-
   overflow: hidden;
-
-
-
 }
-
-
-
-
-
-
 
 .section-note {
-
-
-
   margin-top: 20px;
-
-
-
   font-size: 15px;
-
-
-
   line-height: 1.8;
-
-
-
 }
 
-
-
 .cta-wrap {
-
   text-align: center;
-
   margin-bottom: 40px;
+}
+/* ============================================= */
+/* ===     SCROLLER HINT BAR                 === */
+/* ============================================= */
+.scroller-bar {
+  position: relative;
+  width: 120px;
+  height: 4px;
+  background: var(--line);
+  border-radius: 100px;
+  margin: 20px auto 0;
+  cursor: pointer;
+}
 
+.scroller-thumb {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 10px;
+  background: var(--accent);
+  border-radius: 100px;
+  cursor: grab;
+  transition: background var(--t-fast) var(--ease),
+              height var(--t-fast) var(--ease);
+}
+
+.scroller-thumb:hover,
+.scroller-thumb:active {
+  background: var(--text-1);
+  height: 14px;
+  cursor: grabbing;
+}
+/* === FILE TREE CUSTOM === */
+.file-tree-container {
+  background: var(--bg-raised);
+  border: 1px solid var(--line-accent);
+  border-radius: var(--r-md);
+  box-shadow: 0 10px 40px rgba(15, 61, 140, 0.08);
+  margin: 40px auto;
+  max-width: 800px; /* Pour éviter qu'il soit trop large */
+  overflow: hidden;
+  display: block !important; /* On s'assure qu'il est visible */
+  opacity: 1 !important;
+}
+
+.file-tree-header {
+  background: var(--bg-card);
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tree-body {
+  padding: 20px;
+  font-family: var(--mono);
+  font-size: 14px;
+  /* ICI : On force la couleur de texte pour qu'elle ne soit pas blanche */
+  color: var(--text-1) !important; 
+  text-align: left;
+}
+
+.tree-node {
+  margin-bottom: 2px;
+}
+
+.node-label {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: var(--r-sm);
+  transition: background var(--t-fast) var(--ease);
+  /* On force la visibilité ici aussi */
+  color: var(--text-1) !important;
+}
+
+.node-label:hover {
+  background: var(--bg-hover);
+  color: var(--accent) !important;
+}
+
+.node-content {
+  margin-left: 22px;
+  border-left: 1px solid var(--line-accent);
+  padding-left: 12px;
+  /* On garde display: block pour le moment pour que tu puisses voir le résultat */
+  display: block; 
+}
+
+/* Cache le contenu si le dossier n'a pas la classe .open */
+.tree-node.folder:not(.open) > .node-content {
+  display: none;
+}
+
+.icon {
+  margin-right: 10px;
+  width: 20px;
+  display: inline-block;
+  text-align: center;
+  font-style: normal;
+}
+
+/* Couleurs spécifiques pour que ce soit "beau" */
+.php-file { color: #777bb3 !important; font-weight: 600; }
+.js-file  { color: #b9a700 !important; font-weight: 600; }
+.sql-file { color: var(--green) !important; }
+
+/* ============================================= */
+/* ===  STYLISATION DES IMAGES DE PROJET (V2) === */
+/* ============================================= */
+
+/* Style par défaut pour UNE image seule dans une section */
+.project-page section img {
+  /* --- RÉDUCTION DE TAILLE ICI --- */
+  max-width: 60%;      /* L'image prend au max 60% de la largeur du texte */
+  max-height: 400px;   /* On limite aussi la hauteur pour qu'elle ne soit pas géante */
+  width: auto;         /* Garde les proportions */
+  height: auto;
+  /* ------------------------------- */
+
+  border-radius: var(--r-md);
+  border: 1px solid var(--line);
+  box-shadow: 0 8px 25px rgba(15, 61, 140, 0.06);
+  margin: 25px auto;   /* Centre l'image horizontalement */
+  display: block;      /* Obligatoire pour le centrage auto */
+  transition: transform var(--t-med) var(--ease), box-shadow var(--t-med) var(--ease);
+}
+
+/* Effet au survol léger */
+.project-page section img:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(15, 61, 140, 0.1);
+}
+
+/* === Gestion du Côte à Côte (Flexbox) === */
+/* On cible les sections qui contiennent PLUS d'une image */
+.project-page section:has(img + img),
+.project-page section:has(img + p + img) {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center; /* Centre le groupe d'images */
+  gap: 20px;           /* Espace entre les images */
+  align-items: center; /* Aligne le centre des images verticalement */
+  margin: 25px auto;
+}
+
+/* Force les images en côte à côte à prendre un peu moins de la moitié */
+.project-page section:has(img + img) img,
+.project-page section:has(img + p + img) img {
+  /* --- TAILLE PLUS PETITE EN CÔTE À CÔTE --- */
+  flex: 0 1 calc(45% - 10px); /* Prend 45% de la largeur max */
+  max-width: calc(45% - 10px);
+  max-height: 300px;   /* Hauteur encore plus réduite ici */
+  /* ------------------------------------------ */
+  margin: 0;           /* Enlève le margin auto pour le flex */
+}
+
+/* === RESPONSIVE (Mobile) === */
+@media (max-width: 768px) {
+  /* Image seule sur mobile : on la grossit un peu pour la lisibilité */
+  .project-page section img {
+    max-width: 90%;
+    max-height: 350px;
+  }
+
+  /* Images côte à côte sur mobile : l'une sous l'autre */
+  .project-page section:has(img + img),
+  .project-page section:has(img + p + img) {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .project-page section:has(img + img) img,
+  .project-page section:has(img + p + img) img {
+    flex: 1 1 100%;
+    max-width: 90%; /* Prend presque toute la largeur sur mobile */
+    max-height: 300px;
+    margin: 10px auto;
+  }
 }

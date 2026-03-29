@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <link rel="stylesheet" href="../styles.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Projet Billetterie du Fâ de Youssef Lahrour – BTS SIO." />
+  <link rel="icon" type="image/webp" href="../image/logo-portfolio.webp" />
+  <title>Billetterie du Fâ – Youssef Lahrour</title>
+</head>
+<body>
+  <header>
+    <div class="hamburger"><span></span><span></span><span></span></div>
+    <nav class="nav-menu">
+      <a href="../index.html" class="logo-link">
+        <img src="../image/logo-portfolio.webp" alt="Logo Youssef Lahrour" />
+      </a>
+      <a href="CV.html">CV</a>
+      <div class="dropdown">
+        <a href="Projets.html" class="dropbtn">Projets</a>
+        <div class="dropdown-content">
+          <div class="dropdown-content-inner">
+            <a href="ProjetGestionVersionGit.html">Projet Git</a>
+            <a href="Dunewave.html">Dunewave – Locaboard</a>
+            <a href="Billetterie-Fa.html">Billetterie du Fâ</a>
+          </div>
+        </div>
+      </div>
+      <a href="Stages.html">Stages</a>
+      <a href="Veille.html">Veille</a>
+      <a href="Competence.html">Compétences</a>
+      <a href="Contact.html" class="btn">Me contacter</a>
+    </nav>
+  </header>
+
+  <div class="main-container project-page">
+    <h1>Billetterie du Fâ — PHP/MVC</h1>
+
+    <p class="project-intro">
+      Application complète de réservation de billets pour le site archéologique du Fâ (Barzan),
+      développée en PHP 8 sans framework avec une architecture MVC, une base de données MySQL
+      et une génération de factures PDF dynamiques.
+    </p>
+
+    <section>
+      <h2>1. Contexte & Besoin</h2>
+      <p>
+        Le site archéologique du Fâ fait face à une forte affluence estivale. L'objectif était
+        de concevoir une application web pour fluidifier la gestion des entrées en permettant
+        la réservation en ligne. Le projet a été réalisé en méthode SCRUM, avec PHP 8 sans
+        framework et une architecture MVC imposée.
+      </p>
+    </section>
+
+    <section>
+      <h2>2. Architecture & Choix Techniques</h2>
+      <ul>
+        <li><strong>Langage :</strong> PHP 8 avec typage fort et attributs.</li>
+        <li><strong>Architecture :</strong> MVC (Modèle-Vue-Contrôleur) pour séparer la logique et l'affichage.</li>
+        <li><strong>Accès Données :</strong> Pattern DAO avec PDO pour sécuriser les requêtes SQL.</li>
+        <li><strong>Sécurité :</strong> Hashage des mots de passe, protection XSS et injection SQL.</li>
+      </ul>
+      <div class="file-tree-container fade-up visible">
+        <div class="file-tree-header">
+          <div class="dot red"></div>
+          <div class="dot yellow"></div>
+          <div class="dot green"></div>
+          <span class="tree-title">Explorateur de Projet</span>
+        </div>
+        <div class="tree-body">
+          
+          <div class="tree-node folder">
+            <div class="node-label"><span class="icon">📂</span> .devcontainer</div>
+            <div class="node-content">
+              <div class="node-label"><span class="icon">🐳</span> Dockerfile</div>
+              <div class="node-label"><span class="icon">⚙️</span> devcontainer.json</div>
+            </div>
+          </div>
+      
+          <div class="tree-node folder">
+            <div class="node-label"><span class="icon">📂</span> database</div>
+            <div class="node-content">
+              <div class="tree-node folder">
+                <div class="node-label"><span class="icon">📂</span> scripts</div>
+                <div class="node-content">
+                  <div class="node-label"><span class="icon">📄</span> initBDD.sh</div>
+                  <div class="node-label"><span class="icon">📄</span> reloadBDD.sh</div>
+                  <div class="node-label"><span class="icon">📄</span> saveBDD.sh</div>
+                </div>
+              </div>
+              <div class="tree-node folder">
+                <div class="node-label"><span class="icon">📂</span> sources-sql</div>
+                <div class="node-content">
+                  <div class="node-label sql-file"><span class="icon">🗄️</span> init-BDD.sql</div>
+                  <div class="node-label sql-file"><span class="icon">🗄️</span> tp_sio2_bdjourneeintegration.sql</div>
+                </div>
+              </div>
+            </div>
+          </div>
+      
+          <div class="tree-node folder">
+            <div class="node-label"><span class="icon">📂</span> documentation</div>
+            <div class="node-content">
+              <div class="tree-node folder"><div class="node-label"><span class="icon">📂</span> css</div></div>
+              <div class="tree-node folder"><div class="node-label"><span class="icon">📂</span> files</div></div>
+              <div class="node-label html-file"><span class="icon">🌐</span> index.html</div>
+            </div>
+          </div>
+      
+          <div class="tree-node folder open">
+            <div class="node-label"><span class="icon">📂</span> site</div>
+            <div class="node-content">
+              <div class="tree-node folder">
+                <div class="node-label"><span class="icon">📂</span> JS</div>
+                <div class="node-content">
+                  <div class="node-label js-file"><span class="icon">📄</span> reservation.js</div>
+                  <div class="node-label js-file"><span class="icon">📄</span> script.js</div>
+                </div>
+              </div>
+              <div class="tree-node folder">
+                <div class="node-label"><span class="icon">📂</span> controleurs</div>
+                <div class="node-content">
+                  <div class="node-label php-file"><span class="icon">🐘</span> gestionCompetences.php</div>
+                  <div class="node-label php-file"><span class="icon">🐘</span> gestionDeveloppeurs.php</div>
+                </div>
+              </div>
+              <div class="tree-node folder">
+                <div class="node-label"><span class="icon">📂</span> modeles</div>
+                <div class="node-content">
+                  <div class="node-label php-file"><span class="icon">🐘</span> BaseDAO.php</div>
+                  <div class="node-label"><span class="icon">⚙️</span> developpeur.json</div>
+                </div>
+              </div>
+              <div class="tree-node folder">
+                <div class="node-label"><span class="icon">📂</span> vues</div>
+                <div class="node-content">
+                  <div class="node-label html-file"><span class="icon">🌐</span> accueil.html</div>
+                  <div class="node-label php-file"><span class="icon">🐘</span> reservation.php</div>
+                </div>
+              </div>
+              <div class="node-label php-file"><span class="icon">🐘</span> index.php</div>
+            </div>
+          </div>
+      
+          <div class="node-label php-file"><span class="icon">🐘</span> PHPINTRANET.php</div>
+          <div class="node-label"><span class="icon">📝</span> README.md</div>
+          <div class="node-label"><span class="icon">📕</span> documentation.pdf</div>
+          <div class="node-label"><span class="icon">📄</span> start.sh</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>3. Formulaire de Réservation</h2>
+      <p>
+        Formulaire dynamique permettant de choisir le type de visite et la quantité de billets
+        par catégorie (Adulte, Réduit, Enfant). Le total se met à jour en temps réel côté client.
+        Les informations personnelles (nom, prénom, email, téléphone) sont validées avant envoi,
+        avec au moins un contact obligatoire.
+      </p>
+      <img src="../image/formulaire-reservation.png" alt="Formulaire de Réservation">
+    </section>
+
+    <section>
+      <h2>4. Validation & Enregistrement</h2>
+      <p>
+        Côté back-end, le contrôleur prend en charge la validation des entrées, l'insertion en
+        base de données via la couche DAO et la gestion des transactions SQL pour garantir
+        l'intégrité des données.
+      </p>
+      <img src="../image/FonctionReservation.png" alt="Fonction de Reservation">
+    </section>
+
+    <section>
+      <h2>5. Confirmation & Facture PDF</h2>
+      <p>
+        Une fois la commande validée, l'utilisateur reçoit un récapitulatif complet et peut
+        télécharger sa facture générée dynamiquement grâce à la librairie FPDF.
+      </p>
+      <img src="../image/confirmation.png" alt="Confirmation ">
+      <img src="../image/factureReserv.png" alt="Facture de Reservation">
+    </section>
+
+    <section>
+      <h2>Technologies utilisées</h2>
+      <div class="techno-list">
+        <span>PHP 8</span>
+        <span>MySQL</span>
+        <span>MVC</span>
+        <span>DAO</span>
+        <span>PDO</span>
+        <span>FPDF</span>
+        <span>Git</span>
+        <span>Scrum</span>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="../script.js"></script>
+</body>
+</html>
