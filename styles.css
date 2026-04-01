@@ -530,6 +530,18 @@ header {
 
 .project-page section { margin-bottom: 48px; }
 .project-page p       { padding-left: 0; line-height: 1.85; }
+.project-page .project-image {
+  max-width: 100%;
+  max-height: 50%;
+  width: auto;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+  border-radius: var(--r-md);
+  border: 1px solid var(--line);
+  box-shadow: 0 8px 25px rgba(15, 61, 140, 0.06);
+  margin: 25px auto;
+}
 
 .project-page ul {
   padding-left: 0;
@@ -570,6 +582,120 @@ header {
 .techno-list span:hover {
   border-color: var(--accent);
   color: var(--accent);
+}
+/* Structure de base */
+.feature-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  margin-bottom: 5rem;
+}
+
+.feature-text {
+  flex: 1;
+  text-align: left; /* Le texte reste TOUJOURS aligné à gauche */
+}
+
+.feature-image {
+  flex: 0 0 400px;
+}
+
+/* --- L'ALTERNANCE SANS TOUCHER AU TEXTE --- */
+
+/* Sur chaque deuxième bloc (pair) */
+.feature-item:nth-child(even) .feature-image {
+  order: -1; /* L'image passe à gauche du texte */
+}
+
+.feature-item:nth-child(even) .feature-text {
+  order: 1; /* Le texte passe à droite de l'image, mais reste écrit vers la gauche */
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 900px) {
+  .feature-item, .feature-item:nth-child(even) {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .feature-text, .feature-item:nth-child(even) .feature-text {
+    text-align: center;
+    order: 0; /* On remet l'ordre normal sur mobile */
+  }
+
+  .feature-image, .feature-item:nth-child(even) .feature-image {
+    order: 0;
+    width: 100%;
+  }
+}/* On cache l'image de base */
+.lb-next {
+  background-image: none !important;
+}
+
+/* On crée une nouvelle flèche en texte/CSS */
+.lb-next:after {
+  content: '❯'; /* Symbole de flèche */
+  color: #007bff; /* TA COULEUR ICI */
+  font-size: 40px;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.lb-prev {
+  background-image: none !important;
+}
+
+.lb-prev:before {
+  content: '❮';
+  color: #007bff; /* TA COULEUR ICI */
+  font-size: 40px;
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+/* Le conteneur qui aligne les deux blocs */
+.comparison-container {
+  display: flex;
+  gap: 20px; /* Espace entre les deux images */
+  justify-content: center;
+  align-items: flex-start;
+  margin: 30px 0;
+}
+
+/* Chaque bloc (Texte + Image) */
+.comparison-item {
+  flex: 1; /* Les deux colonnes prennent la même largeur */
+  text-align: center; /* Centre le texte "Avant/Après" */
+}
+
+.comparison-item p {
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: var(--text-main); /* Ou ta couleur de texte */
+}
+
+/* Style de l'image */
+.project-image-site {
+  width: 100%; /* L'image prend toute la largeur de sa colonne */
+  max-width: 500px; /* Empêche l'image de devenir géante */
+  height: auto;
+  border-radius: var(--r-md);
+  border: 1px solid var(--line);
+  box-shadow: 0 8px 25px rgba(15, 61, 140, 0.06);
+  display: block;
+  margin: 0 auto;
+}
+
+/* Optionnel : Empiler les images sur mobile */
+@media (max-width: 768px) {
+  .comparison-container {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 /* ============================================= */

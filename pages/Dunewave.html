@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet" />
+
+
   <link rel="stylesheet" href="../styles.css" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -35,11 +38,15 @@
 
   <div class="main-container project-page">
     <h1>Dunewave – Locaboard</h1>
-    <p class="project-intro">Une plateforme web pour la location de planches de surf, réalisée en début de formation pour maîtriser les bases du développement web et de la gestion de projet.</p>
+    <img src="../image/Dunewave.png"  class="project-image" alt="Dunewave – Locaboard">
+    <p class="project-intro">Dune Wave : L'expérience e-commerce dédiée au surf. Un projet full-front conçu pour allier performance 
+      visuelle et gestion fluide de catalogue.</p>
 
     <section>
       <h2>Contexte et Objectifs</h2>
-      <p>Ce projet a été notre première expérience de travail en groupe de trois en début d'année. L'objectif principal était double : d'une part, mettre en pratique nos connaissances en HTML, CSS et JavaScript, et d'autre part, apprendre à utiliser des outils de gestion de projet essentiels comme <strong>Git</strong> pour le versioning et <strong>Kanban</strong> pour le suivi des tâches. Mon rôle s'est principalement concentré sur le développement front-end.</p>
+      <p>Ce projet a été l'occasion de consolider nos fondamentaux en développement web. L'objectif principal était de concevoir une interface 
+        e-commerce complète, en passant de la maquette à l'intégration, tout en respectant les standards du HTML  et du CSS  
+        . C'était aussi notre première immersion dans la collaboration technique via Git et la gestion de projet avec Kanban.</p>
     </section>
 
     <section>
@@ -53,11 +60,34 @@
 
     <section>
       <h2>Fonctionnalités Clés</h2>
-      <ul>
-        <li><strong>Catalogue de planches :</strong> Affichage des produits avec des filtres de recherche.</li>
-        <li><strong>Calendrier de réservation :</strong> Interface pour sélectionner les dates de location.</li>
-        <li><strong>Panier et simulation de paiement :</strong> Processus de commande simulé.</li>
-        <li><strong>Système d'authentification :</strong> Concept d'un espace utilisateur (non fonctionnel en back-end).</li>
+      <div class="features-container"> <div class="feature-item">
+          <div class="feature-text">
+              <h3>Catalogue de planches</h3>
+              <p>Affichage des produits avec des filtres de recherche pour une navigation fluide.</p>
+          </div>
+          <div class="feature-image">
+              <a href="../image/produitFiltre.webp" data-lightbox="dunewave-gallery" data-title="Filtres du catalogue">
+                  <img src="../image/produitFiltre.webp" alt="Catalogue">
+              </a>
+          </div>
+        </div>
+    
+        <div class="feature-item">
+          <div class="feature-text">
+              <h3>Calendrier de réservation</h3>
+              <p>Module de réservation intuitive pour une sélection précise des créneaux de location.</p>
+          </div>
+          <div class="feature-image">
+              <a href="../image/produitReservation.webp" data-lightbox="dunewave-gallery" data-title="Interface de réservation">
+                  <img src="../image/produitReservation.webp" alt="Calendrier de réservation">
+              </a>
+          </div>
+        </div>
+    
+      </div>
+        
+        <li><strong>Panier et simulation de paiement :</strong> <br>Tunnel d'achat optimisé avec simulation de paiement sécurisé.</li>
+        <li><strong>Système d'authentification :</strong> <br>Interface utilisateur dynamique permettant la gestion du profil et de l'historique.</li>
       </ul>
     </section>
 
@@ -72,7 +102,16 @@
       <a href="https://github.com/vasin-oleksii/DuneWave" class="projet-link" target="_blank">Voir le code sur GitHub</a>
     </section>
   </div>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
   <script src="../script.js"></script>
+  <script>
+    lightbox.option({
+      'resizeDuration': 100,    // Vitesse du redimensionnement de la boîte (en ms)
+      'fadeDuration': 100,      // Vitesse d'apparition de l'image (en ms)
+      'imageFadeDuration': 100, // Vitesse de transition entre deux images
+      'wrapAround': true        // Permet de boucler sur la galerie
+    })
+  </script>
 </body>
 </html>

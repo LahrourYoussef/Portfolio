@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="../styles.css" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -34,12 +35,32 @@
   </header>
 
   <div class="main-container project-page">
-    <h1>Refonte d'un site WordPress</h1>
+    <h1>Modernisation de l'identité numérique d'un cabinet comptable</h1>
+    <div class="comparison-container">
+      <div class="comparison-item">
+        <p>Avant</p>
+        <a href="../image/ancienSite.png" data-lightbox="stage1-gallery" data-title="Ancien site">
+          <img src="../image/ancienSite.png" class="project-image-site" alt="Ancien site">
+        </a>
+      </div>
+      
+      <div class="comparison-item">
+        <p>Après</p>
+        <a href="../image/nouveauSite.png" data-lightbox="stage1-gallery" data-title="Nouveau site">
+          <img src="../image/nouveauSite.png" class="project-image-site" alt="Nouveau site">
+        </a>
+      </div>
+    </div>
 
     <section>
       <h2>Présentation de l'entreprise et contexte du stage</h2>
-      <p>L'entreprise d'accueil est une structure spécialisée dans le développement web et les solutions digitales. Elle propose à ses clients des services allant de la création de sites vitrine à des prestations techniques plus complexes telles que le déploiement de CMS, le référencement SEO ou l'audit de performances.</p>
-      <p>Le besoin exprimé par le client, un expert-comptable, était de remettre au goût du jour son site Internet. Son ancien site souffrait d'un design daté, d'une mauvaise lisibilité mobile et d'un manque d'organisation dans les contenus. C'est dans ce contexte que mon tuteur m'a confié la mission principale : proposer une maquette moderne sur Figma, faire valider les choix visuels avec le client, puis procéder à l'intégration sous WordPress.</p>
+      <p>L'entreprise d'accueil est une structure spécialisée dans le développement web et les solutions digitales.
+         Elle propose à ses clients des services allant de la création de sites vitrine à des prestations techniques plus complexes 
+         telles que le déploiement de CMS, le référencement SEO ou l'audit de performances.</p>
+      <p>Le besoin exprimé par le client, un expert-comptable, était de remettre au goût du jour son site Internet. 
+        Son ancien site souffrait d'un design daté, d'une mauvaise lisibilité mobile et d'un manque d'organisation dans les contenus. 
+        C'est dans ce contexte que j'ai été chargé de piloter la refonte complète du site, de la conception UI sur Figma à l'intégration 
+        finale sous WordPress.</p>
     </section>
 
     <section>
@@ -76,20 +97,18 @@
 
     <section>
       <h2>Compétences acquises</h2>
-      <h3>Compétences techniques</h3>
-      <ul>
-        <li>Conception d'interfaces graphiques sur Figma</li>
-        <li>Intégration et personnalisation de sites sous WordPress</li>
-        <li>Utilisation de plugins essentiels (SEO, formulaire, etc.)</li>
-        <li>Réalisation de sites responsive et fonctionnels</li>
-      </ul>
-      <h3>Compétences transversales</h3>
-      <ul>
-        <li>Autonomie de travail et gestion des priorités</li>
-        <li>Communication professionnelle avec un supérieur</li>
-        <li>Adaptation aux besoins et retours d'un client</li>
-        <li>Respect des délais et rigueur dans les livrables</li>
-      </ul>
+      <h3>Design & UX : </h3> 
+      <p>Conception de maquettes haute fidélité</p>
+      <a href="../image/maquetteFigma.png" data-lightbox="stage1-gallery" data-title="Maquette Figma">
+        <img src="../image/maquetteFigma.png" class="project-image-site" alt="Maquette Figma">
+      </a>
+      
+      <h3>Développement : </h3>
+      <p>Intégration sur mesure avec Elementor et optimisation SEO (Yoast SEO) .</p>
+        <a href="../image/wordpressPages.png" data-lightbox="stage1-gallery" data-title="Pages WordPress">
+        <img src="../image/wordpressPages.png" class="project-image-site" alt="Pages WordPress">
+      </a>
+      
     </section>
 
     <section>
@@ -103,11 +122,23 @@
 
     <section>
       <h2>Bilan du stage</h2>
-      <p>Ce stage a été une expérience très enrichissante, tant sur le plan technique que personnel. Mis en situation réelle avec la responsabilité de la satisfaction d'un client, j'ai appris à travailler en autonomie, à prendre des initiatives et à m'auto-former.</p>
-      <p>Cette mission m'a conforté dans mon orientation vers le développement web et la gestion de projets clients. Cette expérience sera un atout pour la suite de mon parcours.</p>
+      <p>Cette mission a validé ma capacité à gérer un projet client de A à Z, en respectant des exigences de design et de performance.</p>
+      <p></p>
     </section>
   </div>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+  
   <script src="../script.js"></script>
+  <script>
+    lightbox.option({
+      'resizeDuration': 100,
+      'fadeDuration': 100,
+      'imageFadeDuration': 100,
+      'wrapAround': true
+    })
+  </script>
 </body>
 </html>
