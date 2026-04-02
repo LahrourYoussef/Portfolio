@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="../styles.css" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -35,6 +36,9 @@
 
   <div class="main-container project-page">
     <h1>Billetterie du Fâ — PHP/MVC</h1>
+    <a href="../image/FA.png" data-lightbox="billetterie-fa-gallery" data-title="Billetterie du Fâ">
+      <img src="../image/FA.png" class="project-image-FA" alt="Billetterie du Fâ">
+    </a>
 
     <p class="project-intro">
       Application complète de réservation de billets pour le site archéologique du Fâ (Barzan),
@@ -158,7 +162,9 @@
         Les informations personnelles (nom, prénom, email, téléphone) sont validées avant envoi,
         avec au moins un contact obligatoire.
       </p>
-      <img src="../image/formulaire-reservation.png" alt="Formulaire de Réservation">
+      <a href="../image/formulaire-reservation.png" data-lightbox="billetterie-fa-gallery" data-title="Formulaire de Réservation">
+        <img src="../image/formulaire-reservation.png" class="project-image-FA" alt="Formulaire de Réservation">
+    </a>
     </section>
 
     <section>
@@ -168,7 +174,9 @@
         base de données via la couche DAO et la gestion des transactions SQL pour garantir
         l'intégrité des données.
       </p>
-      <img src="../image/FonctionReservation.png" alt="Fonction de Reservation">
+      <a href="../image/FonctionReservation.png" data-lightbox="billetterie-fa-gallery" data-title="Fonction de Reservation">
+        <img src="../image/FonctionReservation.png" class="project-image-FA" alt="Fonction de Reservation">
+      </a>
     </section>
 
     <section>
@@ -177,8 +185,11 @@
         Une fois la commande validée, l'utilisateur reçoit un récapitulatif complet et peut
         télécharger sa facture générée dynamiquement grâce à la librairie FPDF.
       </p>
-      <img src="../image/confirmation.png" alt="Confirmation ">
-      <img src="../image/factureReserv.png" alt="Facture de Reservation">
+      <a href="../image/confirmation.png" data-lightbox="billetterie-fa-gallery" data-title="Confirmation ">
+        <img src="../image/confirmation.png" class="project-image-FA" alt="Confirmation ">
+      </a>
+        <a href="../image/factureReserv.png" data-lightbox="billetterie-fa-gallery" data-title="Facture de Reservation">
+        <img src="../image/factureReserv.png" alt="Facture de Reservation"></a>
     </section>
 
     <section>
@@ -198,5 +209,15 @@
   </div>
 
   <script src="../script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+  <script>
+    lightbox.option({
+      'resizeDuration': 100,
+      'fadeDuration': 100,
+      'imageFadeDuration': 100,
+      'wrapAround': true
+    })
+  </script>
 </body>
 </html>
