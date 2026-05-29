@@ -1,12 +1,61 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <link rel="stylesheet" href="../styles.css" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Stage 2ème année de Youssef Lahrour : site dynamique avec Click & Collect pour la Boucherie Agadir." />
   <link rel="icon" type="image/webp" href="../image/logo-portfolio.webp" />
   <title>Stage 2ème Année – Boucherie Agadir – Youssef Lahrour</title>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <!-- Lightbox CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet" />
+  <!-- Styles personnalisés -->
+  <link rel="stylesheet" href="../styles.css" />
+
+  <style>
+    .stage-img-full {
+      text-align: center;
+      margin: 1.5rem 0;
+    }
+    .stage-img-full img {
+      max-width: 450px;
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      cursor: pointer;
+    }
+    .stage-img-caption {
+      font-size: 0.8rem;
+      color: var(--text-3);
+      margin-top: 0.5rem;
+    }
+    .stage-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .stage-gallery-item {
+      flex: 1;
+      min-width: 200px;
+      max-width: 320px;
+      text-align: center;
+    }
+    .stage-gallery-item img {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      cursor: pointer;
+    }
+    .stage-gallery-caption {
+      font-size: 0.75rem;
+      color: var(--text-3);
+      margin-top: 0.3rem;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -21,6 +70,7 @@
         <div class="dropdown-content">
           <div class="dropdown-content-inner">
             <a href="ProjetGestionVersionGit.html">Projet Git</a>
+            <a href="TP_GLPI.html">TP GLPI</a>
             <a href="Dunewave.html">Dunewave – Locaboard</a>
             <a href="Billetterie-Fa.html">Billetterie du Fâ</a>
           </div>
@@ -35,47 +85,139 @@
 
   <div class="main-container project-page">
     <h1>Stage 2ème Année – Boucherie Agadir</h1>
+
+    <!-- ========== PHOTO BOUTIQUE ========== -->
+    <div class="stage-img-full">
+      <a href="../image/boucherie-agadir.png" data-lightbox="stage-boucherie" data-title="Boucherie Agadir – Mourenx">
+        <img src="../image/boucherie-agadir.png" alt="Boucherie Agadir" />
+      </a>
+      <p class="stage-img-caption"><i class="fas fa-store"></i> Boucherie Agadir – Mourenx</p>
+    </div>
+
     <p class="project-intro">
-      Stage de 6 semaines au sein de la Boucherie Agadir à Mourenx, réalisé en binôme. Développement d'une solution web complète incluant une gestion de catalogue produits, un système de promotions, un panier et un Click & Collect.
+      Stage de 6 semaines au sein de la Boucherie Agadir à Mourenx, réalisé en binôme. Développement d'une solution web complète incluant un catalogue produits, des promotions, un panier et un système de Click & Collect.
     </p>
 
+    <!-- ========== PRÉSENTATION ========== -->
     <section>
       <h2>Présentation et Contexte</h2>
-      <p>La Boucherie Agadir souhaitait moderniser son activité en se dotant d'un outil numérique permettant à ses clients de consulter les produits disponibles, de profiter de promotions en ligne et de passer commande à distance via un système de Click & Collect. L'objectif était de proposer une expérience client fluide, depuis la navigation dans le catalogue jusqu'à la validation de la commande.</p>
-      <p>J'ai travaillé en binôme sur ce projet. Mon camarade a pris en charge la mise en place de l'environnement Docker ainsi que la partie back-end en PHP, tandis que je me suis concentré sur la conception de la base de données, l'intégration front-end et la réalisation des maquettes Figma.</p>
+      <p>La Boucherie Agadir souhaitait moderniser son activité avec un outil numérique permettant à ses clients de consulter les produits, profiter de promotions et passer commande à distance. L'objectif : une expérience fluide, du catalogue jusqu'à la validation.</p>
+      <p>J'ai travaillé en binôme : mon camarade a pris en charge l'environnement Docker et le back-end PHP, je me suis concentré sur la base de données, l'intégration front-end et les maquettes Figma.</p>
     </section>
 
+    <!-- ========== FONCTIONNALITÉS ========== -->
     <section>
       <h2>Fonctionnalités du site</h2>
-      <p>Le site développé va bien au-delà d'un simple site vitrine. Il intègre un ensemble de fonctionnalités pensées pour répondre aux besoins concrets d'une boucherie :</p>
       <ul>
-        <li><strong>Gestion du catalogue produits :</strong> L'administrateur peut ajouter, modifier et supprimer ses propres produits directement depuis une interface dédiée, sans aucune compétence technique requise.</li>
-        <li><strong>Système de promotions :</strong> Possibilité de créer des offres promotionnelles sur des produits spécifiques, affichées automatiquement sur le site côté client.</li>
-        <li><strong>Panier dynamique :</strong> Les clients peuvent ajouter des articles à leur panier, modifier les quantités et visualiser le récapitulatif de leur commande en temps réel.</li>
-        <li><strong>Click & Collect :</strong> Le client valide sa commande en ligne et la récupère directement en boutique à l'heure souhaitée, évitant ainsi toute attente.</li>
-        <li><strong>Espace client :</strong> Création de compte, connexion sécurisée et suivi des commandes passées.</li>
+        <li><strong>Catalogue produits :</strong> l'administrateur peut ajouter, modifier et supprimer ses produits depuis une interface dédiée.</li>
+        <li><strong>Système de promotions :</strong> création d'offres promotionnelles affichées automatiquement côté client.</li>
+        <li><strong>Panier dynamique :</strong> ajout d'articles, modification des quantités, récapitulatif en temps réel.</li>
+        <li><strong>Click & Collect :</strong> commande en ligne et retrait en boutique à l'heure souhaitée.</li>
+        <li><strong>Espace client :</strong> création de compte, connexion sécurisée, suivi des commandes.</li>
       </ul>
+
+      <!-- Images admin -->
+      <div class="stage-gallery">
+        <div class="stage-gallery-item">
+          <a href="../image/admin-produits.png" data-lightbox="stage-boucherie" data-title="Interface administrateur – Gestion des produits">
+            <img src="../image/admin-produits.png" alt="Admin Produits" />
+          </a>
+          <p class="stage-gallery-caption">Gestion des produits (back-office)</p>
+        </div>
+        <div class="stage-gallery-item">
+          <a href="../image/admin-promotions.png" data-lightbox="stage-boucherie" data-title="Interface administrateur – Gestion des promotions">
+            <img src="../image/admin-promotions.png" alt="Admin Promotions" />
+          </a>
+          <p class="stage-gallery-caption">Gestion des promotions (back-office)</p>
+        </div>
+      </div>
     </section>
 
+    <!-- ========== BASE DE DONNÉES ========== -->
     <section>
       <h2>Conception de la Base de Données</h2>
-      <p>La conception de la base de données a représenté le cœur de mon travail et le défi le plus important du stage. À partir du cahier des charges et des besoins exprimés par le client, j'ai modélisé un schéma relationnel complet sous MySQL comprenant <strong>14 tables</strong>.</p>
-      <p>L'enjeu principal était d'anticiper tous les cas d'usage : gestion des produits et de leurs catégories, association des promotions, gestion des comptes clients, construction du panier, enregistrement des commandes et suivi de leur statut. Chaque relation entre les tables a été pensée pour garantir la cohérence des données et faciliter les requêtes nécessaires à l'affichage dynamique du site.</p>
-      <p>Cette étape m'a appris à traduire des besoins métier concrets en une structure de données robuste, un exercice bien plus exigeant qu'il n'y paraît lorsqu'on part d'une page blanche.</p>
+      <p>À partir du cahier des charges, j'ai modélisé un schéma relationnel sous MySQL comprenant <strong>14 tables</strong>. L'enjeu : anticiper tous les cas d'usage (produits, catégories, promotions, comptes clients, panier, commandes, statuts).</p>
+
+      <!-- Schéma BDD -->
+      <div class="stage-img-full">
+        <a href="../image/bdd-schema.png" data-lightbox="stage-boucherie" data-title="Schéma de la base de données – 14 tables">
+          <img src="../image/bdd-schema.png" alt="Schéma base de données" />
+        </a>
+        <p class="stage-img-caption"><i class="fas fa-search-plus"></i> Cliquez pour agrandir – Schéma relationnel (14 tables)</p>
+      </div>
+
+      <p>Cette étape m'a appris à traduire des besoins métier en une structure de données robuste, un exercice exigeant mais essentiel avant toute ligne de code.</p>
     </section>
 
+    <!-- ========== MAQUETTES FIGMA ========== -->
     <section>
       <h2>Maquettes Figma et Intégration Front-End</h2>
-      <p>Avant de commencer l'intégration, j'ai effectué une phase de recherche visuelle approfondie en m'inspirant de sites de boucheries et commerces alimentaires existants, ainsi que de références trouvées sur Figma Community. Cette veille m'a permis de définir une direction graphique cohérente : mise en avant des produits, palette sobre et lisible, navigation intuitive.</p>
-      <p>L'intégration front-end a été réalisée en HTML, CSS et JavaScript vanilla. Un soin particulier a été apporté à la responsivité du site afin qu'il soit aussi agréable à utiliser sur mobile que sur desktop, un critère important pour une clientèle de proximité.</p>
+      <p>Avant l'intégration, j'ai réalisé une phase de recherche visuelle (sites de boucheries, Figma Community) pour définir une direction graphique sobre et lisible, adaptée à une clientèle de proximité.</p>
+
+      <!-- Galerie Figma -->
+      <div class="stage-gallery">
+        <div class="stage-gallery-item">
+          <a href="../image/figma-accueil.png" data-lightbox="stage-boucherie" data-title="Maquette Figma – Page d'accueil">
+            <img src="../image/figma-accueil.png" alt="Maquette Figma Accueil" />
+          </a>
+          <p class="stage-gallery-caption">Maquette – Page d'accueil</p>
+        </div>
+        <div class="stage-gallery-item">
+          <a href="../image/figma-produits.png" data-lightbox="stage-boucherie" data-title="Maquette Figma – Catalogue produits">
+            <img src="../image/figma-produits.png" alt="Maquette Figma Produits" />
+          </a>
+          <p class="stage-gallery-caption">Maquette – Catalogue produits</p>
+        </div>
+        <div class="stage-gallery-item">
+          <a href="../image/figma-panier.png" data-lightbox="stage-boucherie" data-title="Maquette Figma – Panier">
+            <img src="../image/figma-panier.png" alt="Maquette Figma Panier" />
+          </a>
+          <p class="stage-gallery-caption">Maquette – Panier</p>
+        </div>
+      </div>
+
+      <p>L'intégration a été réalisée en HTML, CSS et JavaScript vanilla, avec un soin particulier porté à la responsivité mobile.</p>
     </section>
 
+    <!-- ========== APERÇU DU SITE ========== -->
+    <section>
+      <h2>Aperçu du site final</h2>
+
+      <div class="stage-gallery">
+        <div class="stage-gallery-item">
+          <a href="../image/site-accueil.png" data-lightbox="stage-boucherie" data-title="Site final – Page d'accueil">
+            <img src="../image/site-accueil.png" alt="Site Accueil" />
+          </a>
+          <p class="stage-gallery-caption">Page d'accueil</p>
+        </div>
+        <div class="stage-gallery-item">
+          <a href="../image/site-catalogue.png" data-lightbox="stage-boucherie" data-title="Site final – Catalogue produits">
+            <img src="../image/site-catalogue.png" alt="Site Catalogue" />
+          </a>
+          <p class="stage-gallery-caption">Catalogue produits</p>
+        </div>
+        <div class="stage-gallery-item">
+          <a href="../image/site-panier.png" data-lightbox="stage-boucherie" data-title="Site final – Panier">
+            <img src="../image/site-panier.png" alt="Site Panier" />
+          </a>
+          <p class="stage-gallery-caption">Panier</p>
+        </div>
+        <div class="stage-gallery-item">
+          <a href="../image/site-click-collect.png" data-lightbox="stage-boucherie" data-title="Site final – Click & Collect">
+            <img src="../image/site-click-collect.png" alt="Site Click & Collect" />
+          </a>
+          <p class="stage-gallery-caption">Click & Collect</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== DOCKER ========== -->
     <section>
       <h2>Environnement de Développement – Docker</h2>
-      <p>Mon camarade a mis en place l'environnement Docker du projet, configurant les conteneurs nécessaires pour le serveur web, PHP et MySQL. De mon côté, j'ai appris à utiliser cet environnement au quotidien : lancer les conteneurs, interagir avec la base de données, et comprendre l'intérêt de conteneuriser un projet pour garantir que le code fonctionne de manière identique sur toutes les machines de l'équipe.</p>
-      <p>Cette expérience m'a donné une première approche concrète de Docker, un outil devenu incontournable dans les équipes de développement professionnelles.</p>
+      <p>Mon camarade a configuré les conteneurs Docker (serveur web, PHP, MySQL). J'ai appris à utiliser cet environnement au quotidien : lancer les conteneurs, interagir avec la base et comprendre l'intérêt de la conteneurisation pour un travail en équipe.</p>
     </section>
 
+    <!-- ========== TECHNOS ========== -->
     <section>
       <h2>Technologies et Outils</h2>
       <div class="techno-list">
@@ -88,6 +230,7 @@
       </div>
     </section>
 
+    <!-- ========== COMPÉTENCES SIO ========== -->
     <section>
       <h2>Compétences du Référentiel SIO</h2>
       <ul>
@@ -97,13 +240,19 @@
       </ul>
     </section>
 
+    <!-- ========== BILAN ========== -->
     <section>
       <h2>Bilan</h2>
-      <p>Ce stage a été une expérience particulièrement formatrice. Travailler en binôme sur un projet réel destiné à un vrai client m'a confronté à des contraintes que l'on ne rencontre pas en cours : des besoins qui évoluent, des délais à respecter et des choix techniques qui ont des conséquences concrètes.</p>
-      <p>La conception de la base de données a été sans conteste l'exercice le plus enrichissant. Elle m'a forcé à penser le projet dans sa globalité avant d'écrire la moindre ligne de code, une discipline essentielle pour tout développeur. Ce stage a renforcé ma conviction de vouloir évoluer dans le développement web, en particulier sur des projets mêlant conception, back-end et expérience utilisateur.</p>
+      <p>Ce stage a été très formateur. Travailler en binôme sur un projet réel m'a confronté à des contraintes concrètes : besoins qui évoluent, délais à tenir, choix techniques impactants.</p>
+      <p>La conception de la base de données a été l'exercice le plus enrichissant : penser le projet dans sa globalité avant d'écrire la moindre ligne de code. Ce stage a renforcé ma volonté de poursuivre dans le développement web.</p>
     </section>
   </div>
 
+  <!-- jQuery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <!-- Lightbox JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+  <!-- Script principal -->
   <script src="../script.js"></script>
 </body>
 </html>

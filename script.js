@@ -55,7 +55,7 @@ document.addEventListener('click', (e) => {
     }
   });
 
-  const projectPages = ['ProjetGestionVersionGit.html','Dunewave.html','Stages.html','Projets.html'];
+  const projectPages = ['ProjetGestionVersionGit.html','TP_GLPI.html','Dunewave.html','Billetterie-Fa.html','Stages.html','Projets.html'];
   if (projectPages.includes(currentFile)) {
     const dropbtn = navMenu.querySelector('.dropbtn');
     if (dropbtn) dropbtn.classList.add('nav-active');
@@ -233,6 +233,45 @@ fetch(root + 'footer.html')
 
   window.addEventListener('touchend', () => { isDraggingThumb = false; });
 })();
+
+// ─── Lightbox (si la librairie est chargée sur la page) ─────────────────────
+if (typeof lightbox !== 'undefined') {
+  lightbox.option({
+    resizeDuration: 100,
+    fadeDuration: 100,
+    imageFadeDuration: 100,
+    wrapAround: true,
+    alwaysShowNavOnTouchDevices: true,
+    showImageNumberLabel: false,
+    positionFromTop: 0,
+  });
+}
+
+function centerLightboxViewport() {
+  const lb = document.getElementById('lightbox');
+  if (!lb || !document.body.classList.contains('lb-disable-scrolling')) return;
+
+  lb.style.setProperty('position', 'fixed', 'important');
+  lb.style.setProperty('top', '0', 'important');
+  lb.style.setProperty('right', '0', 'important');
+  lb.style.setProperty('bottom', '0', 'important');
+  lb.style.setProperty('left', '0', 'important');
+  lb.style.setProperty('width', '100vw', 'important');
+  lb.style.setProperty('height', '100vh', 'important');
+  lb.style.setProperty('margin', '0', 'important');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  if (typeof jQuery === 'undefined' || typeof lightbox === 'undefined') return;
+
+  const scheduleCenter = () => {
+    centerLightboxViewport();
+    requestAnimationFrame(centerLightboxViewport);
+    setTimeout(centerLightboxViewport, 120);
+  };
+
+  jQuery(document).on('lightbox:open lightbox:change', scheduleCenter);
+});
 
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.node-label').forEach(label => {

@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="../styles.css" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="TP GLPI – Gestion des tickets d'assistance, incidents et demandes. Projet BTS SIO de Youssef Lahrour." />
   <link rel="icon" type="image/webp" href="../image/logo-portfolio.webp" />
   <title>TP GLPI – Gestion des tickets | Youssef Lahrour</title>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <!-- Lightbox CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet" />
+  <!-- Styles personnalisés -->
+  <link rel="stylesheet" href="../styles.css" />
+
   <style>
+    /* ─── Timeline ─── */
     .glpi-timeline {
       display: flex;
       flex-wrap: wrap;
@@ -40,6 +47,8 @@
       border-color: var(--accent);
       transform: translateY(-2px);
     }
+
+    /* ─── Galerie ─── */
     .glpi-gallery {
       display: flex;
       flex-wrap: wrap;
@@ -79,6 +88,8 @@
       color: var(--text-3);
       margin: 0;
     }
+
+    /* ─── Menu actions ─── */
     .glpi-menu-actions {
       text-align: center;
       margin-bottom: 2rem;
@@ -99,11 +110,14 @@
       color: var(--text-3);
       margin-top: 0.75rem;
     }
+
+    /* ─── Responsive galerie ─── */
     @media (max-width: 768px) {
       .glpi-step { font-size: 0.7rem; padding: 0.75rem 0.5rem; }
       .glpi-step i { font-size: 1.2rem; }
       .glpi-screenshot { width: 130px; }
     }
+
   </style>
 </head>
 <body>
@@ -188,47 +202,49 @@
     <section>
       <h2>Interface GLPI – Traitement Technicien</h2>
       <p style="margin-bottom: 1rem;">Pour résoudre un incident, le technicien dispose d'un menu d'actions contextuelles permettant de documenter chaque phase de son intervention :</p>
-      
+
+      <!-- Image du menu d'actions (lightbox séparée) -->
       <div class="glpi-menu-actions">
-        <a href="../image/image_bb77a4.png" data-lightbox="glpi-gallery" data-title="Menu des actions GLPI : Suivi, Tâche, Document et Solution">
-          <img src="../image/image_bb77a4.png" alt="Menu des actions GLPI" onerror="this.style.display='none'">
+        <a href="../image/glpi-menu-actions.png" data-lightbox="glpi-menu" data-title="Menu des actions GLPI : Suivi, Tâche, Document et Solution">
+          <img src="../image/glpi-menu-actions.png" alt="Menu des actions GLPI" />
         </a>
         <p><i class="fas fa-info-circle"></i> Barre d'outils GLPI : Suivi, Tâche, Document et Solution.</p>
       </div>
 
+      <!-- Galerie des étapes (lightbox séparée pour la navigation entre les 5 images) -->
       <h3>Galerie des étapes de résolution</h3>
       <div class="glpi-gallery">
         <div class="glpi-screenshot">
-          <a href="../image/image_bb77a4.png" data-lightbox="glpi-gallery" data-title="1. Ouverture – Analyse de la demande entrante">
-            <img src="../image/image_bb77a4.png" alt="Nouveau ticket" onerror="this.style.display='none'">
+          <a href="../image/glpi-etape-1.png" data-lightbox="glpi-etapes" data-title="1. Ouverture – Analyse de la demande entrante">
+            <img src="../image/glpi-etape-1.png" alt="Nouveau ticket" />
           </a>
           <div class="step-label">1. Ouverture</div>
           <p>Analyse de la demande entrante</p>
         </div>
         <div class="glpi-screenshot">
-          <a href="../image/image_bb77dd.png" data-lightbox="glpi-gallery" data-title="2. Action – Planification d'une tâche technique">
-            <img src="../image/image_bb77dd.png" alt="Ajout tâche" onerror="this.style.display='none'">
+          <a href="../image/glpi-etape-2.png" data-lightbox="glpi-etapes" data-title="2. Action – Planification d'une tâche technique">
+            <img src="../image/glpi-etape-2.png" alt="Ajout tâche" />
           </a>
           <div class="step-label">2. Action</div>
           <p>Planification d'une tâche technique</p>
         </div>
         <div class="glpi-screenshot">
-          <a href="../image/image_bb7a85.png" data-lightbox="glpi-gallery" data-title="3. Preuve – Dépôt de captures ou rapports">
-            <img src="../image/image_bb7a85.png" alt="Document" onerror="this.style.display='none'">
+          <a href="../image/glpi-etape-3.png" data-lightbox="glpi-etapes" data-title="3. Preuve – Dépôt de captures ou rapports">
+            <img src="../image/glpi-etape-3.png" alt="Document" />
           </a>
           <div class="step-label">3. Preuve</div>
           <p>Dépôt de captures ou rapports</p>
         </div>
         <div class="glpi-screenshot">
-          <a href="../image/image_bb7aa8.png" data-lightbox="glpi-gallery" data-title="4. Résolution – Saisie de la solution technique">
-            <img src="../image/image_bb7aa8.png" alt="Solution" onerror="this.style.display='none'">
+          <a href="../image/glpi-etape-4.png" data-lightbox="glpi-etapes" data-title="4. Résolution – Saisie de la solution technique">
+            <img src="../image/glpi-etape-4.png" alt="Solution" />
           </a>
           <div class="step-label">4. Résolution</div>
           <p>Saisie de la solution technique</p>
         </div>
         <div class="glpi-screenshot">
-          <a href="../image/image_bb7aca.png" data-lightbox="glpi-gallery" data-title="5. Capitalisation – Enregistrement en base de connaissances">
-            <img src="../image/image_bb7aca.png" alt="Base de connaissances" onerror="this.style.display='none'">
+          <a href="../image/glpi-etape-5.png" data-lightbox="glpi-etapes" data-title="5. Capitalisation – Enregistrement en base de connaissances">
+            <img src="../image/glpi-etape-5.png" alt="Base de connaissances" />
           </a>
           <div class="step-label">5. Capitalisation</div>
           <p>Enregistrement en base de savoir</p>
@@ -248,18 +264,30 @@
     </section>
   </div>
 
-  <!-- Pas de footer ici, car il est déjà généré par script.js -->
-  
-  <script src="../script.js"></script>
+  <!-- jQuery -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <!-- Lightbox JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+
+  <!-- Initialisation Lightbox -->
   <script>
-    lightbox.option({
-      'resizeDuration': 100,
-      'fadeDuration': 100,
-      'imageFadeDuration': 100,
-      'wrapAround': true
-    })
+    document.addEventListener('DOMContentLoaded', function() {
+      if (typeof lightbox !== 'undefined') {
+        lightbox.option({
+          'resizeDuration': 100,
+          'fadeDuration': 100,
+          'imageFadeDuration': 100,
+          'wrapAround': true,
+          'alwaysShowNavOnTouchDevices': true,
+          'showImageNumberLabel': false,
+          'positionFromTop': 50,
+          'albumLabel': 'Image %1 sur %2'
+        });
+      }
+    });
   </script>
+
+  <!-- Script principal -->
+  <script src="../script.js"></script>
 </body>
 </html>
