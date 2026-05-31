@@ -30,8 +30,24 @@
           </div>
         </div>
       </div>
-      <a href="Stages.html">Stages</a>
-      <a href="Veille.html">Veille</a>
+      <div class="dropdown">
+        <a href="Stages.html" class="dropbtn">Stages</a>
+        <div class="dropdown-content">
+          <div class="dropdown-content-inner">
+            <a href="Stage1.html">Stage 1ère année</a>
+            <a href="Stage2.html">Stage 2ème année</a>
+          </div>
+        </div>
+      </div>
+      <div class="dropdown">
+        <a href="Veille.html" class="dropbtn">Veille</a>
+        <div class="dropdown-content">
+          <div class="dropdown-content-inner">
+            <a href="Veille-VSCode-Copilot.html">Veille 1ère année</a>
+            <a href="Veille2.html">Veille 2ème année</a>
+          </div>
+        </div>
+      </div>
       <a href="Competence.html">Compétences</a>
       <a href="Contact.html" class="btn">Me contacter</a>
     </nav>
@@ -52,12 +68,92 @@
 
     <section>
       <h2>Technologies Utilisées</h2>
-      <div class="techno-list">
-        <span>HTML</span>
-        <span>CSS</span>
-        <span>JavaScript</span>
+      <div class="techno-grid">
+        <div class="tech-card">
+          <div class="tech-icon">
+            <img src="../image/html.png" alt="HTML">
+          </div>
+          <p>HTML</p>
+        </div>
+        
+        <div class="tech-card">
+          <div class="tech-icon">
+            <img src="../image/CSS.webp" alt="CSS">
+          </div>
+          <p>CSS</p>
+        </div>
+        
+        <div class="tech-card">
+          <div class="tech-icon">
+            <img src="../image/javascript.webp" alt="JavaScript">
+          </div>
+          <p>JavaScript</p>
+        </div>
       </div>
     </section>
+<style>
+  /* Conteneur global en Grille : force les cartes à avoir exactement la même largeur */
+.techno-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 20px;
+  max-width: 600px;
+  margin: 30px auto;
+  justify-content: center;
+}
+
+/* Style de la carte */
+.tech-card {
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: all var(--t-fast) var(--ease);
+}
+
+/* Zone de l'icône : règle le problème des hauteurs/largeurs d'images différentes */
+.tech-icon {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Annulation de la règle stricte à 30% du fichier global uniquement pour ces icônes */
+.tech-card .tech-icon img {
+  max-width: 100% !important; 
+  max-height: 40px !important;
+  width: auto !important;
+  height: auto !important;
+  margin: 0 !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+.tech-card p {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-2);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Effet Hover */
+.tech-card:hover {
+  background: var(--bg-card);
+  border-color: var(--line-accent);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(15, 61, 140, 0.05);
+}
+</style>
 
     <section>
       <h2>Fonctionnalités Clés</h2>

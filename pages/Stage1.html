@@ -28,8 +28,24 @@
           </div>
         </div>
       </div>
-      <a href="Stages.html">Stages</a>
-      <a href="Veille.html">Veille</a>
+      <div class="dropdown">
+        <a href="Stages.html" class="dropbtn">Stages</a>
+        <div class="dropdown-content">
+          <div class="dropdown-content-inner">
+            <a href="Stage1.html">Stage 1ère année</a>
+            <a href="Stage2.html">Stage 2ème année</a>
+          </div>
+        </div>
+      </div>
+      <div class="dropdown">
+        <a href="Veille.html" class="dropbtn">Veille</a>
+        <div class="dropdown-content">
+          <div class="dropdown-content-inner">
+            <a href="Veille-VSCode-Copilot.html">Veille 1ère année</a>
+            <a href="Veille2.html">Veille 2ème année</a>
+          </div>
+        </div>
+      </div>
       <a href="Competence.html">Compétences</a>
       <a href="Contact.html" class="btn">Me contacter</a>
     </nav>
@@ -87,14 +103,112 @@
 
     <section>
       <h2>Outils et Technologies utilisés</h2>
-      <div class="techno-list">
-        <span>Figma</span>
-        <span>WordPress</span>
-        <span>Elementor</span>
-        <span>Yoast SEO</span>
-        <span>WPForms</span>
+      <div class="techno-grid">
+        
+        <div class="tech-card">
+          <div class="tech-icon">
+            <img src="../image/figma.png" alt="Figma">
+          </div>
+          <p>Figma</p>
+        </div>
+    
+        <div class="tech-card">
+          <div class="tech-icon">
+            <img src="../image/wordpress.webp" alt="WordPress">
+          </div>
+          <p>WordPress</p>
+        </div>
+    
+        <div class="tech-card">
+          <div class="tech-icon">
+            <img src="../image/elementor.png" alt="Elementor">
+          </div>
+          <p>Elementor</p>
+        </div>
+    
+        <div class="tech-card">
+          <div class="tech-icon">
+            <img src="../image/yoast.png" alt="Yoast SEO">
+          </div>
+          <p>Yoast SEO</p>
+        </div>
+    
+        <div class="tech-card">
+          <div class="tech-icon">
+            <img src="../image/wpforms.png" alt="WPForms">
+          </div>
+          <p>WPForms</p>
+        </div>
+    
       </div>
     </section>
+    <style>
+      /* Grille globale pour aligner toutes les technologies à la même largeur */
+.techno-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 16px;
+  max-width: 800px;
+  margin: 25px auto;
+  justify-content: center;
+}
+
+/* Style de la carte individuelle */
+.tech-card {
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  padding: 20px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: all var(--t-fast) var(--ease);
+}
+
+/* Zone fixe pour l'image (évite les décalages si les logos ont des tailles différentes) */
+.tech-icon {
+  height: 40px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Force les images à respecter la zone sans déborder et annule les règles globales */
+.tech-card .tech-icon img {
+  max-width: 100% !important;
+  max-height: 40px !important;
+  width: auto !important;
+  height: auto !important;
+  margin: 0 !important;
+  box-shadow: none !important;
+  border: none !important;
+  object-fit: contain;
+}
+
+/* Style du texte sous l'icône */
+.tech-card p {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-2);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* Effet Hover (survol) fluide */
+.tech-card:hover {
+  background: var(--bg-card);
+  border-color: var(--line-accent);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(15, 61, 140, 0.06);
+}
+    </style>
 
     <section>
       <h2>Compétences acquises</h2>

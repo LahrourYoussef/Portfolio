@@ -76,8 +76,24 @@
           </div>
         </div>
       </div>
-      <a href="Stages.html">Stages</a>
-      <a href="Veille.html">Veille</a>
+      <div class="dropdown">
+        <a href="Stages.html" class="dropbtn">Stages</a>
+        <div class="dropdown-content">
+          <div class="dropdown-content-inner">
+            <a href="Stage1.html">Stage 1ère année</a>
+            <a href="Stage2.html">Stage 2ème année</a>
+          </div>
+        </div>
+      </div>
+      <div class="dropdown">
+        <a href="Veille.html" class="dropbtn">Veille</a>
+        <div class="dropdown-content">
+          <div class="dropdown-content-inner">
+            <a href="Veille-VSCode-Copilot.html">Veille 1ère année</a>
+            <a href="Veille2.html">Veille 2ème année</a>
+          </div>
+        </div>
+      </div>
       <a href="Competence.html">Compétences</a>
       <a href="Contact.html" class="btn">Me contacter</a>
     </nav>
@@ -88,10 +104,9 @@
 
     <!-- ========== PHOTO BOUTIQUE ========== -->
     <div class="stage-img-full">
-      <a href="../image/boucherie-agadir.png" data-lightbox="stage-boucherie" data-title="Boucherie Agadir – Mourenx">
-        <img src="../image/boucherie-agadir.png" alt="Boucherie Agadir" />
+      <a href="../image/accueil.png" data-lightbox="stage-boucherie" data-title="Boucherie Agadir – Mourenx">
+        <img src="../image/accueil.png" alt="Boucherie Agadir" />
       </a>
-      <p class="stage-img-caption"><i class="fas fa-store"></i> Boucherie Agadir – Mourenx</p>
     </div>
 
     <p class="project-intro">
@@ -119,14 +134,14 @@
       <!-- Images admin -->
       <div class="stage-gallery">
         <div class="stage-gallery-item">
-          <a href="../image/admin-produits.png" data-lightbox="stage-boucherie" data-title="Interface administrateur – Gestion des produits">
-            <img src="../image/admin-produits.png" alt="Admin Produits" />
+          <a href="../image/produit.png" data-lightbox="stage-boucherie" data-title="Interface administrateur – Gestion des produits">
+            <img src="../image/produit.png" alt="Admin Produits" />
           </a>
           <p class="stage-gallery-caption">Gestion des produits (back-office)</p>
         </div>
         <div class="stage-gallery-item">
-          <a href="../image/admin-promotions.png" data-lightbox="stage-boucherie" data-title="Interface administrateur – Gestion des promotions">
-            <img src="../image/admin-promotions.png" alt="Admin Promotions" />
+          <a href="../image/promo.png" data-lightbox="stage-boucherie" data-title="Interface administrateur – Gestion des promotions">
+            <img src="../image/promo.png" alt="Admin Promotions" />
           </a>
           <p class="stage-gallery-caption">Gestion des promotions (back-office)</p>
         </div>
@@ -140,8 +155,8 @@
 
       <!-- Schéma BDD -->
       <div class="stage-img-full">
-        <a href="../image/bdd-schema.png" data-lightbox="stage-boucherie" data-title="Schéma de la base de données – 14 tables">
-          <img src="../image/bdd-schema.png" alt="Schéma base de données" />
+        <a href="../image/bdd.png" data-lightbox="stage-boucherie" data-title="Schéma de la base de données – 14 tables">
+          <img src="../image/bdd.png" alt="Schéma base de données" />
         </a>
         <p class="stage-img-caption"><i class="fas fa-search-plus"></i> Cliquez pour agrandir – Schéma relationnel (14 tables)</p>
       </div>
@@ -185,14 +200,14 @@
 
       <div class="stage-gallery">
         <div class="stage-gallery-item">
-          <a href="../image/site-accueil.png" data-lightbox="stage-boucherie" data-title="Site final – Page d'accueil">
-            <img src="../image/site-accueil.png" alt="Site Accueil" />
+          <a href="../image/accueil.png" data-lightbox="stage-boucherie" data-title="Site final – Page d'accueil">
+            <img src="../image/accueil.png" alt="Site Accueil" />
           </a>
           <p class="stage-gallery-caption">Page d'accueil</p>
         </div>
         <div class="stage-gallery-item">
-          <a href="../image/site-catalogue.png" data-lightbox="stage-boucherie" data-title="Site final – Catalogue produits">
-            <img src="../image/site-catalogue.png" alt="Site Catalogue" />
+          <a href="../image/catalogue.png" data-lightbox="stage-boucherie" data-title="Site final – Catalogue produits">
+            <img src="../image/catalogue.png" alt="Site Catalogue" />
           </a>
           <p class="stage-gallery-caption">Catalogue produits</p>
         </div>
@@ -202,12 +217,7 @@
           </a>
           <p class="stage-gallery-caption">Panier</p>
         </div>
-        <div class="stage-gallery-item">
-          <a href="../image/site-click-collect.png" data-lightbox="stage-boucherie" data-title="Site final – Click & Collect">
-            <img src="../image/site-click-collect.png" alt="Site Click & Collect" />
-          </a>
-          <p class="stage-gallery-caption">Click & Collect</p>
-        </div>
+      
       </div>
     </section>
 
@@ -220,15 +230,130 @@
     <!-- ========== TECHNOS ========== -->
     <section>
       <h2>Technologies et Outils</h2>
-      <div class="techno-list">
-        <span>HTML5 / CSS3</span>
-        <span>JavaScript</span>
-        <span>PHP</span>
-        <span>MySQL</span>
-        <span>Figma</span>
-        <span>Docker</span>
+      <div class="techno-grid">
+        
+        <div class="tech-card">
+          <div class="tech-icon">
+            <img src="../image/html.png" alt="HTML">
+          </div>
+          <p>HTML</p>
+        </div>
+
+        <div class="tech-card">
+          <div class="tech-icon">
+            <img src="../image/CSS.webp" alt="CSS">
+          </div>
+          <p>CSS</p>
+        </div>
+    
+        <div class="tech-card">
+          <div class="tech-icon">
+            <img src="../image/javascript.webp" alt="JavaScript">
+          </div>
+          <p>JavaScript</p>
+        </div>
+    
+        <div class="tech-card">
+          <div class="tech-icon">
+            <img src="../image/PHP.webp" alt="PHP">
+          </div>
+          <p>PHP</p>
+        </div>
+    
+        <div class="tech-card">
+          <div class="tech-icon">
+            <img src="../image/mysql.webp" alt="MySQL">
+          </div>
+          <p>MySQL</p>
+        </div>
+    
+        <div class="tech-card">
+          <div class="tech-icon">
+            <img src="../image/figma.png" alt="Figma">
+          </div>
+          <p>Figma</p>
+        </div>
+    
+        <div class="tech-card">
+          <div class="tech-icon">
+            <img src="../image/docker.png" alt="Docker">
+          </div>
+          <p>Docker</p>
+        </div>
+    
       </div>
     </section>
+    <style>
+      /* ==========================================================================
+   GRILLE ET CARTES DE TECHNOLOGIES (SECTION PROJETS)
+   ========================================================================== */
+
+/* Conteneur principal en grille - Aligne automatiquement les éléments */
+.techno-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 16px;
+  max-width: 800px;
+  margin: 25px auto;
+  justify-content: center;
+}
+
+/* Style individuel de chaque carte */
+.tech-card {
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  padding: 20px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: all var(--t-fast) var(--ease);
+}
+
+/* Zone fixe pour l'icône afin d'éviter les décalages de hauteur */
+.tech-icon {
+  height: 40px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Redimensionnement propre des images et annulation des styles globaux restrictifs */
+.tech-card .tech-icon img {
+  max-width: 100% !important;
+  max-height: 40px !important;
+  width: auto !important;
+  height: auto !important;
+  margin: 0 !important;
+  box-shadow: none !important;
+  border: none !important;
+  object-fit: contain;
+}
+
+/* Style du texte sous l'icône */
+.tech-card p {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-2);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* Effet au survol (Hover) avec une légère translation */
+.tech-card:hover {
+  background: var(--bg-card);
+  border-color: var(--line-accent);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(15, 61, 140, 0.06);
+}
+    </style>
 
     <!-- ========== COMPÉTENCES SIO ========== -->
     <section>

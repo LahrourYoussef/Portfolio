@@ -55,11 +55,23 @@ document.addEventListener('click', (e) => {
     }
   });
 
-  const projectPages = ['ProjetGestionVersionGit.html','TP_GLPI.html','Dunewave.html','Billetterie-Fa.html','Stages.html','Projets.html'];
-  if (projectPages.includes(currentFile)) {
-    const dropbtn = navMenu.querySelector('.dropbtn');
-    if (dropbtn) dropbtn.classList.add('nav-active');
+  function activateDropdown(dropbtnFile) {
+    navMenu.querySelectorAll('.dropdown .dropbtn').forEach((btn) => {
+      const btnFile = btn.getAttribute('href').split('/').pop();
+      if (btnFile === dropbtnFile) {
+        btn.classList.add('nav-active');
+        btn.closest('.dropdown')?.classList.add('nav-active');
+      }
+    });
   }
+
+  const projectPages = ['ProjetGestionVersionGit.html', 'TP_GLPI.html', 'Dunewave.html', 'Billetterie-Fa.html', 'Projets.html'];
+  const stagePages = ['Stage1.html', 'Stage2.html'];
+  const veillePages = ['Veille-VSCode-Copilot.html', 'Veille2.html'];
+
+  if (projectPages.includes(currentFile)) activateDropdown('Projets.html');
+  if (stagePages.includes(currentFile)) activateDropdown('Stages.html');
+  if (veillePages.includes(currentFile)) activateDropdown('Veille.html');
 })();
 
 // ─── Footer dynamique ────────────────────────────────────────────────────────

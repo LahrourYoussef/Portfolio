@@ -5,106 +5,9 @@
   <link rel="stylesheet" href="../styles.css" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="TP GLPI – Gestion des tickets d'assistance, incidents et demandes. Projet BTS SIO de Youssef Lahrour." />
+  <meta name="description" content="Projet Billetterie du Fâ de Youssef Lahrour – BTS SIO." />
   <link rel="icon" type="image/webp" href="../image/logo-portfolio.webp" />
-  <title>TP GLPI – Gestion des tickets | Youssef Lahrour</title>
-  <style>
-    .glpi-timeline {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 0.5rem;
-      margin: 1.5rem 0;
-    }
-    .glpi-step {
-      flex: 1;
-      min-width: 100px;
-      background: var(--bg-card);
-      border-radius: var(--r-md);
-      padding: 1rem 0.75rem;
-      text-align: center;
-      font-size: 0.8rem;
-      font-weight: 600;
-      font-family: var(--mono);
-      color: var(--text-2);
-      border: 1px solid var(--line);
-      transition: all var(--t-fast) var(--ease);
-    }
-    .glpi-step i {
-      display: block;
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-      color: var(--accent);
-    }
-    .glpi-step:hover {
-      border-color: var(--accent);
-      transform: translateY(-2px);
-    }
-    .glpi-gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-      margin-top: 1.5rem;
-    }
-    .glpi-screenshot {
-      background: var(--bg-card);
-      border: 1px solid var(--line);
-      border-radius: var(--r-md);
-      padding: 0.75rem;
-      text-align: center;
-      width: 150px;
-      transition: all var(--t-fast) var(--ease);
-    }
-    .glpi-screenshot:hover {
-      transform: translateY(-3px);
-      border-color: var(--accent);
-    }
-    .glpi-screenshot img {
-      width: 100%;
-      height: auto;
-      border-radius: var(--r-sm);
-      margin-bottom: 0.5rem;
-      cursor: pointer;
-    }
-    .step-label {
-      font-family: var(--mono);
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--text-1);
-      margin: 0.5rem 0 0.25rem;
-    }
-    .glpi-gallery p {
-      font-size: 0.7rem;
-      color: var(--text-3);
-      margin: 0;
-    }
-    .glpi-menu-actions {
-      text-align: center;
-      margin-bottom: 2rem;
-      background: var(--bg-card);
-      padding: 1.5rem;
-      border-radius: var(--r-md);
-      border: 1px solid var(--line);
-    }
-    .glpi-menu-actions img {
-      max-width: 100%;
-      height: auto;
-      border-radius: var(--r-sm);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      cursor: pointer;
-    }
-    .glpi-menu-actions p {
-      font-size: 0.75rem;
-      color: var(--text-3);
-      margin-top: 0.75rem;
-    }
-    @media (max-width: 768px) {
-      .glpi-step { font-size: 0.7rem; padding: 0.75rem 0.5rem; }
-      .glpi-step i { font-size: 1.2rem; }
-      .glpi-screenshot { width: 130px; }
-    }
-  </style>
+  <title>Billetterie du Fâ – Youssef Lahrour</title>
 </head>
 <body>
   <header>
@@ -125,131 +28,305 @@
           </div>
         </div>
       </div>
-      <a href="Stages.html">Stages</a>
-      <a href="Veille.html">Veille</a>
+      <div class="dropdown">
+        <a href="Stages.html" class="dropbtn">Stages</a>
+        <div class="dropdown-content">
+          <div class="dropdown-content-inner">
+            <a href="Stage1.html">Stage 1ère année</a>
+            <a href="Stage2.html">Stage 2ème année</a>
+          </div>
+        </div>
+      </div>
+      <div class="dropdown">
+        <a href="Veille.html" class="dropbtn">Veille</a>
+        <div class="dropdown-content">
+          <div class="dropdown-content-inner">
+            <a href="Veille-VSCode-Copilot.html">Veille 1ère année</a>
+            <a href="Veille2.html">Veille 2ème année</a>
+          </div>
+        </div>
+      </div>
       <a href="Competence.html">Compétences</a>
       <a href="Contact.html" class="btn">Me contacter</a>
     </nav>
   </header>
 
   <div class="main-container project-page">
-    <h1>TP GLPI – Gestion des tickets d'assistance</h1>
+    <h1>Billetterie du Fâ — PHP/MVC</h1>
+    <a href="../image/FA.png" data-lightbox="billetterie-fa-gallery" data-title="Billetterie du Fâ">
+      <img src="../image/FA.png" class="project-image-FA" alt="Billetterie du Fâ">
+    </a>
+
+    <p class="project-intro">
+      Application complète de réservation de billets pour le site archéologique du Fâ (Barzan),
+      développée en PHP 8 sans framework avec une architecture MVC, une base de données MySQL
+      et une génération de factures PDF dynamiques.
+    </p>
 
     <section>
-      <p>Dans le cadre de mon BTS SIO, j'ai travaillé sur <strong>GLPI</strong> (Gestionnaire Libre de Parc Informatique), un outil de helpdesk et de gestion des services informatiques. Ce TP m'a permis de comprendre en profondeur le cycle de vie des tickets et le rôle des différents acteurs.</p>
-    </section>
-
-    <section>
-      <h2>Qu'est-ce qu'un ticket ?</h2>
-      <p>Dans GLPI, un <strong>ticket</strong> est une demande d'assistance. Cela peut être :</p>
-      <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
-        <li><strong>Un incident</strong> : panne ou dysfonctionnement (matériel/logiciel)</li>
-        <li><strong>Une demande</strong> : accompagnement, évolution d'application, nouveau matériel</li>
-      </ul>
-      <p style="margin-top: 0.5rem;"><i class="fas fa-envelope"></i> Chaque action envoie un email au demandeur.</p>
-    </section>
-
-    <section>
-      <h2>Cycle de vie d'un ticket</h2>
-      <div class="glpi-timeline">
-        <div class="glpi-step"><i class="fas fa-inbox"></i> Nouveau</div>
-        <div class="glpi-step"><i class="fas fa-user-cog"></i> Attribué</div>
-        <div class="glpi-step"><i class="fas fa-play"></i> En cours</div>
-        <div class="glpi-step"><i class="fas fa-check-circle"></i> Résolu</div>
-        <div class="glpi-step"><i class="fas fa-door-closed"></i> Fermé</div>
-      </div>
-      <p style="font-size: 0.85rem; text-align: center; margin-top: 0.5rem;">
-        <i class="fas fa-undo"></i> En cas de refus de la solution → retour à <strong>Nouveau</strong>
+      <h2>1. Contexte & Besoin</h2>
+      <p>
+        Le site archéologique du Fâ fait face à une forte affluence estivale. L'objectif était
+        de concevoir une application web pour fluidifier la gestion des entrées en permettant
+        la réservation en ligne. Le projet a été réalisé en méthode SCRUM, avec PHP 8 sans
+        framework et une architecture MVC imposée.
       </p>
     </section>
 
     <section>
-      <h2>Les acteurs</h2>
-      <div style="display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 1rem;">
-        <div style="flex: 1; min-width: 200px;">
-          <h3><i class="fas fa-user"></i> Utilisateur</h3>
-          <ul style="margin-left: 1.2rem;">
-            <li>Crée le ticket (titre, description, urgence)</li>
-            <li>Approuve ou refuse la solution</li>
-            <li>Peut ajouter des commentaires</li>
-          </ul>
-        </div>
-        <div style="flex: 1; min-width: 200px;">
-          <h3><i class="fas fa-wrench"></i> Technicien</h3>
-          <ul style="margin-left: 1.2rem;">
-            <li>Prend en charge le ticket</li>
-            <li>Ajoute des suivis et tâches</li>
-            <li>Propose une solution</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <h2>Interface GLPI – Traitement Technicien</h2>
-      <p style="margin-bottom: 1rem;">Pour résoudre un incident, le technicien dispose d'un menu d'actions contextuelles permettant de documenter chaque phase de son intervention :</p>
-      
-      <div class="glpi-menu-actions">
-        <a href="../image/image_bb77a4.png" data-lightbox="glpi-gallery" data-title="Menu des actions GLPI : Suivi, Tâche, Document et Solution">
-          <img src="../image/image_bb77a4.png" alt="Menu des actions GLPI" onerror="this.style.display='none'">
-        </a>
-        <p><i class="fas fa-info-circle"></i> Barre d'outils GLPI : Suivi, Tâche, Document et Solution.</p>
-      </div>
-
-      <h3>Galerie des étapes de résolution</h3>
-      <div class="glpi-gallery">
-        <div class="glpi-screenshot">
-          <a href="../image/image_bb77a4.png" data-lightbox="glpi-gallery" data-title="1. Ouverture – Analyse de la demande entrante">
-            <img src="../image/image_bb77a4.png" alt="Nouveau ticket" onerror="this.style.display='none'">
-          </a>
-          <div class="step-label">1. Ouverture</div>
-          <p>Analyse de la demande entrante</p>
-        </div>
-        <div class="glpi-screenshot">
-          <a href="../image/image_bb77dd.png" data-lightbox="glpi-gallery" data-title="2. Action – Planification d'une tâche technique">
-            <img src="../image/image_bb77dd.png" alt="Ajout tâche" onerror="this.style.display='none'">
-          </a>
-          <div class="step-label">2. Action</div>
-          <p>Planification d'une tâche technique</p>
-        </div>
-        <div class="glpi-screenshot">
-          <a href="../image/image_bb7a85.png" data-lightbox="glpi-gallery" data-title="3. Preuve – Dépôt de captures ou rapports">
-            <img src="../image/image_bb7a85.png" alt="Document" onerror="this.style.display='none'">
-          </a>
-          <div class="step-label">3. Preuve</div>
-          <p>Dépôt de captures ou rapports</p>
-        </div>
-        <div class="glpi-screenshot">
-          <a href="../image/image_bb7aa8.png" data-lightbox="glpi-gallery" data-title="4. Résolution – Saisie de la solution technique">
-            <img src="../image/image_bb7aa8.png" alt="Solution" onerror="this.style.display='none'">
-          </a>
-          <div class="step-label">4. Résolution</div>
-          <p>Saisie de la solution technique</p>
-        </div>
-        <div class="glpi-screenshot">
-          <a href="../image/image_bb7aca.png" data-lightbox="glpi-gallery" data-title="5. Capitalisation – Enregistrement en base de connaissances">
-            <img src="../image/image_bb7aca.png" alt="Base de connaissances" onerror="this.style.display='none'">
-          </a>
-          <div class="step-label">5. Capitalisation</div>
-          <p>Enregistrement en base de savoir</p>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <h2>À savoir</h2>
-      <ul style="margin-left: 1.5rem;">
-        <li>Le ticket passe en <strong>Résolu</strong> quand le technicien propose une solution</li>
-        <li>L'utilisateur doit <strong>approuver</strong> ou <strong>refuser</strong> (avec motif)</li>
-        <li>Si approuvé → ticket <strong>Fermé</strong></li>
-        <li>Si refusé → ticket retourne en statut <strong>Nouveau</strong></li>
-        <li>Sans réponse sous 24h → fermeture automatique</li>
+      <h2>2. Architecture & Choix Techniques</h2>
+      <ul>
+        <li><strong>Langage :</strong> PHP 8 avec typage fort et attributs.</li>
+        <li><strong>Architecture :</strong> MVC (Modèle-Vue-Contrôleur) pour séparer la logique et l'affichage.</li>
+        <li><strong>Accès Données :</strong> Pattern DAO avec PDO pour sécuriser les requêtes SQL.</li>
+        <li><strong>Sécurité :</strong> Hashage des mots de passe, protection XSS et injection SQL.</li>
       </ul>
+      <div class="file-tree-container fade-up visible">
+        <div class="file-tree-header">
+          <div class="dot red"></div>
+          <div class="dot yellow"></div>
+          <div class="dot green"></div>
+          <span class="tree-title">Explorateur de Projet</span>
+        </div>
+        <div class="tree-body">
+          
+          <div class="tree-node folder">
+            <div class="node-label"><span class="icon">📂</span> .devcontainer</div>
+            <div class="node-content">
+              <div class="node-label"><span class="icon">🐳</span> Dockerfile</div>
+              <div class="node-label"><span class="icon">⚙️</span> devcontainer.json</div>
+            </div>
+          </div>
+      
+          <div class="tree-node folder">
+            <div class="node-label"><span class="icon">📂</span> database</div>
+            <div class="node-content">
+              <div class="tree-node folder">
+                <div class="node-label"><span class="icon">📂</span> scripts</div>
+                <div class="node-content">
+                  <div class="node-label"><span class="icon">📄</span> initBDD.sh</div>
+                  <div class="node-label"><span class="icon">📄</span> reloadBDD.sh</div>
+                  <div class="node-label"><span class="icon">📄</span> saveBDD.sh</div>
+                </div>
+              </div>
+              <div class="tree-node folder">
+                <div class="node-label"><span class="icon">📂</span> sources-sql</div>
+                <div class="node-content">
+                  <div class="node-label sql-file"><span class="icon">🗄️</span> init-BDD.sql</div>
+                  <div class="node-label sql-file"><span class="icon">🗄️</span> tp_sio2_bdjourneeintegration.sql</div>
+                </div>
+              </div>
+            </div>
+          </div>
+      
+          <div class="tree-node folder">
+            <div class="node-label"><span class="icon">📂</span> documentation</div>
+            <div class="node-content">
+              <div class="tree-node folder"><div class="node-label"><span class="icon">📂</span> css</div></div>
+              <div class="tree-node folder"><div class="node-label"><span class="icon">📂</span> files</div></div>
+              <div class="node-label html-file"><span class="icon">🌐</span> index.html</div>
+            </div>
+          </div>
+      
+          <div class="tree-node folder open">
+            <div class="node-label"><span class="icon">📂</span> site</div>
+            <div class="node-content">
+              <div class="tree-node folder">
+                <div class="node-label"><span class="icon">📂</span> JS</div>
+                <div class="node-content">
+                  <div class="node-label js-file"><span class="icon">📄</span> reservation.js</div>
+                  <div class="node-label js-file"><span class="icon">📄</span> script.js</div>
+                </div>
+              </div>
+              <div class="tree-node folder">
+                <div class="node-label"><span class="icon">📂</span> controleurs</div>
+                <div class="node-content">
+                  <div class="node-label php-file"><span class="icon">🐘</span> gestionCompetences.php</div>
+                  <div class="node-label php-file"><span class="icon">🐘</span> gestionDeveloppeurs.php</div>
+                </div>
+              </div>
+              <div class="tree-node folder">
+                <div class="node-label"><span class="icon">📂</span> modeles</div>
+                <div class="node-content">
+                  <div class="node-label php-file"><span class="icon">🐘</span> BaseDAO.php</div>
+                  <div class="node-label"><span class="icon">⚙️</span> developpeur.json</div>
+                </div>
+              </div>
+              <div class="tree-node folder">
+                <div class="node-label"><span class="icon">📂</span> vues</div>
+                <div class="node-content">
+                  <div class="node-label html-file"><span class="icon">🌐</span> accueil.html</div>
+                  <div class="node-label php-file"><span class="icon">🐘</span> reservation.php</div>
+                </div>
+              </div>
+              <div class="node-label php-file"><span class="icon">🐘</span> index.php</div>
+            </div>
+          </div>
+      
+          <div class="node-label php-file"><span class="icon">🐘</span> PHPINTRANET.php</div>
+          <div class="node-label"><span class="icon">📝</span> README.md</div>
+          <div class="node-label"><span class="icon">📕</span> documentation.pdf</div>
+          <div class="node-label"><span class="icon">📄</span> start.sh</div>
+        </div>
+      </div>
     </section>
+
+    <section>
+      <h2>3. Formulaire de Réservation</h2>
+      <p>
+        Formulaire dynamique permettant de choisir le type de visite et la quantité de billets
+        par catégorie (Adulte, Réduit, Enfant). Le total se met à jour en temps réel côté client.
+        Les informations personnelles (nom, prénom, email, téléphone) sont validées avant envoi,
+        avec au moins un contact obligatoire.
+      </p>
+      <a href="../image/formulaire-reservation.png" data-lightbox="billetterie-fa-gallery" data-title="Formulaire de Réservation">
+        <img src="../image/formulaire-reservation.png" class="project-image-FA" alt="Formulaire de Réservation">
+    </a>
+    </section>
+
+    <section>
+      <h2>4. Validation & Enregistrement</h2>
+      <p>
+        Côté back-end, le contrôleur prend en charge la validation des entrées, l'insertion en
+        base de données via la couche DAO et la gestion des transactions SQL pour garantir
+        l'intégrité des données.
+      </p>
+      <a href="../image/FonctionReservation.png" data-lightbox="billetterie-fa-gallery" data-title="Fonction de Reservation">
+        <img src="../image/FonctionReservation.png" class="project-image-FA" alt="Fonction de Reservation">
+      </a>
+    </section>
+
+    <section>
+      <h2>5. Confirmation & Facture PDF</h2>
+      <p>
+        Une fois la commande validée, l'utilisateur reçoit un récapitulatif complet et peut
+        télécharger sa facture générée dynamiquement grâce à la librairie FPDF.
+      </p>
+      <a href="../image/confirmation.png" data-lightbox="billetterie-fa-gallery" data-title="Confirmation ">
+        <img src="../image/confirmation.png" class="project-image-FA" alt="Confirmation ">
+      </a>
+        <a href="../image/factureReserv.png" data-lightbox="billetterie-fa-gallery" data-title="Facture de Reservation">
+        <img src="../image/factureReserv.png" alt="Facture de Reservation"></a>
+    </section>
+
+    <section>
+      <h2>Technologies utilisées</h2>
+      <div class="techno-grid">
+        
+        <div class="tech-card">
+          <div class="tech-icon">
+            <img src="../image/PHP.webp" alt="PHP 8">
+          </div>
+          <p>PHP 8</p>
+        </div>
+    
+        <div class="tech-card">
+          <div class="tech-icon">
+            <img src="../image/mysql.webp" alt="MySQL">
+          </div>
+          <p>MySQL</p>
+        </div>
+    
+        <div class="tech-card">
+          <div class="tech-icon">
+            <img src="../image/mvc.png" alt="MVC">
+          </div>
+          <p>MVC</p>
+        </div>
+    
+        <div class="tech-card">
+          <div class="tech-icon">
+            <img src="../image/dao.webp" alt="DAO">
+          </div>
+          <p>DAO</p>
+        </div>
+    
+        <div class="tech-card">
+          <div class="tech-icon">
+            <img src="../image/git.webp" alt="Git">
+          </div>
+          <p>Git</p>
+        </div>
+    
+        <div class="tech-card">
+          <div class="tech-icon">
+            <img src="../image/scrum.png" alt="Scrum">
+          </div>
+          <p>Scrum</p>
+        </div>
+    
+      </div>
+    </section>
+    <style>
+      /* Grille globale pour aligner toutes les technologies à la même largeur */
+.techno-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 16px;
+  max-width: 800px;
+  margin: 25px auto;
+  justify-content: center;
+}
+
+/* Style de la carte individuelle */
+.tech-card {
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  padding: 20px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: all var(--t-fast) var(--ease);
+}
+
+/* Zone fixe pour l'image (évite les décalages si les logos ont des tailles différentes) */
+.tech-icon {
+  height: 40px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Force les images à respecter la zone sans déborder et annule les règles globales */
+.tech-card .tech-icon img {
+  max-width: 100% !important;
+  max-height: 40px !important;
+  width: auto !important;
+  height: auto !important;
+  margin: 0 !important;
+  box-shadow: none !important;
+  border: none !important;
+  object-fit: contain;
+}
+
+/* Style du texte sous l'icône */
+.tech-card p {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-2);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* Effet Hover (survol) fluide */
+.tech-card:hover {
+  background: var(--bg-card);
+  border-color: var(--line-accent);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(15, 61, 140, 0.06);
+}
+    </style>
+
   </div>
 
-  <!-- Pas de footer ici, car il est déjà généré par script.js -->
-  
   <script src="../script.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>

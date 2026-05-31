@@ -1481,8 +1481,8 @@ code {
 /* Style par défaut pour UNE image seule dans une section */
 .project-page section img {
   /* --- RÉDUCTION DE TAILLE ICI --- */
-  max-width: 60%;      /* L'image prend au max 60% de la largeur du texte */
-  max-height: 400px;   /* On limite aussi la hauteur pour qu'elle ne soit pas géante */
+  max-width: 30%;      /* L'image prend au max 60% de la largeur du texte */
+  max-height: 200px;   /* On limite aussi la hauteur pour qu'elle ne soit pas géante */
   width: auto;         /* Garde les proportions */
   height: auto;
   /* ------------------------------- */

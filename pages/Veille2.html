@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Veille technologique sur la cybersécurité des applications web – BTS SIO SLAM – Youssef Lahrour"
+    />
+    <link rel="icon" type="image/webp" href="../image/logo-portfolio.webp" />
+    <title>Veille cybersécurité | Youssef Lahrour</title>
+    <style>
+      /* Styles supplémentaires spécifiques à la page Veille */
+      .veille-header {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+      .veille-problematique {
+        background: var(--bg-card);
+        border-left: 4px solid var(--accent);
+        padding: 1.2rem 1.8rem;
+        border-radius: var(--r-md);
+        margin: 1.5rem 0 2rem;
+        font-style: italic;
+      }
+      .table-wrapper {
+        overflow-x: auto;
+        margin: 2rem 0;
+        border-radius: var(--r-md);
+        border: 1px solid var(--line);
+        background: var(--bg-raised);
+      }
+      .veille-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-family: var(--mono);
+        font-size: 0.85rem;
+        min-width: 700px;
+      }
+      .veille-table th,
+      .veille-table td {
+        padding: 1rem 0.8rem;
+        text-align: left;
+        vertical-align: top;
+        border-bottom: 1px solid var(--line);
+      }
+      .veille-table th {
+        background: var(--bg-card);
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        font-size: 0.7rem;
+        color: var(--text-1);
+      }
+      .veille-table tr:last-child td {
+        border-bottom: none;
+      }
+      .veille-table tr:hover td {
+        background: var(--bg-hover);
+      }
+      .month-highlight {
+        font-weight: 800;
+        color: var(--accent);
+      }
+      .conclusion-block {
+        background: var(--bg-card);
+        border-radius: var(--r-md);
+        padding: 1.5rem;
+        margin: 2rem 0;
+        border: 1px solid var(--line);
+      }
+      .sources-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+        list-style: none;
+        padding-left: 0;
+      }
+      .sources-list li {
+        background: var(--bg-raised);
+        border: 1px solid var(--line);
+        border-radius: var(--r-sm);
+        padding: 0.3rem 0.8rem;
+        font-size: 0.75rem;
+        font-family: var(--mono);
+      }
+      .sources-list a {
+        text-decoration: none;
+        color: var(--accent);
+      }
+      .sources-list a:hover {
+        text-decoration: underline;
+      }
+      @media (max-width: 768px) {
+        .veille-table th,
+        .veille-table td {
+          padding: 0.8rem 0.5rem;
+          font-size: 0.75rem;
+        }
+      }
+      .veille-horizontal {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: nowrap;
+  margin: 2rem 0;
+}
+
+.veille-card {
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;  /* ← changement clé : vertical */
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+  min-width: 120px;
+}
+
+.card-icon img {
+  height: 45px;
+  width: auto;
+}
+
+.card-title {
+  color: var(--text-2);
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.veille-card:hover {
+  background: var(--bg-card);
+  border-color: var(--line-accent);
+  transform: translateY(-3px);
+}
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="hamburger"><span></span><span></span><span></span></div>
+      <nav class="nav-menu">
+        <a href="../index.html" class="logo-link">
+          <img src="../image/logo-portfolio.webp" alt="Logo Youssef Lahrour" />
+        </a>
+        <a href="CV.html">CV</a>
+        <div class="dropdown">
+          <a href="Projets.html" class="dropbtn">Projets</a>
+          <div class="dropdown-content">
+            <div class="dropdown-content-inner">
+              <a href="ProjetGestionVersionGit.html">Projet Git</a>
+              <a href="TP_GLPI.html">TP GLPI</a>
+              <a href="Dunewave.html">Dunewave – Locaboard</a>
+              <a href="Billetterie-Fa.html">Billetterie du Fâ</a>
+            </div>
+          </div>
+        </div>
+        <div class="dropdown">
+          <a href="Stages.html" class="dropbtn">Stages</a>
+          <div class="dropdown-content">
+            <div class="dropdown-content-inner">
+              <a href="Stage1.html">Stage 1ère année</a>
+              <a href="Stage2.html">Stage 2ème année</a>
+            </div>
+          </div>
+        </div>
+        <div class="dropdown nav-active">
+          <a href="Veille.html" class="dropbtn">Veille</a>
+          <div class="dropdown-content">
+            <div class="dropdown-content-inner">
+              <a href="Veille-VSCode-Copilot.html">Veille 1ère année</a>
+              <a href="Veille2.html">Veille 2ème année</a>
+            </div>
+          </div>
+        </div>
+        <a href="Competence.html">Compétences</a>
+        <a href="Contact.html" class="btn">Me contacter</a>
+      </nav>
+    </header>
+
+    <div class="main-container project-page">
+      <div class="veille-header">
+        <h1>Veille technologique</h1>
+        <p
+          style="
+            font-size: 1.2rem;
+            color: var(--text-3);
+            letter-spacing: 0.02em;
+          "
+        >
+          Cybersécurité des applications web · Novembre 2025 → Avril 2026
+        </p>
+        <p
+          style="
+            font-size: 0.85rem;
+            color: var(--accent);
+            font-family: var(--mono);
+            margin-top: 0.5rem;
+          "
+        >
+          Suivi mensuel · Outils : OWASP, CERT-FR, Feedly
+        </p>
+      </div>
+
+      <div class="veille-problematique">
+        <strong>Problématique :</strong><br />
+        Comment un développeur peut-il sécuriser les applications web pour
+        protéger les données des utilisateurs face à l'augmentation des attaques
+        en ligne ?
+      </div>
+
+      <section>
+        <h2>Évolution des menaces et apprentissages mensuels</h2>
+        <div class="table-wrapper">
+          <table class="veille-table">
+            <thead>
+              <tr>
+                <th>Mois</th>
+                <th>Fait marquant unique</th>
+                <th>Utilité pour un développeur (moi)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="month-highlight">Novembre 2025</td>
+                <td>
+                  L'IA générative (LLM) exploitée pour formuler des injections
+                  SQL offensives.
+                </td>
+                <td>
+                  Ne jamais faire confiance au code généré par IA → renforcer
+                  les validations d'entrée et les requêtes paramétrées.
+                </td>
+              </tr>
+              <tr>
+                <td class="month-highlight">Décembre 2025</td>
+                <td>
+                  Attaques DDoS d'ampleur inédite contre La Poste et La Banque
+                  Postale, sites inaccessibles à Noël.
+                </td>
+                <td>
+                  Concevoir des architectures résilientes (CDN, protections
+                  anti-DDoS, rate limiting).
+                </td>
+              </tr>
+              <tr>
+                <td class="month-highlight">Janvier 2026</td>
+                <td>
+                  Fuite de données de Colis Privé : plus de 10 millions d'emails
+                  uniques exposés sur le dark web.
+                </td>
+                <td>
+                  Chiffrement des données sensibles et principe du moindre
+                  privilège sur les bases de données.
+                </td>
+              </tr>
+              <tr>
+                <td class="month-highlight">Février 2026</td>
+                <td>Faille critique dans WordPress exposant 800 000 sites.</td>
+                <td>
+                  Mettre à jour systématiquement CMS, frameworks et dépendances
+                  ; surveiller les bulletins de sécurité.
+                </td>
+              </tr>
+              <tr>
+                <td class="month-highlight">Mars 2026</td>
+                <td>
+                  Piratage de la librairie JavaScript Axios (83 millions
+                  d'utilisations par semaine) via deux versions malveillantes
+                  sur npm.
+                </td>
+                <td>
+                  Vérifier l'intégrité des paquets externes, utiliser des audits
+                  de dépendances et la signature des packages.
+                </td>
+              </tr>
+              <tr>
+                <td class="month-highlight">Avril 2026</td>
+                <td>
+                  Les API et applications cloud deviennent la nouvelle zone
+                  grise, ciblées par des attaques dopées à l'IA.
+                </td>
+                <td>
+                  Sécuriser les API dès la conception (authentification forte,
+                  rate limiting, validation des schémas) et adopter SecDevOps.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      
+
+      <section>
+        <h2>Sources et outils de veille</h2>
+
+        <!-- Conteneur parent avec display: flex -->
+        <div class="veille-horizontal">
+          <!-- Carte 01net -->
+          <div class="veille-card">
+            <div class="card-icon">
+              <img src="../image/logo-01net.png" alt="01net" />
+            </div>
+            <span class="card-title">01NET</span>
+          </div>
+
+          <!-- Carte X -->
+          <div class="veille-card">
+            <div class="card-icon">
+              <img src="../image/logo-x.png" alt="X" />
+            </div>
+            <span class="card-title">X (TWITTER)</span>
+          </div>
+
+          <!-- Carte Google Alerts -->
+          <div class="veille-card">
+            <div class="card-icon">
+              <img src="../image/logo-google.png" alt="Google Alerts" />
+            </div>
+            <span class="card-title">GOOGLE ALERTS</span>
+          </div>
+        </div>
+      </section>
+
+      <div class="conclusion-block">
+        <h3 style="margin-top: 0;">Synthèse de la veille</h3>
+        <ul style="margin-left: 1.5rem; line-height: 1.8;">
+          <li>L'IA peut être utilisée par les pirates pour créer des attaques.</li>
+          <li>Les bibliothèques qu'on importe (comme Axios) peuvent être piégées → il faut les vérifier.</li>
+          <li>Les API sont souvent mal sécurisées → nouvelle cible favorite des pirates.</li>
+          <li>Toujours filtrer ce que l'utilisateur envoie (ne jamais faire confiance).</li>
+          <li>Un site doit résister aux attaques et aux pannes (résilience).</li>
+          <li>La sécurité se pense dès le début du code, pas à la fin.</li>
+        </ul>
+      </div>
+
+      <section>
+        <h2>Lien avec le BTS SIO (SLAM)</h2>
+        <p>
+          Cette veille s'inscrit directement dans les compétences du bloc 2 –
+          <strong>développer des applications sécurisées</strong> :
+        </p>
+        <ul style="margin-left: 1.5rem; margin-top: 0.5rem">
+          <li>
+            Anticiper les vulnérabilités (XSS, injections, failles API) dès la
+            phase de conception.
+          </li>
+          <li>
+            Mettre en oeuvre une démarche de sécurité dans le cycle de
+            développement (SecDevOps).
+          </li>
+          <li>
+            Assurer la maintenance évolutive en surveillant les CVE des
+            dépendances et frameworks.
+          </li>
+        </ul>
+      </section>
+    </div>
+
+    <!-- Le footer est généré automatiquement par script.js -->
+    <script src="../script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+    <script>
+      lightbox.option({
+        resizeDuration: 100,
+        fadeDuration: 100,
+        imageFadeDuration: 100,
+        wrapAround: true,
+      });
+    </script>
+  </body>
+</html>
