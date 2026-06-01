@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Projet VisiteurDAO - Application Java de gestion des visiteurs (DAO, SQLite, Swing)" />
+  <link rel="icon" type="image/webp" href="../image/logo-portfolio.webp" />
+  <title>VisiteurDAO - Gestion des visiteurs</title>
+  <style>
+    /* ============================================= */
+    /* ===     VARIABLES & FONDATIONS            === */
+    /* ============================================= */
+
+    :root {
+      --bg: #cfdcef;
+      --bg-raised:   #ffffff;
+      --bg-card:     #f4f7fc;
+      --bg-hover:    #e6ecf6;
+
+      --text-1:      #071428;   /* titres — navy quasi-noir */
+      --text-2:      #1e3256;   /* corps — bleu foncé lisible */
+      --text-3:      #6478a0;   /* placeholders, labels */
+
+      --accent:      #0f3d8c;           /* bleu navy profond */
+      --accent-dim:  rgba(15, 61, 140, 0.10);
+      --green:       #1a7a4a;
+
+      --gradient-h1: linear-gradient(135deg, #071428 30%, #0f3d8c 100%);
+
+      --line:        rgba(15, 61, 140, 0.14);
+      --line-accent: rgba(15, 61, 140, 0.36);
+
+      --r-sm:  5px;
+      --r-md:  10px;
+      --r-lg:  16px;
+
+      --mono:    "IBM Plex Mono", monospace;
+      --display: "Raleway", sans-serif;
+
+      --ease:   cubic-bezier(0.4, 0, 0.2, 1);
+      --t-fast: 180ms;
+      --t-med:  300ms;
+    }
+
+    /* ============================================= */
+    /* ===     RESET & BASE                      === */
+    /* ============================================= */
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text-2);
+      font-family: var(--mono);
+      line-height: 1;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body.menu-open {
+      overflow: hidden;
+    }
+
+    ::selection {
+      background: var(--accent);
+      color: #ffffff;
+    }
+
+    ::-webkit-scrollbar       { width: 3px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #c2ceea; border-radius: 2px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--text-3); }
+
+    /* ============================================= */
+    /* ===     TYPOGRAPHIE                       === */
+    /* ============================================= */
+
+    h1, h2, h3, h4 {
+      font-family: var(--display);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      font-size: clamp(38px, 5.5vw, 60px);
+      margin-bottom: 20px;
+      color: #071428;
+    }
+
+    h2 {
+      font-size: clamp(28px, 3.5vw, 40px);
+      margin-bottom: 24px;
+      color: #071428;
+    }
+
+    h3 {
+      font-size: 22px;
+      margin-top: 28px;
+      margin-bottom: 12px;
+      color: #0f2040;
+    }
+
+    h4 {
+      font-size: 18px;
+      margin-top: 20px;
+      margin-bottom: 8px;
+      color: #1e3256;
+      font-weight: 700;
+    }
+
+    p, li {
+      font-size: 16px;
+      line-height: 1.85;
+      color: var(--text-2);
+    }
+
+    .label {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-3);
+      font-family: var(--mono);
+    }
+
+    /* ============================================= */
+    /* ===     HEADER                            === */
+    /* ============================================= */
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    /* ============================================= */
+    /* ===     NAVIGATION                        === */
+    /* ============================================= */
+
+    .nav-menu {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      padding: 24px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 36px;
+      background: rgba(237, 241, 248, 0.94);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--line);
+      z-index: 1000;
+    }
+
+    .nav-menu a {
+      color: var(--text-2);
+      text-decoration: none;
+      font-size: 15px;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+      transition: color var(--t-fast) var(--ease);
+    }
+
+    .nav-menu a:not(.btn):not(.logo-link) {
+      position: relative;
+    }
+
+    .nav-menu a:not(.btn):not(.logo-link)::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width var(--t-med) var(--ease);
+    }
+
+    .nav-menu a:not(.btn):not(.logo-link):hover::after { width: 100%; }
+    .nav-menu a:hover { color: var(--text-1); }
+
+    .logo-link { line-height: 0; }
+
+    .nav-menu img {
+      height: 34px;
+      width: 34px;
+      border-radius: var(--r-sm);
+      transition: opacity var(--t-fast) var(--ease);
+    }
+
+    .nav-menu img:hover { opacity: 0.7; }
+
+    /* ============================================= */
+    /* ===     BOUTON NAV                        === */
+    /* ============================================= */
+
+    .btn {
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      background: transparent;
+      border: 1px solid var(--line-accent);
+      border-radius: var(--r-sm);
+      padding: 7px 18px;
+      cursor: pointer;
+      transition: border-color var(--t-fast) var(--ease),
+                  color var(--t-fast) var(--ease),
+                  background var(--t-fast) var(--ease);
+    }
+
+    .nav-menu a.btn {
+      text-decoration: none;
+      padding: 7px 18px;
+    }
+
+    .nav-menu a.btn:hover,
+    .btn:hover {
+      border-color: var(--accent);
+      color: #ffffff;
+      background: var(--accent);
+    }
+
+    .btn:active { transform: scale(0.97); }
+
+    /* ============================================= */
+    /* ===     HAMBURGER                         === */
+    /* ============================================= */
+
+    .hamburger {
+      display: none;
+      cursor: pointer;
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1001;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      margin: 6px 0;
+      background: var(--text-1);
+      border-radius: 1px;
+      transition: transform var(--t-med) var(--ease),
+                  opacity var(--t-fast) var(--ease);
+    }
+
+    .hamburger.active span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+
+    /* ============================================= */
+    /* ===     DROPDOWN                          === */
+    /* ============================================= */
+
+    .dropdown { position: relative; display: inline-block; }
+
+    .dropbtn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text-2);
+      font-family: var(--mono);
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+      transition: color var(--t-fast) var(--ease);
+      padding: 0;
+    }
+
+    .dropbtn:hover { color: var(--text-1); }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      padding-top: 10px;
+      min-width: 210px;
+      z-index: 10;
+    }
+
+    .dropdown-content-inner {
+      background: var(--bg-raised);
+      border: 1px solid var(--line);
+      border-radius: var(--r-md);
+      padding: 6px;
+      box-shadow: 0 20px 48px rgba(15, 61, 140, 0.12);
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 9px 14px;
+      font-size: 15px;
+      color: var(--text-2);
+      text-decoration: none;
+      border-radius: var(--r-sm);
+      white-space: nowrap;
+      transition: background var(--t-fast) var(--ease), color var(--t-fast) var(--ease);
+    }
+
+    .dropdown-content a::after { display: none !important; }
+
+    .dropdown-content a:hover {
+      background: var(--bg-hover);
+      color: var(--accent);
+    }
+
+    .dropdown:hover .dropdown-content,
+    .dropdown.open .dropdown-content { display: block; }
+
+    /* ============================================= */
+    /* ===     SECTIONS GÉNÉRIQUES               === */
+    /* ============================================= */
+
+    .main-container {
+      padding-top: 100px;
+      padding-left: 15%;
+      padding-right: 15%;
+      margin-bottom: 64px;
+    }
+
+    /* ============================================= */
+    /* ===     PROJET CARD (pour fonctionnalités)=== */
+    /* ============================================= */
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin: 40px 0;
+    }
+
+    .feature-card {
+      background: var(--bg-raised);
+      border: 1px solid var(--line);
+      border-radius: var(--r-md);
+      padding: 24px;
+      transition: transform var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--line-accent);
+    }
+
+    .feature-card h3 {
+      margin-top: 0;
+      margin-bottom: 12px;
+      color: var(--accent);
+    }
+
+    .feature-card p {
+      color: var(--text-2);
+      font-size: 14px;
+    }
+
+    /* ============================================= */
+    /* ===     CODE SECTIONS                     === */
+    /* ============================================= */
+
+    .code-section {
+      background: var(--bg-raised);
+      border: 1px solid var(--line);
+      border-radius: var(--r-md);
+      margin-bottom: 24px;
+      overflow: hidden;
+    }
+
+    .code-header {
+      background: var(--bg-card);
+      padding: 16px 20px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+      font-family: var(--mono);
+      font-size: 14px;
+      transition: background var(--t-fast) var(--ease);
+    }
+
+    .code-header:hover {
+      background: var(--bg-hover);
+    }
+
+    .code-content {
+      display: none;
+      padding: 20px;
+      background: var(--bg-raised);
+      overflow-x: auto;
+      border-top: 1px solid var(--line);
+    }
+
+    .code-content.show {
+      display: block;
+    }
+
+    pre {
+      margin: 0;
+      font-family: 'Courier New', 'IBM Plex Mono', monospace;
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--text-1);
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    /* syntaxe simple */
+    .keyword { color: #0f3d8c; font-weight: 600; }
+    .string { color: #1a7a4a; }
+    .comment { color: #6478a0; font-style: italic; }
+    .class { color: #071428; font-weight: 600; }
+
+    /* ============================================= */
+    /* ===     BADGES                           === */
+    /* ============================================= */
+
+    .tech-badge {
+      display: inline-block;
+      background: var(--bg-card);
+      border: 1px solid var(--line);
+      border-radius: 100px;
+      padding: 4px 12px;
+      font-size: 11px;
+      font-family: var(--mono);
+      color: var(--text-2);
+      margin-right: 8px;
+      margin-bottom: 8px;
+    }
+
+    /* ============================================= */
+    /* ===     FOOTER                            === */
+    /* ============================================= */
+
+    .site-footer {
+      margin-top: 80px;
+      border-top: 1px solid var(--line);
+      padding: 48px 15% 32px;
+    }
+
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: start;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-brand p {
+      font-size: 13px;
+      line-height: 1.75;
+      color: var(--text-2);
+      margin-top: 10px;
+      max-width: 220px;
+    }
+
+    .footer-brand-name {
+      font-family: var(--display);
+      font-weight: 800;
+      font-size: 16px;
+      color: var(--text-1);
+      letter-spacing: -0.01em;
+    }
+
+    .footer-nav {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-nav a {
+      font-size: 13px;
+      color: var(--text-2);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      transition: color var(--t-fast) var(--ease);
+    }
+
+    .footer-nav a:hover {
+      color: var(--accent);
+    }
+
+    .footer-contact {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 10px;
+    }
+
+    .footer-contact a {
+      font-size: 13px;
+      color: var(--text-2);
+      text-decoration: none;
+      transition: color var(--t-fast) var(--ease);
+    }
+
+    .footer-contact a:hover {
+      color: var(--accent);
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 12px;
+      margin-top: 6px;
+    }
+
+    .footer-socials a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      color: var(--text-2);
+      transition: border-color var(--t-fast) var(--ease),
+                  color var(--t-fast) var(--ease);
+      text-decoration: none;
+    }
+
+    .footer-socials a:hover {
+      color: var(--accent);
+      border-color: var(--line-accent);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--line);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-bottom p {
+      font-size: 11px;
+      color: var(--text-3);
+      letter-spacing: 0.06em;
+    }
+
+    .footer-bottom span {
+      font-size: 11px;
+      color: var(--text-3);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 768px) {
+      .main-container {
+        padding-left: 5%;
+        padding-right: 5%;
+        padding-top: 80px;
+      }
+      .site-footer {
+        padding: 40px 5% 24px;
+      }
+      .footer-inner {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        text-align: center;
+      }
+      .footer-contact {
+        align-items: center;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+      }
+      .nav-menu {
+        padding: 20px 24px;
+        gap: 20px;
+      }
+      .hamburger {
+        display: block;
+      }
+      .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        left: auto;
+        width: 270px;
+        height: 100dvh;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 0;
+        padding: 88px 32px;
+        background: var(--bg-raised);
+        border-left: 1px solid var(--line);
+        backdrop-filter: none;
+        transition: right var(--t-med) var(--ease);
+      }
+      .nav-menu.active { right: 0; }
+      .logo-link {
+        position: fixed;
+        top: 16px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1002;
+      }
+      .nav-menu a {
+        margin: 14px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="hamburger"><span></span><span></span><span></span></div>
+    <nav class="nav-menu">
+      <a href="../index.html" class="logo-link">
+        <img src="../image/logo-portfolio.webp" alt="Logo Youssef Lahrour" />
+      </a>
+      <a href="CV.html">CV</a>
+      <div class="dropdown">
+        <a href="Projets.html" class="dropbtn">Projets</a>
+        <div class="dropdown-content">
+          <div class="dropdown-content-inner">
+            <a href="ProjetGestionVersionGit.html">Projet Git</a>
+            <a href="TP_GLPI.html">TP GLPI</a>
+            <a href="Dunewave.html">Dunewave – Locaboard</a>
+            <a href="Billetterie-Fa.html">Billetterie du Fâ</a>
+            <a href="CanisPro.html">CanisPro Éducation</a>
+          </div>
+        </div>
+      </div>
+      <a href="Stages.html">Stages</a>
+      <a href="Veille.html">Veille</a>
+      <a href="Competence.html">Compétences</a>
+      <a href="Contact.html" class="btn">Me contacter</a>
+    </nav>
+  </header>
+
+  <div class="main-container project-page">
+    <h1>VisiteurDAO – Gestion des visiteurs</h1>
+    <p style="margin-bottom: 24px;">Application Java  de gestion des visiteurs médicaux avec architecture MVC, pattern DAO, base SQLite et interface Swing.</p>
+    
+    <div style="margin-bottom: 32px;">
+      <span class="tech-badge">Java SE</span>
+      <span class="tech-badge">Swing</span>
+      <span class="tech-badge">SQLite</span>
+      <span class="tech-badge">DAO Pattern</span>
+      <span class="tech-badge">MVC</span>
+    </div>
+
+    <!-- Fonctionnalités (sans émojis) -->
+    <section>
+      <h2>Fonctionnalités</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <h3>Authentification</h3>
+          <p>Gestion des sessions avec rôles Admin et Visiteur (admin/admin).</p>
+        </div>
+        <div class="feature-card">
+          <h3>CRUD complet</h3>
+          <p>Ajout, modification, suppression et consultation des visiteurs.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Base SQLite</h3>
+          <p>Stockage persistant avec données de test préchargées (8 visiteurs).</p>
+        </div>
+        <div class="feature-card">
+          <h3>Interface Swing</h3>
+          <p>IHM intuitive avec JTable, JSpinner et formulaires d'édition.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Gestion des rôles</h3>
+          <p>Accès restreint selon le profil (seul l'admin peut modifier/supprimer).</p>
+        </div>
+        <div class="feature-card">
+          <h3>Recherche dynamique</h3>
+          <p>Filtrage des visiteurs par nom, prénom ou login.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Architecture MVC -->
+    <section>
+      <h2>Architecture MVC</h2>
+      <div style="background: var(--bg-card); border-radius: var(--r-md); padding: 24px; margin-bottom: 32px;">
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 24px;">
+          <div style="background: var(--bg-raised); border: 1px solid var(--line); border-radius: var(--r-md); padding: 16px; min-width: 180px;">
+            <h3 style="color: var(--accent); margin: 0 0 8px 0;">Vue (Swing)</h3>
+            <p style="font-size: 13px;">JFrame, JTable, JDialog, formulaires</p>
+          </div>
+          <div style="background: var(--bg-raised); border: 1px solid var(--line); border-radius: var(--r-md); padding: 16px; min-width: 180px;">
+            <h3 style="color: var(--accent); margin: 0 0 8px 0;">Contrôleur</h3>
+            <p style="font-size: 13px;">Gère l'authentification et les opérations CRUD</p>
+          </div>
+          <div style="background: var(--bg-raised); border: 1px solid var(--line); border-radius: var(--r-md); padding: 16px; min-width: 180px;">
+            <h3 style="color: var(--accent); margin: 0 0 8px 0;">Modèle (DAO)</h3>
+            <p style="font-size: 13px;">Visiteur, VisiteurDAO, BD_SQLiteOpenHelper</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Code source -->
+    <section>
+      <h2>Code source Java</h2>
+
+      <!-- Visiteur.java -->
+      <div class="code-section">
+        <div class="code-header" onclick="toggleCode('visiteurClass')">
+          <span>Visiteur.java - Classe modèle</span>
+          <span>▼</span>
+        </div>
+        <div id="visiteurClass" class="code-content">
+          <pre>
+<span class="keyword">package</span> com.example.visiteurdao.Modele;
+
+<span class="keyword">public class</span> <span class="class">Visiteur</span> {
+    <span class="keyword">private</span> String id;
+    <span class="keyword">private</span> String nom;
+    <span class="keyword">private</span> String prenom;
+    <span class="keyword">private</span> String login;
+    <span class="keyword">private</span> String mdp;
+    <span class="keyword">private</span> String adresse;
+    <span class="keyword">private</span> String codePostal;
+    <span class="keyword">private</span> String ville;
+    <span class="keyword">private</span> String dateEmbauche;
+
+    <span class="comment">// Constructeur</span>
+    <span class="keyword">public</span> Visiteur(String id, String nom, String prenom, String login, 
+                    String mdp, String adresse, String codePostal, 
+                    String ville, String dateEmbauche) {
+        <span class="keyword">this</span>.id = id;
+        <span class="keyword">this</span>.nom = nom;
+        <span class="keyword">this</span>.prenom = prenom;
+        <span class="keyword">this</span>.login = login;
+        <span class="keyword">this</span>.mdp = mdp;
+        <span class="keyword">this</span>.adresse = adresse;
+        <span class="keyword">this</span>.codePostal = codePostal;
+        <span class="keyword">this</span>.ville = ville;
+        <span class="keyword">this</span>.dateEmbauche = dateEmbauche;
+    }
+
+    <span class="comment">// Getters et Setters</span>
+    <span class="keyword">public</span> String getId() { <span class="keyword">return</span> id; }
+    <span class="keyword">public</span> <span class="keyword">void</span> setId(String id) { <span class="keyword">this</span>.id = id; }
+    <span class="keyword">public</span> String getNom() { <span class="keyword">return</span> nom; }
+    <span class="comment">// ... autres getters/setters</span>
+
+    @Override
+    <span class="keyword">public</span> String toString() {
+        <span class="keyword">return</span> nom + <span class="string">" "</span> + prenom;
+    }
+}
+          </pre>
+        </div>
+      </div>
+
+      <!-- VisiteurDAO.java -->
+      <div class="code-section">
+        <div class="code-header" onclick="toggleCode('visiteurDAO')">
+          <span>VisiteurDAO.java - Accès aux données</span>
+          <span>▼</span>
+        </div>
+        <div id="visiteurDAO" class="code-content">
+          <pre>
+<span class="keyword">public class</span> <span class="class">VisiteurDAO</span> {
+    <span class="keyword">private</span> BD_SQLiteOpenHelper accesBD;
+
+    <span class="keyword">public</span> VisiteurDAO(Context ct) {
+        accesBD = <span class="keyword">new</span> BD_SQLiteOpenHelper(ct, <span class="string">"BDpharma"</span>, <span class="keyword">null</span>, <span class="number">1</span>);
+    }
+
+    <span class="comment">// Vérification des identifiants</span>
+    <span class="keyword">public boolean</span> seConnecter(String unIdentifiant, String unMotDePasse) {
+        SQLiteDatabase db = accesBD.getReadableDatabase();
+        Cursor curseur = db.rawQuery(<span class="string">"SELECT mdp FROM visiteur WHERE login = ?"</span>, 
+                                     <span class="keyword">new</span> String[]{unIdentifiant});
+        <span class="keyword">boolean</span> succes = <span class="keyword">false</span>;
+        <span class="keyword">if</span> (curseur != <span class="keyword">null</span> && curseur.moveToFirst()) {
+            <span class="keyword">if</span> (curseur.getString(<span class="number">0</span>).equals(unMotDePasse)) {
+                succes = <span class="keyword">true</span>;
+            }
+            curseur.close();
+        }
+        <span class="keyword">return</span> succes;
+    }
+
+    <span class="comment">// Ajouter un visiteur</span>
+    <span class="keyword">public long</span> addVisiteur(Visiteur unVisiteur) {
+        SQLiteDatabase bd = accesBD.getWritableDatabase();
+        ContentValues value = <span class="keyword">new</span> ContentValues();
+        value.put(<span class="string">"id"</span>, unVisiteur.getId());
+        value.put(<span class="string">"nom"</span>, unVisiteur.getNom());
+        <span class="comment">// ... autres champs</span>
+        <span class="keyword">return</span> bd.insert(<span class="string">"Visiteur"</span>, <span class="keyword">null</span>, value);
+    }
+
+    <span class="comment">// Récupérer tous les visiteurs</span>
+    <span class="keyword">public</span> ArrayList&lt;Visiteur&gt; getLesVisiteurs() {
+        Cursor curseur = accesBD.getReadableDatabase()
+            .rawQuery(<span class="string">"SELECT * FROM Visiteur"</span>, <span class="keyword">null</span>);
+        <span class="keyword">return</span> cursorToVisiteurArrayList(curseur);
+    }
+
+    <span class="comment">// Supprimer un visiteur</span>
+    <span class="keyword">public long</span> supprimerVisiteur(Visiteur unVisiteur) {
+        SQLiteDatabase bd = accesBD.getWritableDatabase();
+        String condition = <span class="string">"nom ='"</span> + unVisiteur.getNom() + 
+                          <span class="string">"' AND prenom='"</span> + unVisiteur.getPrenom() + <span class="string">"'"</span>;
+        <span class="keyword">return</span> bd.delete(<span class="string">"Visiteur"</span>, condition, <span class="keyword">null</span>);
+    }
+}
+          </pre>
+        </div>
+      </div>
+
+      <!-- SessionManager.java -->
+      <div class="code-section">
+        <div class="code-header" onclick="toggleCode('sessionManager')">
+          <span>SessionManager.java - Gestion des sessions</span>
+          <span>▼</span>
+        </div>
+        <div id="sessionManager" class="code-content">
+          <pre>
+<span class="keyword">public class</span> <span class="class">SessionManager</span> {
+    <span class="keyword">public static final</span> String ROLE_ADMIN = <span class="string">"admin"</span>;
+    <span class="keyword">public static final</span> String ROLE_VISITEUR = <span class="string">"visiteur"</span>;
+    
+    <span class="keyword">private static final</span> String ADMIN_LOGIN = <span class="string">"admin"</span>;
+    <span class="keyword">private static final</span> String ADMIN_MDP = <span class="string">"admin"</span>;
+    
+    <span class="keyword">private</span> String loginCourant;
+    <span class="keyword">private</span> String roleCourant;
+    <span class="keyword">private boolean</span> estConnecte;
+
+    <span class="keyword">public boolean</span> isAdminCredentials(String login, String mdp) {
+        <span class="keyword">return</span> ADMIN_LOGIN.equals(login) && ADMIN_MDP.equals(mdp);
+    }
+
+    <span class="keyword">public void</span> createSession(String login, String role) {
+        <span class="keyword">this</span>.loginCourant = login;
+        <span class="keyword">this</span>.roleCourant = role;
+        <span class="keyword">this</span>.estConnecte = <span class="keyword">true</span>;
+    }
+
+    <span class="keyword">public boolean</span> isAdmin() {
+        <span class="keyword">return</span> ROLE_ADMIN.equals(roleCourant);
+    }
+
+    <span class="keyword">public void</span> logout() {
+        <span class="keyword">this</span>.loginCourant = <span class="keyword">null</span>;
+        <span class="keyword">this</span>.roleCourant = <span class="keyword">null</span>;
+        <span class="keyword">this</span>.estConnecte = <span class="keyword">false</span>;
+    }
+}
+          </pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Base de données (sans tableau des données) -->
+    <section>
+      <h2>Base de données SQLite</h2>
+      <div class="code-section">
+        <div class="code-header" onclick="toggleCode('sqlCreate')">
+          <span>Script de création de la table VISITEUR</span>
+          <span>▼</span>
+        </div>
+        <div id="sqlCreate" class="code-content">
+          <pre>
+CREATE TABLE IF NOT EXISTS visiteur (
+    id TEXT PRIMARY KEY NOT NULL,
+    nom TEXT DEFAULT NULL,
+    prenom TEXT DEFAULT NULL,
+    login TEXT DEFAULT NULL,
+    mdp TEXT DEFAULT NULL,
+    adresse TEXT DEFAULT NULL,
+    cp TEXT DEFAULT NULL,
+    ville TEXT DEFAULT NULL,
+    dateEmbauche TEXT DEFAULT NULL
+);
+
+<span class="comment">-- Données de test (8 visiteurs)</span>
+INSERT INTO visiteur VALUES
+('a131', 'Villechalane', 'Louis', 'aribiA', 'aaaa', '8 rue des textmes', '46000', 'Cahors', '2005-12-21'),
+('a17', 'Andre', 'David', 'dandre', 'oppg5', '1 rue Petit', '46200', 'Lalbenque', '1998-11-23'),
+('a55', 'Bedos', 'Christian', 'cbedos', 'gmhxd', '1 rue Peranud', '46250', 'Montcuq', '1995-01-12'),
+('a93', 'Tusseau', 'Louis', 'ltusseau', 'ktp3s', '22 rue des Ternes', '46123', 'Gramat', '2000-05-01'),
+('b13', 'Bentot', 'Pascal', 'pbentot', 'doyw1', '11 allée des Cerises', '46512', 'Bessines', '1992-07-09'),
+('b16', 'Bioret', 'Luc', 'lbioret', 'hrjfs', '1 Avenue gambetta', '46000', 'Cahors', '1998-05-11'),
+('b19', 'Bunisset', 'Francis', 'fbunisset', '4vbnd', '10 rue des Perles', '93100', 'Montreuil', '1987-10-21'),
+('b25', 'Bunisset', 'Denise', 'dbunisset', 's1y1r', '23 rue Manin', '75019', 'paris', '2010-12-05');
+          </pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Compétences BTS SIO -->
+    <section>
+      <h2>Compétences BTS SIO (SLAM)</h2>
+      <div style="background: var(--bg-card); border-radius: var(--r-md); padding: 24px;">
+        <ul style="margin-left: 24px;">
+          <li>Concevoir et développer une application client-serveur (Java + SQLite)</li>
+          <li>Implémenter le pattern DAO pour l'accès aux données</li>
+          <li>Gérer les droits d'accès et les sessions utilisateurs</li>
+          <li>Réaliser une interface graphique ergonomique avec Swing</li>
+          <li>Assurer la persistance des données avec SQLite</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <script src="../script.js"></script>
+
+  <script>
+    function toggleCode(id) {
+      const el = document.getElementById(id);
+      if (el) {
+        el.classList.toggle('show');
+      }
+    }
+
+    // Menu hamburger (standard portfolio)
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+    if (hamburger && navMenu) {
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+        document.body.classList.toggle('menu-open');
+      });
+    }
+  </script>
+</body>
+</html>

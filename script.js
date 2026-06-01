@@ -65,7 +65,7 @@ document.addEventListener('click', (e) => {
     });
   }
 
-  const projectPages = ['ProjetGestionVersionGit.html', 'TP_GLPI.html', 'Dunewave.html', 'Billetterie-Fa.html', 'Projets.html'];
+  const projectPages = ['ProjetGestionVersionGit.html', 'TP_GLPI.html', 'Dunewave.html', 'Billetterie-Fa.html', 'CanisPro.html', 'Projets.html'];
   const stagePages = ['Stage1.html', 'Stage2.html'];
   const veillePages = ['Veille-VSCode-Copilot.html', 'Veille2.html'];
 
