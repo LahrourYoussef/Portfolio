@@ -711,200 +711,223 @@
       </div>
     </section>
 
-    <!-- Code source -->
-    <section>
-      <h2>Code source Java</h2>
-
-      <!-- Visiteur.java -->
-      <div class="code-section">
-        <div class="code-header" onclick="toggleCode('visiteurClass')">
-          <span>Visiteur.java - Classe modèle</span>
-          <span>▼</span>
-        </div>
-        <div id="visiteurClass" class="code-content">
-          <pre>
-<span class="keyword">package</span> com.example.visiteurdao.Modele;
-
-<span class="keyword">public class</span> <span class="class">Visiteur</span> {
-    <span class="keyword">private</span> String id;
-    <span class="keyword">private</span> String nom;
-    <span class="keyword">private</span> String prenom;
-    <span class="keyword">private</span> String login;
-    <span class="keyword">private</span> String mdp;
-    <span class="keyword">private</span> String adresse;
-    <span class="keyword">private</span> String codePostal;
-    <span class="keyword">private</span> String ville;
-    <span class="keyword">private</span> String dateEmbauche;
-
-    <span class="comment">// Constructeur</span>
-    <span class="keyword">public</span> Visiteur(String id, String nom, String prenom, String login, 
-                    String mdp, String adresse, String codePostal, 
-                    String ville, String dateEmbauche) {
-        <span class="keyword">this</span>.id = id;
-        <span class="keyword">this</span>.nom = nom;
-        <span class="keyword">this</span>.prenom = prenom;
-        <span class="keyword">this</span>.login = login;
-        <span class="keyword">this</span>.mdp = mdp;
-        <span class="keyword">this</span>.adresse = adresse;
-        <span class="keyword">this</span>.codePostal = codePostal;
-        <span class="keyword">this</span>.ville = ville;
-        <span class="keyword">this</span>.dateEmbauche = dateEmbauche;
-    }
-
-    <span class="comment">// Getters et Setters</span>
-    <span class="keyword">public</span> String getId() { <span class="keyword">return</span> id; }
-    <span class="keyword">public</span> <span class="keyword">void</span> setId(String id) { <span class="keyword">this</span>.id = id; }
-    <span class="keyword">public</span> String getNom() { <span class="keyword">return</span> nom; }
-    <span class="comment">// ... autres getters/setters</span>
-
-    @Override
-    <span class="keyword">public</span> String toString() {
-        <span class="keyword">return</span> nom + <span class="string">" "</span> + prenom;
-    }
-}
-          </pre>
-        </div>
+ <!-- Code source -->
+<section>
+    <h2>Code source Java</h2>
+  
+    <!-- Visiteur.java -->
+    <div class="code-section">
+      <div class="code-header" onclick="toggleCode('visiteurClass')">
+        <span>Visiteur.java - Classe modèle</span>
+        <span>▼</span>
       </div>
-
-      <!-- VisiteurDAO.java -->
-      <div class="code-section">
-        <div class="code-header" onclick="toggleCode('visiteurDAO')">
-          <span>VisiteurDAO.java - Accès aux données</span>
-          <span>▼</span>
-        </div>
-        <div id="visiteurDAO" class="code-content">
-          <pre>
-<span class="keyword">public class</span> <span class="class">VisiteurDAO</span> {
-    <span class="keyword">private</span> BD_SQLiteOpenHelper accesBD;
-
-    <span class="keyword">public</span> VisiteurDAO(Context ct) {
-        accesBD = <span class="keyword">new</span> BD_SQLiteOpenHelper(ct, <span class="string">"BDpharma"</span>, <span class="keyword">null</span>, <span class="number">1</span>);
+      <div id="visiteurClass" class="code-content">
+        <pre>
+  <span class="keyword">package</span> com.example.visiteurdao.Modele;
+  
+  <span class="keyword">public class</span> <span class="class">Visiteur</span> {
+      <span class="keyword">private</span> String id;
+      <span class="keyword">private</span> String nom;
+      <span class="keyword">private</span> String prenom;
+      <span class="keyword">private</span> String login;
+      <span class="keyword">private</span> String mdp;
+      <span class="keyword">private</span> String adresse;
+      <span class="keyword">private</span> String codePostal;
+      <span class="keyword">private</span> String ville;
+      <span class="keyword">private</span> String dateEmbauche;
+  
+      <span class="comment">// Constructeur</span>
+      <span class="keyword">public</span> Visiteur(String id, String nom, String prenom, String login, 
+                      String mdp, String adresse, String codePostal, 
+                      String ville, String dateEmbauche) {
+          <span class="keyword">this</span>.id = id;
+          <span class="keyword">this</span>.nom = nom;
+          <span class="keyword">this</span>.prenom = prenom;
+          <span class="keyword">this</span>.login = login;
+          <span class="keyword">this</span>.mdp = mdp;
+          <span class="keyword">this</span>.adresse = adresse;
+          <span class="keyword">this</span>.codePostal = codePostal;
+          <span class="keyword">this</span>.ville = ville;
+          <span class="keyword">this</span>.dateEmbauche = dateEmbauche;
+      }
+  
+      <span class="comment">// Getters et Setters</span>
+      <span class="keyword">public</span> String getId() { <span class="keyword">return</span> id; }
+      <span class="keyword">public</span> <span class="keyword">void</span> setId(String id) { <span class="keyword">this</span>.id = id; }
+      <span class="keyword">public</span> String getNom() { <span class="keyword">return</span> nom; }
+      <span class="comment">// ... autres getters/setters</span>
+  
+      @Override
+      <span class="keyword">public</span> String toString() {
+          <span class="keyword">return</span> nom + <span class="string">" "</span> + prenom;
+      }
+  }
+        </pre>
+      </div>
+    </div>
+  
+    <!-- VisiteurDAO.java -->
+    <div class="code-section">
+      <div class="code-header" onclick="toggleCode('visiteurDAO')">
+        <span>VisiteurDAO.java - Accès aux données</span>
+        <span>▼</span>
+      </div>
+      <div id="visiteurDAO" class="code-content">
+        <pre>
+  <span class="keyword">public class</span> <span class="class">VisiteurDAO</span> {
+      <span class="keyword">private</span> BD_SQLiteOpenHelper accesBD;
+  
+      <span class="keyword">public</span> VisiteurDAO(Context ct) {
+          accesBD = <span class="keyword">new</span> BD_SQLiteOpenHelper(ct, <span class="string">"BDpharma"</span>, <span class="keyword">null</span>, <span class="number">1</span>);
+      }
+  
+      <span class="comment">// Vérification des identifiants</span>
+      <span class="keyword">public boolean</span> seConnecter(String unIdentifiant, String unMotDePasse) {
+          SQLiteDatabase db = accesBD.getReadableDatabase();
+          Cursor curseur = db.rawQuery(<span class="string">"SELECT mdp FROM visiteur WHERE login = ?"</span>, 
+                                       <span class="keyword">new</span> String[]{unIdentifiant});
+          <span class="keyword">boolean</span> succes = <span class="keyword">false</span>;
+          <span class="keyword">if</span> (curseur != <span class="keyword">null</span> && curseur.moveToFirst()) {
+              <span class="keyword">if</span> (curseur.getString(<span class="number">0</span>).equals(unMotDePasse)) {
+                  succes = <span class="keyword">true</span>;
+              }
+              curseur.close();
+          }
+          <span class="keyword">return</span> succes;
+      }
+  
+      <span class="comment">// Ajouter un visiteur</span>
+      <span class="keyword">public long</span> addVisiteur(Visiteur unVisiteur) {
+          SQLiteDatabase bd = accesBD.getWritableDatabase();
+          ContentValues value = <span class="keyword">new</span> ContentValues();
+          value.put(<span class="string">"id"</span>, unVisiteur.getId());
+          value.put(<span class="string">"nom"</span>, unVisiteur.getNom());
+          <span class="comment">// ... autres champs</span>
+          <span class="keyword">return</span> bd.insert(<span class="string">"Visiteur"</span>, <span class="keyword">null</span>, value);
+      }
+  
+      <span class="comment">// Récupérer tous les visiteurs</span>
+      <span class="keyword">public</span> ArrayList&lt;Visiteur&gt; getLesVisiteurs() {
+          Cursor curseur = accesBD.getReadableDatabase()
+              .rawQuery(<span class="string">"SELECT * FROM Visiteur"</span>, <span class="keyword">null</span>);
+          <span class="keyword">return</span> cursorToVisiteurArrayList(curseur);
+      }
+  
+      <span class="comment">// Supprimer un visiteur</span>
+      <span class="keyword">public long</span> supprimerVisiteur(Visiteur unVisiteur) {
+          SQLiteDatabase bd = accesBD.getWritableDatabase();
+          String condition = <span class="string">"nom ='"</span> + unVisiteur.getNom() + 
+                            <span class="string">"' AND prenom='"</span> + unVisiteur.getPrenom() + <span class="string">"'"</span>;
+          <span class="keyword">return</span> bd.delete(<span class="string">"Visiteur"</span>, condition, <span class="keyword">null</span>);
+      }
+  }
+        </pre>
+      </div>
+    </div>
+  
+    <!-- SessionManager.java -->
+    <div class="code-section">
+      <div class="code-header" onclick="toggleCode('sessionManager')">
+        <span>SessionManager.java - Gestion des sessions</span>
+        <span>▼</span>
+      </div>
+      <div id="sessionManager" class="code-content">
+        <pre>
+  <span class="keyword">public class</span> <span class="class">SessionManager</span> {
+      <span class="keyword">public static final</span> String ROLE_ADMIN = <span class="string">"admin"</span>;
+      <span class="keyword">public static final</span> String ROLE_VISITEUR = <span class="string">"visiteur"</span>;
+      
+      <span class="keyword">private static final</span> String ADMIN_LOGIN = <span class="string">"admin"</span>;
+      <span class="keyword">private static final</span> String ADMIN_MDP = <span class="string">"admin"</span>;
+      
+      <span class="keyword">private</span> String loginCourant;
+      <span class="keyword">private</span> String roleCourant;
+      <span class="keyword">private boolean</span> estConnecte;
+  
+      <span class="keyword">public boolean</span> isAdminCredentials(String login, String mdp) {
+          <span class="keyword">return</span> ADMIN_LOGIN.equals(login) && ADMIN_MDP.equals(mdp);
+      }
+  
+      <span class="keyword">public void</span> createSession(String login, String role) {
+          <span class="keyword">this</span>.loginCourant = login;
+          <span class="keyword">this</span>.roleCourant = role;
+          <span class="keyword">this</span>.estConnecte = <span class="keyword">true</span>;
+      }
+  
+      <span class="keyword">public boolean</span> isAdmin() {
+          <span class="keyword">return</span> ROLE_ADMIN.equals(roleCourant);
+      }
+  
+      <span class="keyword">public void</span> logout() {
+          <span class="keyword">this</span>.loginCourant = <span class="keyword">null</span>;
+          <span class="keyword">this</span>.roleCourant = <span class="keyword">null</span>;
+          <span class="keyword">this</span>.estConnecte = <span class="keyword">false</span>;
+      }
+  }
+        </pre>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Base de données -->
+  <section>
+    <h2>Base de données SQLite</h2>
+    <div class="code-section">
+      <div class="code-header" onclick="toggleCode('sqlCreate')">
+        <span>Script de création de la table VISITEUR</span>
+        <span>▼</span>
+      </div>
+      <div id="sqlCreate" class="code-content">
+        <pre>
+  CREATE TABLE IF NOT EXISTS visiteur (
+      id TEXT PRIMARY KEY NOT NULL,
+      nom TEXT DEFAULT NULL,
+      prenom TEXT DEFAULT NULL,
+      login TEXT DEFAULT NULL,
+      mdp TEXT DEFAULT NULL,
+      adresse TEXT DEFAULT NULL,
+      cp TEXT DEFAULT NULL,
+      ville TEXT DEFAULT NULL,
+      dateEmbauche TEXT DEFAULT NULL
+  );
+  
+  <span class="comment">-- Données de test (8 visiteurs)</span>
+  INSERT INTO visiteur VALUES
+  ('a131', 'Villechalane', 'Louis', 'aribiA', 'aaaa', '8 rue des textmes', '46000', 'Cahors', '2005-12-21'),
+  ('a17', 'Andre', 'David', 'dandre', 'oppg5', '1 rue Petit', '46200', 'Lalbenque', '1998-11-23'),
+  ('a55', 'Bedos', 'Christian', 'cbedos', 'gmhxd', '1 rue Peranud', '46250', 'Montcuq', '1995-01-12'),
+  ('a93', 'Tusseau', 'Louis', 'ltusseau', 'ktp3s', '22 rue des Ternes', '46123', 'Gramat', '2000-05-01'),
+  ('b13', 'Bentot', 'Pascal', 'pbentot', 'doyw1', '11 allée des Cerises', '46512', 'Bessines', '1992-07-09'),
+  ('b16', 'Bioret', 'Luc', 'lbioret', 'hrjfs', '1 Avenue gambetta', '46000', 'Cahors', '1998-05-11'),
+  ('b19', 'Bunisset', 'Francis', 'fbunisset', '4vbnd', '10 rue des Perles', '93100', 'Montreuil', '1987-10-21'),
+  ('b25', 'Bunisset', 'Denise', 'dbunisset', 's1y1r', '23 rue Manin', '75019', 'paris', '2010-12-05');
+        </pre>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Ajoutez ce script à la fin de la page, avant </body> -->
+  <script>
+    function toggleCode(id) {
+      const element = document.getElementById(id);
+      if (element) {
+        element.classList.toggle('show');
+      }
     }
-
-    <span class="comment">// Vérification des identifiants</span>
-    <span class="keyword">public boolean</span> seConnecter(String unIdentifiant, String unMotDePasse) {
-        SQLiteDatabase db = accesBD.getReadableDatabase();
-        Cursor curseur = db.rawQuery(<span class="string">"SELECT mdp FROM visiteur WHERE login = ?"</span>, 
-                                     <span class="keyword">new</span> String[]{unIdentifiant});
-        <span class="keyword">boolean</span> succes = <span class="keyword">false</span>;
-        <span class="keyword">if</span> (curseur != <span class="keyword">null</span> && curseur.moveToFirst()) {
-            <span class="keyword">if</span> (curseur.getString(<span class="number">0</span>).equals(unMotDePasse)) {
-                succes = <span class="keyword">true</span>;
-            }
-            curseur.close();
+    
+    // Alternative si la fonction ne fonctionne pas
+    document.querySelectorAll('.code-header').forEach(header => {
+      header.addEventListener('click', function() {
+        const contentId = this.getAttribute('onclick').match(/'([^']+)'/)[1];
+        const content = document.getElementById(contentId);
+        if (content) {
+          content.classList.toggle('show');
         }
-        <span class="keyword">return</span> succes;
-    }
+      });
+    });
+  </script>
 
-    <span class="comment">// Ajouter un visiteur</span>
-    <span class="keyword">public long</span> addVisiteur(Visiteur unVisiteur) {
-        SQLiteDatabase bd = accesBD.getWritableDatabase();
-        ContentValues value = <span class="keyword">new</span> ContentValues();
-        value.put(<span class="string">"id"</span>, unVisiteur.getId());
-        value.put(<span class="string">"nom"</span>, unVisiteur.getNom());
-        <span class="comment">// ... autres champs</span>
-        <span class="keyword">return</span> bd.insert(<span class="string">"Visiteur"</span>, <span class="keyword">null</span>, value);
-    }
-
-    <span class="comment">// Récupérer tous les visiteurs</span>
-    <span class="keyword">public</span> ArrayList&lt;Visiteur&gt; getLesVisiteurs() {
-        Cursor curseur = accesBD.getReadableDatabase()
-            .rawQuery(<span class="string">"SELECT * FROM Visiteur"</span>, <span class="keyword">null</span>);
-        <span class="keyword">return</span> cursorToVisiteurArrayList(curseur);
-    }
-
-    <span class="comment">// Supprimer un visiteur</span>
-    <span class="keyword">public long</span> supprimerVisiteur(Visiteur unVisiteur) {
-        SQLiteDatabase bd = accesBD.getWritableDatabase();
-        String condition = <span class="string">"nom ='"</span> + unVisiteur.getNom() + 
-                          <span class="string">"' AND prenom='"</span> + unVisiteur.getPrenom() + <span class="string">"'"</span>;
-        <span class="keyword">return</span> bd.delete(<span class="string">"Visiteur"</span>, condition, <span class="keyword">null</span>);
-    }
-}
-          </pre>
-        </div>
-      </div>
-
-      <!-- SessionManager.java -->
-      <div class="code-section">
-        <div class="code-header" onclick="toggleCode('sessionManager')">
-          <span>SessionManager.java - Gestion des sessions</span>
-          <span>▼</span>
-        </div>
-        <div id="sessionManager" class="code-content">
-          <pre>
-<span class="keyword">public class</span> <span class="class">SessionManager</span> {
-    <span class="keyword">public static final</span> String ROLE_ADMIN = <span class="string">"admin"</span>;
-    <span class="keyword">public static final</span> String ROLE_VISITEUR = <span class="string">"visiteur"</span>;
-    
-    <span class="keyword">private static final</span> String ADMIN_LOGIN = <span class="string">"admin"</span>;
-    <span class="keyword">private static final</span> String ADMIN_MDP = <span class="string">"admin"</span>;
-    
-    <span class="keyword">private</span> String loginCourant;
-    <span class="keyword">private</span> String roleCourant;
-    <span class="keyword">private boolean</span> estConnecte;
-
-    <span class="keyword">public boolean</span> isAdminCredentials(String login, String mdp) {
-        <span class="keyword">return</span> ADMIN_LOGIN.equals(login) && ADMIN_MDP.equals(mdp);
-    }
-
-    <span class="keyword">public void</span> createSession(String login, String role) {
-        <span class="keyword">this</span>.loginCourant = login;
-        <span class="keyword">this</span>.roleCourant = role;
-        <span class="keyword">this</span>.estConnecte = <span class="keyword">true</span>;
-    }
-
-    <span class="keyword">public boolean</span> isAdmin() {
-        <span class="keyword">return</span> ROLE_ADMIN.equals(roleCourant);
-    }
-
-    <span class="keyword">public void</span> logout() {
-        <span class="keyword">this</span>.loginCourant = <span class="keyword">null</span>;
-        <span class="keyword">this</span>.roleCourant = <span class="keyword">null</span>;
-        <span class="keyword">this</span>.estConnecte = <span class="keyword">false</span>;
-    }
-}
-          </pre>
-        </div>
-      </div>
-    </section>
-
-    <!-- Base de données (sans tableau des données) -->
-    <section>
-      <h2>Base de données SQLite</h2>
-      <div class="code-section">
-        <div class="code-header" onclick="toggleCode('sqlCreate')">
-          <span>Script de création de la table VISITEUR</span>
-          <span>▼</span>
-        </div>
-        <div id="sqlCreate" class="code-content">
-          <pre>
-CREATE TABLE IF NOT EXISTS visiteur (
-    id TEXT PRIMARY KEY NOT NULL,
-    nom TEXT DEFAULT NULL,
-    prenom TEXT DEFAULT NULL,
-    login TEXT DEFAULT NULL,
-    mdp TEXT DEFAULT NULL,
-    adresse TEXT DEFAULT NULL,
-    cp TEXT DEFAULT NULL,
-    ville TEXT DEFAULT NULL,
-    dateEmbauche TEXT DEFAULT NULL
-);
-
-<span class="comment">-- Données de test (8 visiteurs)</span>
-INSERT INTO visiteur VALUES
-('a131', 'Villechalane', 'Louis', 'aribiA', 'aaaa', '8 rue des textmes', '46000', 'Cahors', '2005-12-21'),
-('a17', 'Andre', 'David', 'dandre', 'oppg5', '1 rue Petit', '46200', 'Lalbenque', '1998-11-23'),
-('a55', 'Bedos', 'Christian', 'cbedos', 'gmhxd', '1 rue Peranud', '46250', 'Montcuq', '1995-01-12'),
-('a93', 'Tusseau', 'Louis', 'ltusseau', 'ktp3s', '22 rue des Ternes', '46123', 'Gramat', '2000-05-01'),
-('b13', 'Bentot', 'Pascal', 'pbentot', 'doyw1', '11 allée des Cerises', '46512', 'Bessines', '1992-07-09'),
-('b16', 'Bioret', 'Luc', 'lbioret', 'hrjfs', '1 Avenue gambetta', '46000', 'Cahors', '1998-05-11'),
-('b19', 'Bunisset', 'Francis', 'fbunisset', '4vbnd', '10 rue des Perles', '93100', 'Montreuil', '1987-10-21'),
-('b25', 'Bunisset', 'Denise', 'dbunisset', 's1y1r', '23 rue Manin', '75019', 'paris', '2010-12-05');
-          </pre>
-        </div>
-      </div>
-    </section>
+  
 
     <!-- Compétences BTS SIO -->
     <section>
@@ -940,6 +963,18 @@ INSERT INTO visiteur VALUES
         navMenu.classList.toggle('active');
         document.body.classList.toggle('menu-open');
       });
+    }
+  </script>
+  <script>
+    function toggleCode(id) {
+      var element = document.getElementById(id);
+      if (element) {
+        if (element.style.display === "block") {
+          element.style.display = "none";
+        } else {
+          element.style.display = "block";
+        }
+      }
     }
   </script>
 </body>
