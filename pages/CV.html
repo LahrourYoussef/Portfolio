@@ -51,64 +51,139 @@
     </nav>
   </header>
 
-  <section class="txt-profil">
-    <h2>Mon Profil</h2>
-    <p>BTS SIO option SLAM obtenu – Actuellement à la recherche d'une alternance pour intégrer un Bachelor Développement dès septembre 2026</p>
-  </section>
+  <main class="cv-page">
 
-  <div class="cta-wrap">
-    <a href="../documents/CV_Youssef_LAHROUR_Developpeur.pdf" class="cta-button" target="_blank">Voir Mon CV</a>
-  </div>
+    <!-- ─── HERO CV ─── -->
+    <section class="cv-hero">
+      <span class="cv-hero-tag">Disponible pour alternance</span>
+      <h1>Youssef Lahrour — Développeur SLAM</h1>
+      <p>
+        BTS SIO option SLAM obtenu. Je recherche une <strong>alternance en Bachelor Développement</strong>
+        dès septembre 2026 pour continuer à progresser sur des projets web et logiciels.
+      </p>
+      <div class="cv-hero-actions">
+        <a href="../documents/CV_Youssef_LAHROUR_Developpeur.pdf" class="cta-button" target="_blank">
+          Télécharger mon CV
+        </a>
+        <a href="Contact.html" class="cta-button secondary">
+          Me contacter
+        </a>
+      </div>
+    </section>
 
-  <section class="txt-competences-cv">
-    <h2>Mes Compétences</h2>
+    <!-- ─── COMPÉTENCES ─── -->
+    <div class="section-title">
+      <h2>Mes compétences</h2>
+    </div>
 
-    <h3>Développement</h3>
-    <ul>
-      <li><strong>Langages :</strong> Java, Javascript, Python, PHP, HTML, CSS, SQL</li>
-      <li><strong>Bases de données :</strong> MySQL, SQL, NoSQL</li>
-      <li><strong>Web :</strong> CMS (WordPress), référencement SEO, création de sites dynamiques</li>
-    </ul>
+    <div class="skills-grid">
 
-    <h3>Frameworks</h3>
-    <ul>
-      <li>Symfony</li>
-      <li>Android ( Java )</li>
-    </ul>
+      <!-- Développement -->
+      <div class="skill-card">
+        <div class="skill-header">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2563eb" 
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-square-code preview-icon">
+          <path d="m10 9-3 3 3 3"/><path d="m14 15 3-3-3-3"/><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
+          <h3>Développement</h3>
+        </div>
+        <p style="margin-bottom: 14px;"><strong>Langages maîtrisés :</strong></p>
+        <div class="tag-list">
+          <span class="tag">Java</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">Python</span>
+          <span class="tag">PHP</span>
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">SQL</span>
+        </div>
+        <p style="margin-top: 16px; margin-bottom: 8px;"><strong>Bases de données :</strong></p>
+        <div class="tag-list">
+          <span class="tag">MySQL</span>
+          <span class="tag">NoSQL</span>
+        </div>
+        <p style="margin-top: 16px;">
+          <strong>Web :</strong> CMS (WordPress), référencement SEO, création de sites dynamiques.
+        </p>
+      </div>
 
-    <h3>Outils</h3>
-    <ul>
-      <li><strong>Versionnement :</strong> Git, GitHub, GitLab</li>
-      <li><strong>Conteneurisation :</strong> Docker</li>
-      <li><strong>Tests :</strong> JUnit, PHPUnit</li>
-    </ul>
+      <!-- Frameworks -->
+      <div class="skill-card">
+        <div class="skill-header">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-box preview-icon"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
+          <h3>Frameworks</h3>
+        </div>
+        <div class="tag-list">
+          <span class="tag">Symfony</span>
+          <span class="tag">Android (Java)</span>
+        </div>
+      </div>
 
-    <h3>Gestion de projets</h3>
-    <ul>
-      <li><strong> Méthodologies :</strong> Agile, Scrum</li>
-      <li>Bases en organisation et suivi de projet</li>
-      <li>Travail en équipe, documentation technique</li>
-    </ul>
+      <!-- Outils -->
+      <div class="skill-card">
+        <div class="skill-header">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wrench preview-icon"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.106-3.105c.32-.322.863-.22.983.218a6 6 0 0 1-8.259 7.057l-7.91 7.91a1 1 0 0 1-2.999-3l7.91-7.91a6 6 0 0 1 7.057-8.259c.438.12.54.662.219.984z"/></svg>
+          <h3>Outils</h3>
+        </div>
+        <ul>
+          <li><strong>Versionnement :</strong> Git, GitHub, GitLab</li>
+          <li><strong>Conteneurisation :</strong> Docker</li>
+          <li><strong>Tests :</strong> JUnit, PHPUnit</li>
+        </ul>
+      </div>
 
-    <h3>Analyse & Conception</h3>
-    <ul>
-      <li><strong>Modélisation :</strong> UML , MERISE</li>
-      <li><strong>Maquettage :</strong> Figma</li>
-    </ul>
+      <!-- Gestion de projet -->
+      <div class="skill-card">
+        <div class="skill-header">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-list-checks preview-icon"><path d="M13 5h8"/><path d="M13 12h8"/><path d="M13 19h8"/><path d="m3 17 2 2 4-4"/><path d="m3 7 2 2 4-4"/></svg>
+          <h3>Gestion de projets</h3>
+        </div>
+        <ul>
+          <li><strong>Méthodologies :</strong> Agile, Scrum</li>
+          <li>Bases en organisation et suivi de projet</li>
+          <li>Travail en équipe, documentation technique</li>
+        </ul>
+      </div>
 
-    <h3>Systèmes & Réseaux</h3>
-    <ul>
-      <li>Installation et paramétrage d'OS (Windows, Linux)</li>
-      <li>Commandes DOS & UNIX, scripts, SSH, FTP, serveur web</li>
-      <li>Administration réseaux : adressage IP</li>
-    </ul>
+      <!-- Analyse & Conception -->
+      <div class="skill-card">
+        <div class="skill-header">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shapes preview-icon"><path d="M8.3 10a.7.7 0 0 1-.626-1.079L11.4 3a.7.7 0 0 1 1.198-.043L16.3 8.9a.7.7 0 0 1-.572 1.1Z"/><rect x="3" y="14" width="7" height="7" rx="1"/><circle cx="17.5" cy="17.5" r="3.5"/></svg>
+          <h3>Analyse & Conception</h3>
+        </div>
+        <ul>
+          <li><strong>Modélisation :</strong> UML, MERISE</li>
+          <li><strong>Maquettage :</strong> Figma</li>
+        </ul>
+      </div>
 
-    <h3>Cybersécurité</h3>
-    <ul>
-      <li>Bonnes pratiques (loi, RGPD, CNIL)</li>
-      <li>Sécurisation d'un SI, sauvegarde et gestion des accès</li>
-    </ul>
-  </section>
+      <!-- Systèmes & Réseaux -->
+      <div class="skill-card">
+        <div class="skill-header">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-server preview-icon"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/></svg>
+          <h3>Systèmes & Réseaux</h3>
+        </div>
+        <ul>
+          <li>Installation et paramétrage d'OS (Windows, Linux)</li>
+          <li>Commandes DOS & UNIX, scripts, SSH, FTP, serveur web</li>
+          <li>Administration réseaux : adressage IP</li>
+        </ul>
+      </div>
+
+      <!-- Cybersécurité -->
+      <div class="skill-card">
+        <div class="skill-header">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield-check preview-icon"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+          <h3>Cybersécurité</h3>
+        </div>
+        <ul>
+          <li>Bonnes pratiques (loi, RGPD, CNIL)</li>
+          <li>Sécurisation d'un SI, sauvegarde et gestion des accès</li>
+        </ul>
+      </div>
+
+    </div>
+
+  </main>
 
   <script src="../script.js"></script>
 </body>
