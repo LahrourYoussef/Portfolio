@@ -1,107 +1,173 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-<head>
-  <link rel="stylesheet" href="../styles.css" />
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Découvrez les projets de Youssef Lahrour, étudiant en BTS SIO SLAM." />
-  <link rel="icon" type="image/webp" href="../image/logo-portfolio.webp" />
-  <title>Projets de Youssef Lahrour - Développement Web & Logiciel</title>
-</head>
-<body>
-  <header>
-    <div class="hamburger"><span></span><span></span><span></span></div>
-    <nav class="nav-menu">
-      <a href="../index.html" class="logo-link">
-        <img src="../image/logo-portfolio.webp" alt="Logo Youssef Lahrour" />
-      </a>
-      <a href="CV.html">CV</a>
-      <div class="dropdown">
-        <a href="Projets.html" class="dropbtn">Projets</a>
-        <div class="dropdown-content">
-          <div class="dropdown-content-inner">
-            <a href="ProjetGestionVersionGit.html">Projet Git</a>
-            <a href="TP_GLPI.html">TP GLPI</a>
-            <a href="Dunewave.html">Dunewave – Locaboard</a>
-            <a href="Billetterie-Fa.html">Billetterie du Fâ</a>
-            <a href="CanisPro.html">CanisPro Éducation</a>
+  <head>
+    <link rel="stylesheet" href="../styles.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Découvrez les projets de Youssef Lahrour, étudiant en BTS SIO SLAM."
+    />
+    <link rel="icon" type="image/webp" href="../image/logo-portfolio.webp" />
+    <title>Projets de Youssef Lahrour - Développement Web & Logiciel</title>
+  </head>
+  <body>
+    <header>
+      <div class="hamburger"><span></span><span></span><span></span></div>
+      <nav class="nav-menu">
+        <a href="../index.html" class="logo-link">
+          <img src="../image/logo-portfolio.webp" alt="Logo Youssef Lahrour" />
+        </a>
+        <a href="CV.html">CV</a>
+        <div class="dropdown">
+          <a href="Projets.html" class="dropbtn">Projets</a>
+          <div class="dropdown-content">
+            <div class="dropdown-content-inner">
+              <a href="Dunewave.html">Dunewave – Locaboard</a>
+              <a href="Billetterie-Fa.html">Billetterie du Fâ</a>
+              <a href="CanisPro.html">CanisPro Éducation</a>
+              <a href="Stage1.html">Stage BTS SIO 1</a>
+              <a href="Stage2.html">Stage BTS SIO 2</a>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="dropdown">
-        <a href="Stages.html" class="dropbtn">Stages</a>
-        <div class="dropdown-content">
-          <div class="dropdown-content-inner">
-            <a href="Stage1.html">Stage 1ère année</a>
-            <a href="Stage2.html">Stage 2ème année</a>
+        <div class="dropdown">
+          <a href="Veille.html" class="dropbtn">Veille</a>
+          <div class="dropdown-content">
+            <div class="dropdown-content-inner">
+              <a href="Veille-VSCode-Copilot.html">Veille 1ère année</a>
+              <a href="Veille2.html">Veille 2ème année</a>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="dropdown">
-        <a href="Veille.html" class="dropbtn">Veille</a>
-        <div class="dropdown-content">
-          <div class="dropdown-content-inner">
-            <a href="Veille-VSCode-Copilot.html">Veille 1ère année</a>
-            <a href="Veille2.html">Veille 2ème année</a>
-          </div>
-        </div>
-      </div>
-      <a href="Competence.html">Compétences</a>
-      <a href="Contact.html" class="btn">Me contacter</a>
-    </nav>
-  </header>
+        <a href="Competence.html">Compétences</a>
+        <a href="Contact.html" class="btn">Me contacter</a>
+      </nav>
+    </header>
 
-  <div class="main-container">
-    <h1>Mes Projets</h1>
-    <p class="page-intro">
-      Voici une sélection de projets sur lesquels j'ai travaillé. Ils illustrent mes compétences en développement et ma capacité à mener à bien des projets concrets, de la conception au déploiement.
-    </p>
-    <div class="projets-grid">
-      <div class="projet-card" style="display: flex; flex-direction: column; align-items: center;">
-        <h3>Gestion de Versions avec Git</h3>
-        <p>Un projet réalisé dans le cadre de mon BTS SIO, mettant en œuvre la gestion de versions avec Git pour le suivi des modifications et la collaboration.</p>
-        <a href="ProjetGestionVersionGit.html" class="projet-link">En savoir plus</a>
-      </div>
-      <div class="projet-card">
-        <h3>Dunewave – Locaboard</h3>
-        <img src="../image/Dunewave.png" alt="Dunewave – Locaboard">
-        <p>Plateforme de gestion de location de planches de surf, réalisée en groupe en début de formation.</p>
-        <a href="Dunewave.html" class="projet-link">En savoir plus</a>
-        <a href="https://dune-wave.vercel.app/" class="projet-link" target="_blank">Voir le site</a>
-      </div>
-      <div class="projet-card">
-        <h3>Billetterie du Fâ</h3>
-        <img src="../image/FA.png" alt="Billetterie du Fâ">
-        <p>Application de réservation de billets pour le site archéologique du Fâ (Barzan).</p>
-        <a href="Billetterie-Fa.html" class="projet-link">En savoir plus</a>
-      </div>
-      <div class="projet-card">
-        <h3>TP GLPI – Gestion des tickets d'assistance</h3>
-        <img src="../image/GLPI.png" alt="TP GLPI – Gestion des tickets">
-        <p>TP réalisé en cours : découverte de l'outil GLPI pour la gestion des tickets d'assistance, des incidents et des demandes.</p>
-        <a href="TP_GLPI.html" class="projet-link">En savoir plus</a>
-      </div>
-      <div class="projet-card">
-        <h3>VisiteurDAO – Gestion des visiteurs</h3>
-        <img src="../image/VisiteurDAO.png" alt="VisiteurDAO – Gestion des visiteurs">
-        <p>Application Java de gestion des visiteurs  avec architecture MVC, pattern DAO, base SQLite et interface Swing.</p>
-        <a href="VisiteurDAO.html" class="projet-link">En savoir plus</a>
-      </div>
-      <div class="projet-card">
-        <h3>CanisPro – Gestion des cours des chiens</h3>
-        <img src="../image/CanisPro1.png" alt="CanisPro – Gestion des cours des chiens">
-        <p>Application web de gestion des cours des chiens avec architecture MVC, pattern DAO, base MySQL et interface HTML/CSS.</p>
-        <a href="CanisPro.html" class="projet-link">En savoir plus</a>
-      </div>
-      <div class="projet-card">
-        <h3>Journée d'intégration SIO</h3>
-        <img src="../image/JournéeIntegration.png" alt="Journée d'intégration SIO">
-        <p>Application web de gestion de la journée d'intégration du BTS SIO avec architecture MVC, pattern DAO, base MySQL et interface HTML/CSS.</p>
-        <a href="JourneeIntegration.html" class="projet-link">En savoir plus</a>
+    <div class="main-container">
+      <h1>Mes Projets</h1>
+      <p class="page-intro">
+        Voici une sélection de projets sur lesquels j'ai travaillé. Ils
+        illustrent mes compétences en développement et ma capacité à mener à
+        bien des projets concrets, de la conception au déploiement.
+      </p>
+      <div class="projets-grid">
+        
+        <div class="projet-card">
+          <h3>Billetterie du Fâ</h3>
+          <img src="../image/FA.png" alt="Billetterie du Fâ" />
+          <p>
+            Application de réservation de billets pour le site archéologique du
+            Fâ (Barzan).
+          </p>
+          <a href="Billetterie-Fa.html" class="projet-link">En savoir plus</a>
+        </div>
+        <div class="projet-card">
+          <h3>Dunewave – Locaboard</h3>
+          <img src="../image/Dunewave.png" alt="Dunewave – Locaboard" />
+          <p>
+            Plateforme de gestion de location de planches de surf, réalisée en
+            groupe en début de formation.
+          </p>
+          <a href="Dunewave.html" class="projet-link">En savoir plus</a>
+          <a
+            href="https://dune-wave.vercel.app/"
+            class="projet-link"
+            target="_blank"
+            >Voir le site</a
+          >
+        </div>
+        <div class="projet-card">
+          <h3>CanisPro – Gestion des cours des chiens</h3>
+          <img
+            src="../image/CanisPro1.png"
+            alt="CanisPro – Gestion des cours des chiens"
+          />
+          <p>
+            Application web de gestion des cours des chiens avec architecture
+            MVC, pattern DAO, base MySQL et interface HTML/CSS.
+          </p>
+          <a href="CanisPro.html" class="projet-link">En savoir plus</a>
+        </div>
+        
+        <div class="projet-card">
+          <h3>TP GLPI – Gestion des tickets d'assistance</h3>
+          <img src="../image/glpi.png" alt="TP GLPI – Gestion des tickets" />
+          <p>
+            TP réalisé en cours : découverte de l'outil GLPI pour la gestion des
+            tickets d'assistance, des incidents et des demandes.
+          </p>
+          <a href="TP_GLPI.html" class="projet-link">En savoir plus</a>
+        </div>
+        <div class="projet-card">
+          <h3>VisiteurDAO – Gestion des visiteurs</h3>
+          <img
+            src="../image/VisiteurDAO.png"
+            alt="VisiteurDAO – Gestion des visiteurs"
+          />
+          <p>
+            Application Java de gestion des visiteurs avec architecture MVC,
+            pattern DAO, base SQLite et interface Swing.
+          </p>
+          <a href="VisiteurDAO.html" class="projet-link">En savoir plus</a>
+        </div>
+        
+        <div class="projet-card">
+          <h3>Journée d'intégration SIO</h3>
+          <img
+            src="../image/JournéeIntegration.png"
+            alt="Journée d'intégration SIO"
+          />
+          <p>
+            Application web de gestion de la journée d'intégration du BTS SIO
+            avec architecture MVC, pattern DAO, base MySQL et interface
+            HTML/CSS.
+          </p>
+          <a href="JourneeIntegration.html" class="projet-link"
+            >En savoir plus</a
+          >
+        </div>
+        <div
+          class="projet-card"
+          style="display: flex; flex-direction: column; align-items: center"
+        >
+          <h3>Gestion de Versions avec Git</h3>
+          <p>
+            Un projet réalisé dans le cadre de mon BTS SIO, mettant en œuvre la
+            gestion de versions avec Git pour le suivi des modifications et la
+            collaboration.
+          </p>
+          <a href="ProjetGestionVersionGit.html" class="projet-link"
+            >En savoir plus</a
+          >
+        </div>
+        <div class="projet-card">
+          <h3>Stage 1ère année – Cabinet comptable</h3>
+          <p>
+            Modernisation de l'identité numérique d'un cabinet comptable :
+            maquettes Figma, intégration WordPress avec Elementor, SEO.
+          </p>
+          <a href="Stage1.html" class="projet-link">En savoir plus</a>
+        </div>
+        <div class="projet-card">
+          <h3>Stage 2ème année – Boucherie Agadir</h3>
+          <p>
+            Développement d'un site dynamique avec système Click & Collect,
+            authentification PHP et gestion de base de données MySQL.
+          </p>
+          <a href="Stage2.html" class="projet-link">En savoir plus</a>
+        </div>
       </div>
     </div>
-  </div>
+<!-- Bouton Retour en haut -->
+  <button id="backToTop" class="back-to-top" aria-label="Retour en haut">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 19V5M5 12l7-7 7 7"/>
+    </svg>
+  </button>
 
-  <script src="../script.js"></script>
-</body>
+
+    <script src="../script.js"></script>
+  </body>
 </html>

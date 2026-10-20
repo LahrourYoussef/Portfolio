@@ -77,6 +77,7 @@ body {
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
   position: relative;
+  padding-top: 80px;
 }
 
 /* Halos lumineux en arrière-plan */
@@ -209,8 +210,8 @@ p, li {
 /* ============================================= */
 
 @keyframes page-in {
-  from { opacity: 0; transform: translateY(16px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
 body {
@@ -547,6 +548,13 @@ header {
   gap: 20px;
 }
 
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
 .projet-card {
   background: var(--bg-raised);
   border: 1px solid var(--line);
@@ -649,6 +657,35 @@ header {
               color var(--t-fast) var(--ease);
 }
 
+.projet-link-all {
+  display: inline-flex;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  
+  /* Animation fluide sur la couleur et la position */
+  transition: 
+    color var(--t-fast) var(--ease),
+    transform var(--t-fast) var(--ease);
+}
+
+.projets-cta-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px; /* optionnel : pour l'éloigner des cartes */
+}
+
+.projet-link-all:hover {
+  color: var(--accent-2);   /* passe au cyan clair de ton site */
+  transform: translateX(4px); /* glisse légèrement vers la droite */
+}
+
 .projet-link::after { content: '↗'; }
 .projet-link:hover  { color: var(--accent-2); gap: 10px; }
 
@@ -662,7 +699,7 @@ header {
   line-height: 1.85;
   color: var(--text-2);
   max-width: 620px;
-  margin: 0 auto 56px;
+  margin: 25px auto 56px;
 }
 
 .project-page section { margin-bottom: 52px; }
@@ -813,6 +850,7 @@ header {
   height: auto;
   margin: 0 auto;
   display: block;
+  border-radius: var(--r-md);
 }
 
 .project-image-FA img {
@@ -1057,7 +1095,7 @@ details ul { list-style-position: inside; }
   margin-top: 24px;
   display: flex;
   justify-content: center;
-  gap: 14px;
+  gap: 40px;
 }
 
 .icon { position: relative; }
@@ -1634,7 +1672,7 @@ code {
 
 .tree-node.folder:not(.open) > .node-content { display: none; }
 
-.icon {
+.file-tree-container .icon {
   margin-right: 10px;
   width: 20px;
   display: inline-block;
@@ -1651,7 +1689,7 @@ code {
 /* ============================================= */
 
 .project-page section img {
-  max-width: 30%;
+  max-width: 100%;
   max-height: 200px;
   width: auto;
   height: auto;
@@ -1741,6 +1779,7 @@ body.lb-disable-scrolling #lightbox .lb-container {
   align-items: center !important;
   justify-content: center !important;
   padding: 0 !important;
+  margin: 0 auto !important;
 }
 
 body.lb-disable-scrolling #lightbox .lb-image {
@@ -1757,6 +1796,7 @@ body.lb-disable-scrolling #lightbox .lb-image {
 body.lb-disable-scrolling #lightbox .lb-dataContainer {
   width: auto !important;
   max-width: 85vw !important;
+  margin: 0 auto !important;
 }
 
 body.lb-disable-scrolling #lightbox .lb-data .lb-caption {
@@ -2119,4 +2159,647 @@ body.lb-disable-scrolling #lightbox .lb-data .lb-close {
 
   .skills-grid { grid-template-columns: 1fr; gap: 16px; }
   .skill-card { padding: 22px 20px; }
+}
+
+/* ============================================= */
+/* ===     COMPOSANTS PAGES PROJETS          === */
+/* ============================================= */
+
+/* ─── Tech Grid (cartes de technologies) ─── */
+
+.techno-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 16px;
+  max-width: 800px;
+  margin: 25px auto;
+  justify-content: center;
+}
+
+.tech-card {
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  padding: 16px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: transform var(--t-fast) var(--ease),
+              border-color var(--t-fast) var(--ease),
+              box-shadow var(--t-fast) var(--ease),
+              background var(--t-fast) var(--ease);
+}
+
+.tech-card:hover {
+  background: var(--bg-card);
+  border-color: var(--line-accent);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(37, 99, 235, 0.06);
+}
+
+.tech-icon {
+  height: 45px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tech-card .tech-icon img {
+  max-width: 100%;
+  max-height: 45px;
+  width: auto;
+  height: auto;
+  margin: 0;
+  box-shadow: none;
+  border: none;
+  object-fit: contain;
+}
+
+.tech-card p {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-2);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 1.3;
+}
+
+/* ─── Features Grid (cartes "Architecture", "Travail d'équipe"…) ─── */
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin: 40px 0;
+}
+
+.feature-card {
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  padding: 24px;
+  transition: transform var(--t-fast) var(--ease),
+              border-color var(--t-fast) var(--ease);
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--line-accent);
+}
+
+.feature-card h3 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  color: var(--accent);
+}
+
+.feature-card p {
+  color: var(--text-2);
+  font-size: 14px;
+}
+
+/* ─── Screens Vertical (captures d'écran) ─── */
+
+.screens-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin: 30px 0;
+}
+
+.screen-item {
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  transition: transform var(--t-med) var(--ease),
+              border-color var(--t-med) var(--ease),
+              box-shadow var(--t-med) var(--ease);
+}
+
+.screen-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(37, 99, 235, 0.12);
+  border-color: var(--line-accent);
+}
+
+.screen-preview-full {
+  width: 100%;
+  background: #eef2f5;
+  overflow: hidden;
+}
+
+.screen-preview-full img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform var(--t-med) var(--ease);
+}
+
+.screen-item:hover .screen-preview-full img {
+  transform: scale(1.01);
+}
+
+.screen-info-full {
+  padding: 20px 28px;
+  border-top: 1px solid var(--line);
+}
+
+.screen-info-full h4 {
+  margin: 0 0 8px 0;
+  font-size: 20px;
+  color: var(--accent);
+  font-family: var(--display);
+  font-weight: 700;
+}
+
+.screen-info-full p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-2);
+}
+
+/* ─── Code Section (bloc code dépliable) ─── */
+
+.code-section {
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+
+.code-header {
+  background: var(--bg-card);
+  padding: 16px 20px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  font-family: var(--mono);
+  font-size: 14px;
+  transition: background var(--t-fast) var(--ease);
+}
+
+.code-header:hover {
+  background: var(--bg-hover);
+}
+
+.code-content {
+  display: none;
+  padding: 20px;
+  background: var(--bg-raised);
+  overflow-x: auto;
+  border-top: 1px solid var(--line);
+}
+
+.code-content.show {
+  display: block;
+}
+
+.code-section pre {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-1);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* Coloration syntaxique */
+.keyword { color: var(--accent); font-weight: 600; }
+.string  { color: var(--green); }
+.comment { color: var(--text-3); font-style: italic; }
+.class   { color: var(--text-1); font-weight: 600; }
+
+/* ─── Badges technos (si tu utilises .tech-badge) ─── */
+
+.tech-badge {
+  display: inline-block;
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: 100px;
+  padding: 4px 12px;
+  font-size: 11px;
+  font-family: var(--mono);
+  color: var(--text-2);
+  margin-right: 8px;
+  margin-bottom: 8px;
+}
+
+/* ─── Responsive spécifique à ces composants ─── */
+
+@media (max-width: 768px) {
+  .screens-vertical {
+    gap: 24px;
+  }
+
+  .screen-info-full {
+    padding: 16px 20px;
+  }
+
+  .screen-info-full h4 {
+    font-size: 18px;
+  }
+
+  .screen-info-full p {
+    font-size: 14px;
+  }
+}
+
+/* ============================================= */
+/* ===     COMPOSANTS PAGES PROJETS          === */
+/* ============================================= */
+
+/* ─── Tech Grid (cartes de technologies) ─── */
+
+.techno-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 16px;
+  max-width: 800px;
+  margin: 28px auto;
+  justify-content: center;
+}
+
+.tech-card {
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  padding: 18px 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: transform var(--t-fast) var(--ease),
+              border-color var(--t-fast) var(--ease),
+              box-shadow var(--t-med) var(--ease),
+              background var(--t-fast) var(--ease);
+}
+
+.tech-card:hover {
+  background: var(--bg-card);
+  border-color: var(--line-accent);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px -12px rgba(37, 99, 235, 0.18);
+}
+
+.tech-icon {
+  height: 44px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tech-card .tech-icon img {
+  max-width: 100%;
+  max-height: 44px;
+  width: auto;
+  height: auto;
+  margin: 0;
+  box-shadow: none;
+  border: none;
+  object-fit: contain;
+}
+
+.tech-card p {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-2);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 1.3;
+}
+
+/* ─── Features Grid (cartes "Architecture", "Travail d'équipe"…) ─── */
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin: 32px 0;
+}
+
+.feature-card {
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  padding: 24px;
+  transition: transform var(--t-fast) var(--ease),
+              border-color var(--t-fast) var(--ease),
+              box-shadow var(--t-med) var(--ease);
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--line-accent);
+  box-shadow: 0 12px 28px -12px rgba(37, 99, 235, 0.18);
+}
+
+.feature-card h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: var(--accent);
+  font-size: 16px;
+}
+
+.feature-card p {
+  color: var(--text-2);
+  font-size: 14.5px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ─── Screens Vertical (captures d'écran) ─── */
+
+.screens-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin: 28px 0;
+}
+
+.screen-item {
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  transition: transform var(--t-med) var(--ease),
+              border-color var(--t-med) var(--ease),
+              box-shadow var(--t-med) var(--ease);
+}
+
+.screen-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 50px -20px rgba(37, 99, 235, 0.18);
+  border-color: var(--line-accent);
+}
+
+.screen-preview-full {
+  width: 100%;
+  background: var(--bg-card);
+  overflow: hidden;
+  line-height: 0; /* évite un espace blanc sous l'image */
+}
+
+.screen-preview-full a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  cursor: zoom-in;
+}
+
+.screen-preview-full img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform var(--t-med) var(--ease);
+}
+
+.screen-item:hover .screen-preview-full img {
+  transform: scale(1.01);
+}
+
+.screen-info-full {
+  padding: 20px 28px;
+  border-top: 1px solid var(--line);
+}
+
+.screen-info-full h4 {
+  margin: 0 0 8px 0;
+  font-size: 18px;
+  color: var(--accent);
+  font-family: var(--display);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.screen-info-full p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-2);
+}
+
+/* ─── Code Section (bloc code dépliable) ─── */
+
+.code-section {
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+
+.code-header {
+  background: var(--bg-card);
+  padding: 16px 20px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  color: var(--text-1);
+  transition: background var(--t-fast) var(--ease);
+}
+
+.code-header:hover {
+  background: var(--bg-hover);
+}
+
+.code-content {
+  display: none;
+  padding: 20px 24px;
+  background: var(--bg-raised);
+  overflow-x: auto;
+  border-top: 1px solid var(--line);
+}
+
+.code-content.show {
+  display: block;
+}
+
+.code-section pre {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-1);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* Coloration syntaxique du code */
+.keyword { color: var(--accent); font-weight: 600; }
+.string  { color: var(--green); }
+.comment { color: var(--text-3); font-style: italic; }
+.class   { color: var(--text-1); font-weight: 600; }
+
+/* ─── Badges technos (optionnel, si utilisé ailleurs) ─── */
+
+.tech-badge {
+  display: inline-block;
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: 100px;
+  padding: 4px 12px;
+  font-size: 11px;
+  font-family: var(--mono);
+  color: var(--text-2);
+  margin-right: 8px;
+  margin-bottom: 8px;
+}
+
+/* ─── Responsive spécifique ─── */
+
+@media (max-width: 768px) {
+  .screens-vertical {
+    gap: 24px;
+  }
+
+  .screen-info-full {
+    padding: 16px 20px;
+  }
+
+  .screen-info-full h4 {
+    font-size: 17px;
+  }
+
+  .screen-info-full p {
+    font-size: 14px;
+  }
+}
+
+.archi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin: 32px 0;
+}
+
+.archi-card {
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  padding: 24px;
+  transition: transform var(--t-fast) var(--ease),
+              border-color var(--t-fast) var(--ease),
+              box-shadow var(--t-med) var(--ease);
+}
+
+.archi-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--line-accent);
+  box-shadow: 0 12px 28px -12px rgba(37, 99, 235, 0.18);
+}
+
+.archi-card h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: var(--accent); 
+  font-size: 16px;
+}
+
+.archi-card p {
+  color: var(--text-2);
+  font-size: 14.5px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+.data-table th,
+.data-table td {
+  border: 1px solid var(--line);
+  padding: 12px 16px;
+  text-align: left;
+}
+
+.data-table th {
+  background: var(--bg-card);
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--text-1);
+}
+
+.data-table tr:nth-child(even) {
+  background: var(--bg-raised);
+}
+
+.data-table tr:hover {
+  background: var(--bg-hover);
+}
+
+/* ============================================= */
+/* ===     BOUTON RETOUR EN HAUT             === */
+/* ============================================= */
+
+.back-to-top {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  width: 48px;
+  height: 48px;
+  background: var(--bg-raised);
+  color: var(--accent);
+  border: 1px solid var(--line-accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 9999; /* Pour passer au-dessus de tout */
+  box-shadow: 0 10px 30px -10px rgba(37, 99, 235, 0.3);
+  transition: all var(--t-med) var(--ease-out);
+}
+
+.back-to-top svg {
+  width: 20px;
+  height: 20px;
+  transition: transform var(--t-fast) var(--ease);
+}
+
+.back-to-top:hover {
+  background: var(--gradient-accent);
+  color: #ffffff;
+  border-color: transparent;
+  transform: translateY(-4px);
+  box-shadow: 0 15px 30px -10px var(--accent-glow);
+}
+
+.back-to-top:hover svg {
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .back-to-top {
+    bottom: 20px;
+    right: 20px;
+    width: 42px;
+    height: 42px;
+  }
 }

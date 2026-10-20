@@ -298,3 +298,34 @@ document.addEventListener('DOMContentLoaded', () => {
       });
   });
 });
+
+// ─── Accordéon pour les extraits de code ─────────────────────────────────────
+function toggleAccordionCode(id) {
+  const element = document.getElementById(id);
+  if (element) {
+    element.classList.toggle('show');
+  }
+}
+
+// ─── Accordéon pour les extraits de code ─────────────────────────────────────
+function toggleCodeExtrait(id) {
+  const element = document.getElementById(id);
+  if (element) {
+    element.classList.toggle('show');
+  }
+}
+
+// ─── Bouton Retour en haut ───────────────────────────────────────────────────
+document.addEventListener("DOMContentLoaded", () => {
+  const backToTopBtn = document.getElementById("backToTop");
+  
+  if (backToTopBtn) {
+    // On garde juste le clic pour remonter
+    backToTopBtn.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+  }
+});

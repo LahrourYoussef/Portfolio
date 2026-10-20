@@ -1,609 +1,13 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="CanisPro Éducation - Application web de gestion d'un centre d'éducation canine" />
   <link rel="icon" type="image/webp" href="../image/logo-portfolio.webp" />
   <title>CanisPro Éducation - Gestion centre canin | Youssef Lahrour</title>
-  <style>
-    /* ============================================= */
-    /* ===     VARIABLES & FONDATIONS            === */
-    /* ============================================= */
-
-    :root {
-      --bg: #cfdcef;
-      --bg-raised:   #ffffff;
-      --bg-card:     #f4f7fc;
-      --bg-hover:    #e6ecf6;
-
-      --text-1:      #071428;
-      --text-2:      #1e3256;
-      --text-3:      #6478a0;
-
-      --accent:      #0f3d8c;
-      --accent-dim:  rgba(15, 61, 140, 0.10);
-      --green:       #1a7a4a;
-      --orange:      #e67e22;
-
-      --gradient-h1: linear-gradient(135deg, #071428 30%, #0f3d8c 100%);
-
-      --line:        rgba(15, 61, 140, 0.14);
-      --line-accent: rgba(15, 61, 140, 0.36);
-
-      --r-sm:  5px;
-      --r-md:  10px;
-      --r-lg:  16px;
-
-      --mono:    "IBM Plex Mono", monospace;
-      --display: "Raleway", sans-serif;
-
-      --ease:   cubic-bezier(0.4, 0, 0.2, 1);
-      --t-fast: 180ms;
-      --t-med:  300ms;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      font-size: 16px;
-    }
-
-    body {
-      background: var(--bg);
-      color: var(--text-2);
-      font-family: var(--mono);
-      line-height: 1;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    ::selection {
-      background: var(--accent);
-      color: #ffffff;
-    }
-
-    ::-webkit-scrollbar { width: 3px; }
-    ::-webkit-scrollbar-track { background: transparent; }
-    ::-webkit-scrollbar-thumb { background: #c2ceea; border-radius: 2px; }
-
-    h1, h2, h3, h4 {
-      font-family: var(--display);
-      font-weight: 800;
-      line-height: 1.15;
-      letter-spacing: -0.02em;
-    }
-
-    h1 {
-      font-size: clamp(38px, 5.5vw, 60px);
-      margin-bottom: 20px;
-      color: #071428;
-    }
-
-    h2 {
-      font-size: clamp(28px, 3.5vw, 40px);
-      margin-bottom: 24px;
-      color: #071428;
-    }
-
-    h3 {
-      font-size: 22px;
-      margin-top: 28px;
-      margin-bottom: 12px;
-      color: #0f2040;
-    }
-
-    p, li {
-      font-size: 16px;
-      line-height: 1.85;
-      color: var(--text-2);
-    }
-
-    /* ============================================= */
-    /* ===     HEADER & NAVIGATION               === */
-    /* ============================================= */
-
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 1000;
-    }
-
-    .nav-menu {
-      position: relative;
-      width: 100%;
-      padding: 24px 48px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 36px;
-      background: rgba(237, 241, 248, 0.94);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--line);
-      z-index: 1000;
-    }
-
-    .nav-menu a {
-      color: var(--text-2);
-      text-decoration: none;
-      font-size: 15px;
-      letter-spacing: 0.04em;
-      white-space: nowrap;
-      transition: color var(--t-fast) var(--ease);
-    }
-
-    .nav-menu a:not(.btn):not(.logo-link) {
-      position: relative;
-    }
-
-    .nav-menu a:not(.btn):not(.logo-link)::after {
-      content: '';
-      position: absolute;
-      bottom: -3px;
-      left: 0;
-      width: 0;
-      height: 1px;
-      background: var(--accent);
-      transition: width var(--t-med) var(--ease);
-    }
-
-    .nav-menu a:not(.btn):not(.logo-link):hover::after { width: 100%; }
-    .nav-menu a:hover { color: var(--text-1); }
-
-    .logo-link { line-height: 0; }
-
-    .nav-menu img {
-      height: 34px;
-      width: 34px;
-      border-radius: var(--r-sm);
-      transition: opacity var(--t-fast) var(--ease);
-    }
-
-    .nav-menu img:hover { opacity: 0.7; }
-
-    .btn {
-      font-family: var(--mono);
-      font-size: 12px;
-      letter-spacing: 0.08em;
-      color: var(--accent);
-      background: transparent;
-      border: 1px solid var(--line-accent);
-      border-radius: var(--r-sm);
-      padding: 7px 18px;
-      cursor: pointer;
-      transition: all var(--t-fast) var(--ease);
-    }
-
-    .btn:hover {
-      border-color: var(--accent);
-      color: #ffffff;
-      background: var(--accent);
-    }
-
-    .hamburger {
-      display: none;
-      cursor: pointer;
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      z-index: 1001;
-      padding: 4px;
-    }
-
-    .hamburger span {
-      display: block;
-      width: 22px;
-      height: 1.5px;
-      margin: 6px 0;
-      background: var(--text-1);
-      border-radius: 1px;
-      transition: transform var(--t-med) var(--ease), opacity var(--t-fast) var(--ease);
-    }
-
-    .dropdown { position: relative; display: inline-block; }
-
-    .dropbtn {
-      background: none;
-      border: none;
-      cursor: pointer;
-      color: var(--text-2);
-      font-family: var(--mono);
-      font-size: 13px;
-      letter-spacing: 0.04em;
-      white-space: nowrap;
-      transition: color var(--t-fast) var(--ease);
-      padding: 0;
-    }
-
-    .dropbtn:hover { color: var(--text-1); }
-
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      padding-top: 10px;
-      min-width: 210px;
-      z-index: 10;
-    }
-
-    .dropdown-content-inner {
-      background: var(--bg-raised);
-      border: 1px solid var(--line);
-      border-radius: var(--r-md);
-      padding: 6px;
-      box-shadow: 0 20px 48px rgba(15, 61, 140, 0.12);
-    }
-
-    .dropdown-content a {
-      display: block;
-      padding: 9px 14px;
-      font-size: 15px;
-      color: var(--text-2);
-      text-decoration: none;
-      border-radius: var(--r-sm);
-      white-space: nowrap;
-    }
-
-    .dropdown-content a:hover {
-      background: var(--bg-hover);
-      color: var(--accent);
-    }
-
-    .dropdown:hover .dropdown-content { display: block; }
-
-    /* ============================================= */
-    /* ===     MAIN CONTAINER                    === */
-    /* ============================================= */
-
-    .main-container {
-      padding-top: 100px;
-      padding-left: 15%;
-      padding-right: 15%;
-      margin-bottom: 64px;
-    }
-
-    /* ============================================= */
-    /* ===     BADGES & TECH LIST                === */
-    /* ============================================= */
-
-    .tech-badge {
-      display: inline-block;
-      background: var(--bg-card);
-      border: 1px solid var(--line);
-      border-radius: 100px;
-      padding: 4px 12px;
-      font-size: 11px;
-      font-family: var(--mono);
-      color: var(--text-2);
-      margin-right: 8px;
-      margin-bottom: 8px;
-    }
-
-    .techno-list {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin: 16px 0;
-    }
-
-    .techno-list span {
-      background: transparent;
-      border: 1px solid var(--line);
-      color: var(--text-2);
-      padding: 5px 12px;
-      border-radius: 100px;
-      font-size: 11px;
-      letter-spacing: 0.06em;
-    }
-
-    /* ============================================= */
-    /* ===     FEATURES GRID                     === */
-    /* ============================================= */
-
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-      margin: 40px 0;
-    }
-
-    .feature-card {
-      background: var(--bg-raised);
-      border: 1px solid var(--line);
-      border-radius: var(--r-md);
-      padding: 24px;
-      transition: transform 0.2s var(--ease), border-color 0.2s var(--ease);
-    }
-
-    .feature-card:hover {
-      transform: translateY(-4px);
-      border-color: var(--line-accent);
-    }
-
-    .feature-card h3 {
-      margin-top: 0;
-      margin-bottom: 12px;
-      color: var(--accent);
-    }
-
-    .feature-card p {
-      color: var(--text-2);
-      font-size: 14px;
-    }
-
-    /* ============================================= */
-    /* ===     CARTES PROJET (aperçus écrans)    === */
-    /* ============================================= */
-
-    .screens-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 24px;
-      margin: 32px 0;
-    }
-
-    .screen-card {
-      background: var(--bg-raised);
-      border: 1px solid var(--line);
-      border-radius: var(--r-md);
-      overflow: hidden;
-      transition: transform 0.2s var(--ease);
-    }
-
-    .screen-card:hover {
-      transform: translateY(-4px);
-    }
-
-    .screen-preview {
-      background: #eef2f5;
-      height: 180px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-bottom: 1px solid var(--line);
-      font-family: var(--display);
-      font-weight: 700;
-      color: var(--text-3);
-    }
-
-    .screen-info {
-      padding: 16px;
-    }
-
-    .screen-info h4 {
-      margin: 0 0 8px 0;
-      color: var(--accent);
-    }
-
-    .screen-info p {
-      font-size: 13px;
-      margin: 0;
-    }
-
-    /* ============================================= */
-    /* ===     CODE SECTION                      === */
-    /* ============================================= */
-
-    .code-section {
-      background: var(--bg-raised);
-      border: 1px solid var(--line);
-      border-radius: var(--r-md);
-      margin-bottom: 24px;
-      overflow: hidden;
-    }
-
-    .code-header {
-      background: var(--bg-card);
-      padding: 16px 20px;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-weight: 600;
-      font-family: var(--mono);
-      font-size: 14px;
-      transition: background var(--t-fast) var(--ease);
-    }
-
-    .code-header:hover {
-      background: var(--bg-hover);
-    }
-
-    .code-content {
-      display: none;
-      padding: 20px;
-      background: var(--bg-raised);
-      overflow-x: auto;
-      border-top: 1px solid var(--line);
-    }
-
-    .code-content.show {
-      display: block;
-    }
-
-    pre {
-      margin: 0;
-      font-family: 'Courier New', 'IBM Plex Mono', monospace;
-      font-size: 13px;
-      line-height: 1.5;
-      color: var(--text-1);
-      white-space: pre-wrap;
-      word-break: break-word;
-    }
-
-    .keyword { color: #0f3d8c; font-weight: 600; }
-    .string { color: #1a7a4a; }
-    .comment { color: #6478a0; font-style: italic; }
-    .class { color: #071428; font-weight: 600; }
-
-    /* ============================================= */
-    /* ===     FOOTER                            === */
-    /* ============================================= */
-
-    .site-footer {
-      margin-top: 80px;
-      border-top: 1px solid var(--line);
-      padding: 48px 15% 32px;
-    }
-
-    .footer-inner {
-      display: grid;
-      grid-template-columns: 1fr auto 1fr;
-      align-items: start;
-      gap: 40px;
-      margin-bottom: 40px;
-    }
-
-    .footer-brand p {
-      font-size: 13px;
-      line-height: 1.75;
-      color: var(--text-2);
-      margin-top: 10px;
-      max-width: 220px;
-    }
-
-    .footer-brand-name {
-      font-family: var(--display);
-      font-weight: 800;
-      font-size: 16px;
-      color: var(--text-1);
-      letter-spacing: -0.01em;
-    }
-
-    .footer-nav {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .footer-nav a {
-      font-size: 13px;
-      color: var(--text-2);
-      text-decoration: none;
-      letter-spacing: 0.04em;
-      transition: color var(--t-fast) var(--ease);
-    }
-
-    .footer-nav a:hover { color: var(--accent); }
-
-    .footer-contact {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 10px;
-    }
-
-    .footer-contact a {
-      font-size: 13px;
-      color: var(--text-2);
-      text-decoration: none;
-    }
-
-    .footer-socials {
-      display: flex;
-      gap: 12px;
-      margin-top: 6px;
-    }
-
-    .footer-socials a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 34px;
-      height: 34px;
-      border-radius: 50%;
-      border: 1px solid var(--line);
-      color: var(--text-2);
-      text-decoration: none;
-      transition: all var(--t-fast) var(--ease);
-    }
-
-    .footer-socials a:hover {
-      color: var(--accent);
-      border-color: var(--line-accent);
-    }
-
-    .footer-bottom {
-      border-top: 1px solid var(--line);
-      padding-top: 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .footer-bottom p {
-      font-size: 11px;
-      color: var(--text-3);
-      letter-spacing: 0.06em;
-    }
-
-    @media (max-width: 768px) {
-      .main-container {
-        padding-left: 5%;
-        padding-right: 5%;
-        padding-top: 80px;
-      }
-      .site-footer {
-        padding: 40px 5% 24px;
-      }
-      .footer-inner {
-        grid-template-columns: 1fr;
-        gap: 32px;
-        text-align: center;
-      }
-      .footer-contact {
-        align-items: center;
-      }
-      .footer-bottom {
-        flex-direction: column;
-        gap: 8px;
-        text-align: center;
-      }
-      .nav-menu {
-        padding: 20px 24px;
-        gap: 20px;
-      }
-      .hamburger {
-        display: block;
-      }
-      .nav-menu {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        left: auto;
-        width: 270px;
-        height: 100dvh;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: flex-start;
-        gap: 0;
-        padding: 88px 32px;
-        background: var(--bg-raised);
-        border-left: 1px solid var(--line);
-        backdrop-filter: none;
-        transition: right var(--t-med) var(--ease);
-      }
-      .nav-menu.active { right: 0; }
-      .logo-link {
-        position: fixed;
-        top: 16px;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: 1002;
-      }
-      .nav-menu a {
-        margin: 14px 0;
-      }
-    }
-  </style>
 </head>
 <body>
   <header>
@@ -617,15 +21,14 @@
         <a href="Projets.html" class="dropbtn">Projets</a>
         <div class="dropdown-content">
           <div class="dropdown-content-inner">
-            <a href="ProjetGestionVersionGit.html">Projet Git</a>
-            <a href="TP_GLPI.html">TP GLPI</a>
             <a href="Dunewave.html">Dunewave – Locaboard</a>
             <a href="Billetterie-Fa.html">Billetterie du Fâ</a>
             <a href="CanisPro.html">CanisPro Éducation</a>
+            <a href="Stage1.html">Stage BTS SIO 1</a>
+            <a href="Stage2.html">Stage BTS SIO 2</a>
           </div>
         </div>
       </div>
-      <a href="Stages.html">Stages</a>
       <a href="Veille.html">Veille</a>
       <a href="Competence.html">Compétences</a>
       <a href="Contact.html" class="btn">Me contacter</a>
@@ -636,132 +39,6 @@
     <h1>CanisPro Éducation</h1>
     <p style="margin-bottom: 24px;">Application web complète pour la gestion d'un centre d'éducation canine. Développée en équipe de 3 développeurs.</p>
 
-    <section>
-        <h2>Technologies et Outils</h2>
-        <div class="techno-grid">
-            <div class="tech-card">
-              <div class="tech-icon">
-                <img src="../image/symfony.webp" alt="Symfony">
-              </div>
-              <p>Symfony</p>
-            </div>
-          
-          <div class="tech-card">
-            <div class="tech-icon">
-              <img src="../image/PHP.webp" alt="PHP">
-            </div>
-            <p>PHP</p>
-          </div>
-      
-          <div class="tech-card">
-            <div class="tech-icon">
-              <img src="../image/mysql.webp" alt="MySQL">
-            </div>
-            <p>MySQL</p>
-          </div>
-      
-          <div class="tech-card">
-            <div class="tech-icon">
-              <img src="../image/html.png" alt="HTML">
-            </div>
-            <p>HTML</p>
-          </div>
-
-          <div class="tech-card">
-            <div class="tech-icon">
-              <img src="../image/CSS.webp" alt="CSS">
-            </div>
-            <p>CSS</p>
-          </div>
-      
-          <div class="tech-card">
-            <div class="tech-icon">
-              <img src="../image/git.webp" alt="Git">
-            </div>
-            <p>Git</p>
-          </div>
-          <div class="tech-card">
-            <div class="tech-icon">
-              <img src="../image/github.png" alt="GitHub">
-            </div>
-            <p>GitHub</p>
-          </div>
-      
-        </div>
-      </section>
-      
-      <style>
-        /* ==========================================================================
-           GRILLE ET CARTES DE TECHNOLOGIES
-        ========================================================================== */
-      
-        /* Conteneur principal en grille */
-        .techno-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
-          gap: 16px;
-          max-width: 800px;
-          margin: 25px auto;
-          justify-content: center;
-        }
-      
-        /* Style individuel de chaque carte */
-        .tech-card {
-          background: var(--bg-raised);
-          border: 1px solid var(--line);
-          border-radius: var(--r-md);
-          padding: 16px 12px;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          gap: 10px;
-          cursor: pointer;
-          transition: all var(--t-fast) var(--ease);
-        }
-      
-        /* Zone fixe pour l'icône */
-        .tech-icon {
-          height: 45px;
-          width: 100%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-      
-        /* Redimensionnement des images */
-        .tech-card .tech-icon img {
-          max-width: 100%;
-          max-height: 45px;
-          width: auto;
-          height: auto;
-          margin: 0;
-          box-shadow: none;
-          border: none;
-          object-fit: contain;
-        }
-      
-        /* Style du texte */
-        .tech-card p {
-          margin: 0;
-          font-family: var(--mono);
-          font-size: 11px;
-          font-weight: 600;
-          color: var(--text-2);
-          letter-spacing: 0.5px;
-          text-transform: uppercase;
-          text-align: center;
-          line-height: 1.3;
-        }
-      
-        /* Effet au survol */
-        .tech-card:hover {
-          background: var(--bg-card);
-          border-color: var(--line-accent);
-          transform: translateY(-3px);
-          box-shadow: 0 8px 16px rgba(15, 61, 140, 0.06);
-        }
-      </style>
 
     <!-- Contexte -->
     <section>
@@ -789,150 +66,70 @@
     </section>
 
     <!-- Interface utilisateur -->
-<section>
-    <h2>Interface Utilisateur</h2>
-    <div class="screens-vertical">
-      
-      <div class="screen-item">
-        <div class="screen-preview-full">
-          <img src="../image/CanisPro1.png" alt="Accueil - Page d'accueil CanisPro">
-        </div>
-        <div class="screen-info-full">
-          <h4>Page d'accueil</h4>
-          <p>Page moderne présentant les catégories de cours (Obéissance, Agility, Socialisation) et les statistiques de l'école.</p>
-        </div>
-      </div>
-  
-      <div class="screen-item">
-        <div class="screen-preview-full">
-          <img src="../image/CanisPro2.png" alt="Catalogue des cours CanisPro">
-        </div>
-        <div class="screen-info-full">
-          <h4>Catalogue des cours</h4>
-          <p>Affichage dynamique des cours disponibles : niveau, description, date, places restantes, tarif. Réservation en un clic.</p>
-        </div>
-      </div>
-  
-      <div class="screen-item">
-        <div class="screen-preview-full">
-          <img src="../image/CanisPro3.png" alt="Connexion CanisPro">
-        </div>
-        <div class="screen-info-full">
-          <h4>Espace authentification</h4>
-          <p>Formulaire de connexion sécurisé pour propriétaires et administrateurs.</p>
-        </div>
-      </div>
-  
-      <div class="screen-item">
-        <div class="screen-preview-full">
-          <img src="../image/CanisPro4.png" alt="Tableau de bord CanisPro">
-        </div>
-        <div class="screen-info-full">
-          <h4>Tableau de bord</h4>
-          <p>Suivi des chiens, progression, cours à venir, formulaire d'ajout de nouveaux compagnons.</p>
-        </div>
-      </div>
-  
-    </div>
-  </section>
-  
-  <style>
-    /* ==========================================================================
-       INTERFACE UTILISATEUR - AFFICHAGE VERTICAL PLEINE LARGEUR
-    ========================================================================== */
-  
-    /* Conteneur principal vertical */
-    .screens-vertical {
-      display: flex;
-      flex-direction: column;
-      gap: 40px;
-      margin: 30px 0;
-    }
-  
-    /* Chaque item (image + texte) */
-    .screen-item {
-      background: var(--bg-raised);
-      border: 1px solid var(--line);
-      border-radius: var(--r-lg);
-      overflow: hidden;
-      transition: all var(--t-med) var(--ease);
-    }
-  
-    .screen-item:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 28px rgba(15, 61, 140, 0.12);
-      border-color: var(--line-accent);
-    }
-  
-    /* Conteneur de l'image - pleine largeur */
-    .screen-preview-full {
-      width: 100%;
-      background: #eef2f5;
-      overflow: hidden;
-    }
-  
-    /* Image responsive qui prend toute la largeur */
-    .screen-preview-full img {
-      width: 100%;
-      height: auto;
-      display: block;
-      transition: transform var(--t-med) var(--ease);
-    }
-  
-    .screen-item:hover .screen-preview-full img {
-      transform: scale(1.01);
-    }
-  
-    /* Zone d'information sous l'image */
-    .screen-info-full {
-      padding: 20px 28px;
-      border-top: 1px solid var(--line);
-    }
-  
-    .screen-info-full h4 {
-      margin: 0 0 8px 0;
-      font-size: 20px;
-      color: var(--accent);
-      font-family: var(--display);
-      font-weight: 700;
-    }
-  
-    .screen-info-full p {
-      margin: 0;
-      font-size: 15px;
-      line-height: 1.6;
-      color: var(--text-2);
-    }
-  
-    /* Responsive pour mobile */
-    @media (max-width: 768px) {
-      .screens-vertical {
-        gap: 24px;
-      }
-      
-      .screen-info-full {
-        padding: 16px 20px;
-      }
-      
-      .screen-info-full h4 {
-        font-size: 18px;
-      }
-      
-      .screen-info-full p {
-        font-size: 14px;
-      }
-    }
-  </style>
+    <section>
+      <h2>Interface Utilisateur</h2>
+      <div class="screens-vertical">
 
-<section>
-    <h2>Extrait de code (PHP)</h2>
-    <div class="code-section">
-      <div class="code-header" onclick="toggleCode('phpCode')">
-        <span>getChiensByClient() - Récupération des chiens</span>
-        <span>▼</span>
+        <div class="screen-item">
+          <div class="screen-preview-full">
+            <a href="../image/CanisPro1.png" data-lightbox="canispro-gallery" data-title="Page d'accueil CanisPro">
+              <img src="../image/CanisPro1.png" alt="Accueil - Page d'accueil CanisPro">
+            </a>
+          </div>
+          <div class="screen-info-full">
+            <h4>Page d'accueil</h4>
+            <p>Page moderne présentant les catégories de cours (Obéissance, Agility, Socialisation) et les statistiques de l'école.</p>
+          </div>
+        </div>
+
+        <div class="screen-item">
+          <div class="screen-preview-full">
+            <a href="../image/CanisPro2.png" data-lightbox="canispro-gallery" data-title="Catalogue des cours CanisPro">
+              <img src="../image/CanisPro2.png" alt="Catalogue des cours CanisPro">
+            </a>
+          </div>
+          <div class="screen-info-full">
+            <h4>Catalogue des cours</h4>
+            <p>Affichage dynamique des cours disponibles : niveau, description, date, places restantes, tarif. Réservation en un clic.</p>
+          </div>
+        </div>
+
+        <div class="screen-item">
+          <div class="screen-preview-full">
+            <a href="../image/CanisPro3.png" data-lightbox="canispro-gallery" data-title="Connexion CanisPro">
+              <img src="../image/CanisPro3.png" alt="Connexion CanisPro">
+            </a>
+          </div>
+          <div class="screen-info-full">
+            <h4>Espace authentification</h4>
+            <p>Formulaire de connexion sécurisé pour propriétaires et administrateurs.</p>
+          </div>
+        </div>
+
+        <div class="screen-item">
+          <div class="screen-preview-full">
+            <a href="../image/CanisPro4.png" data-lightbox="canispro-gallery" data-title="Tableau de bord CanisPro">
+              <img src="../image/CanisPro4.png" alt="Tableau de bord CanisPro">
+            </a>
+          </div>
+          <div class="screen-info-full">
+            <h4>Tableau de bord</h4>
+            <p>Suivi des chiens, progression, cours à venir, formulaire d'ajout de nouveaux compagnons.</p>
+          </div>
+        </div>
+
       </div>
-      <div id="phpCode" class="code-content">
-        <pre>
+    </section>
+
+    <section>
+      <h2>Extrait de code (PHP)</h2>
+      <div class="code-section">
+        <div class="code-header" onclick="toggleCodeExtrait('phpCode')">
+          <span>getChiensByClient() - Récupération des chiens</span>
+          <span>▼</span>
+        </div>
+        <div id="phpCode" class="code-content">
+          <pre>
   <span class="comment">/**
    * Récupère la liste des chiens associés à un client spécifique
    * @param int $idClient Identifiant du client
@@ -951,28 +148,11 @@
           <span class="keyword">return</span> [];
       }
   }
-        </pre>
+          </pre>
+        </div>
       </div>
-    </div>
-  </section>
-  
-  <style>
-    .code-content {
-      display: none;
-    }
-    .code-content.show {
-      display: block;
-    }
-  </style>
-  
-  <script>
-    function toggleCode(id) {
-      const element = document.getElementById(id);
-      if (element) {
-        element.classList.toggle('show');
-      }
-    }
-  </script>
+    </section>
+
     <!-- Modélisation Merise -->
     <section>
       <h2>Modélisation de la base de données (Merise)</h2>
@@ -983,6 +163,54 @@
           <span>Chien (id, nom, race, age, id_client)</span>
           <span>Cours (id, titre, description, date, prix, places_max)</span>
           <span>Réservation (id, id_client, id_cours, date_reservation, statut)</span>
+        </div>
+      </div>
+    </section>
+
+     <section>
+      <h2>Technologies et Outils</h2>
+      <div class="techno-grid">
+        <div class="tech-card">
+          <div class="tech-icon">
+            <img src="../image/symfony.webp" alt="Symfony">
+          </div>
+          <p>Symfony</p>
+        </div>
+        <div class="tech-card">
+          <div class="tech-icon">
+            <img src="../image/PHP.webp" alt="PHP">
+          </div>
+          <p>PHP</p>
+        </div>
+        <div class="tech-card">
+          <div class="tech-icon">
+            <img src="../image/mysql.webp" alt="MySQL">
+          </div>
+          <p>MySQL</p>
+        </div>
+        <div class="tech-card">
+          <div class="tech-icon">
+            <img src="../image/html.png" alt="HTML">
+          </div>
+          <p>HTML</p>
+        </div>
+        <div class="tech-card">
+          <div class="tech-icon">
+            <img src="../image/CSS.webp" alt="CSS">
+          </div>
+          <p>CSS</p>
+        </div>
+        <div class="tech-card">
+          <div class="tech-icon">
+            <img src="../image/git.webp" alt="Git">
+          </div>
+          <p>Git</p>
+        </div>
+        <div class="tech-card">
+          <div class="tech-icon">
+            <img src="../image/github.png" alt="GitHub">
+          </div>
+          <p>GitHub</p>
         </div>
       </div>
     </section>
@@ -1001,26 +229,23 @@
       </div>
     </section>
   </div>
-
+<!-- Bouton Retour en haut -->
+  <button id="backToTop" class="back-to-top" aria-label="Retour en haut">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 19V5M5 12l7-7 7 7"/>
+    </svg>
+  </button>
   <script src="../script.js"></script>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
   <script>
-    function toggleCode(id) {
-      const el = document.getElementById(id);
-      if (el) {
-        el.classList.toggle('show');
-      }
-    }
-
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.nav-menu');
-    if (hamburger && navMenu) {
-      hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        navMenu.classList.toggle('active');
-        document.body.classList.toggle('menu-open');
-      });
-    }
+    lightbox.option({
+      'resizeDuration': 100,
+      'fadeDuration': 100,
+      'imageFadeDuration': 100,
+      'wrapAround': true
+    });
   </script>
+
 </body>
 </html>
